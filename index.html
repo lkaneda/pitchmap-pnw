@@ -1020,17 +1020,28 @@
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
   }
 
+  // State bounding boxes
+  const BOUNDS = {
+    oregon:     { minLat: 41.99, maxLat: 46.26, minLng: -124.70, maxLng: -116.46 },
+    washington: { minLat: 45.54, maxLat: 49.00, minLng: -124.85, maxLng: -116.92 },
+  };
+
+  function inState(lat, lng, state) {
+    const b = BOUNDS[state];
+    return lat >= b.minLat && lat <= b.maxLat && lng >= b.minLng && lng <= b.maxLng;
+  }
+
   function servesLocation(comp, userLat, userLng) {
     if (!comp.location) return false;
-    const portlandLat = 45.5231, portlandLng = -122.6765;
-    const gorgeLat = 45.5947, gorgeLng = -121.1787;
-    const distToPortland = haversineDistance(userLat, userLng, portlandLat, portlandLng);
-    const distToGorge = haversineDistance(userLat, userLng, gorgeLat, gorgeLng);
-    if (comp.serviceArea === 'pnw') return true;
-    if (comp.serviceArea === 'oregon') return true;
-    if (comp.serviceArea === 'washington') return true;
-    if (comp.serviceArea === 'portland-metro' && distToPortland <= 50) return true;
-    if (comp.serviceArea === 'gorge' && distToGorge <= 60) return true;
+    const inOR = inState(userLat, userLng, 'oregon');
+    const inWA = inState(userLat, userLng, 'washington');
+    const inPNW = inOR || inWA;
+    const distToComp = haversineDistance(userLat, userLng, comp.location.lat, comp.location.lng);
+    if (comp.serviceArea === 'pnw') return inPNW;
+    if (comp.serviceArea === 'oregon') return inOR;
+    if (comp.serviceArea === 'washington') return inWA;
+    if (comp.serviceArea === 'portland-metro') return distToComp <= 50;
+    if (comp.serviceArea === 'gorge') return distToComp <= 60;
     return false;
   }
 
