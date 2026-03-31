@@ -698,10 +698,10 @@
   </div>
   <div class="filter-pills">
     <button class="pill active" data-filter="all">All</button>
-    <button class="pill" data-filter="accepting">🟢 Accepting Apps</button>
-    <button class="pill" data-filter="scheduled">🟡 Event Scheduled</button>
-    <button class="pill" data-filter="monitor">🔵 Monitor</button>
-    <button class="pill" data-filter="inactive">⚫ Inactive</button>
+    <button class="pill" data-filter="accepting">Accepting Apps</button>
+    <button class="pill" data-filter="scheduled">Event Scheduled</button>
+    <button class="pill" data-filter="monitor">Monitor</button>
+    <button class="pill" data-filter="inactive">Inactive</button>
     <button class="pill" data-filter="portland-metro">📍 Portland Metro</button>
     <button class="pill" data-filter="gorge">🌊 Gorge</button>
     <button class="pill" data-filter="cleantech">♻️ Cleantech</button>
@@ -811,10 +811,10 @@
   // ── STATUS HELPERS ── 
   function badgeHTML(status) {
     const map = {
-      accepting: ['badge-accepting', '🟢 Accepting Apps'],
-      scheduled: ['badge-scheduled', '🟡 Event Scheduled'],
-      monitor:   ['badge-monitor',   '🔵 Monitor'],
-      inactive:  ['badge-inactive',  '⚫ Inactive'],
+      accepting: ['badge-accepting', 'Accepting Apps'],
+      scheduled: ['badge-scheduled', 'Event Scheduled'],
+      monitor:   ['badge-monitor',   'Monitor'],
+      inactive:  ['badge-inactive',  'Inactive'],
     };
     const [cls, label] = map[status] || map.monitor;
     return `<span class="badge ${cls}">${label}</span>`;
@@ -982,7 +982,7 @@
         radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
       }).addTo(map).bindPopup('📍 Your location').openPopup();
       map.setView([lat, lng], 10);
-      showNearbyResults(lat, lng, 'your location');
+      showNearbyResults(lat, lng, 'your location', null);
     }, () => alert('Could not get your location.'));
   }
 
@@ -997,12 +997,13 @@
       const data = await res.json();
       if (data.length > 0) {
         const { lat, lon, display_name } = data[0];
+        const userState = display_name.includes('Washington') ? 'WA' : display_name.includes('Oregon') ? 'OR' : null;
         if (userMarker) map.removeLayer(userMarker);
         userMarker = L.circleMarker([parseFloat(lat), parseFloat(lon)], {
           radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
         }).addTo(map).bindPopup(`📍 ${query}`).openPopup();
         map.setView([parseFloat(lat), parseFloat(lon)], 10);
-        showNearbyResults(parseFloat(lat), parseFloat(lon), query);
+        showNearbyResults(parseFloat(lat), parseFloat(lon), query, userState);
       } else {
         alert(`Couldn't find "${query}" — try a city name or ZIP code.`);
       }
@@ -1031,12 +1032,37 @@
     return lat >= b.minLat && lat <= b.maxLat && lng >= b.minLng && lng <= b.maxLng;
   }
 
-  function servesLocation(comp, userLat, userLng) {
+  function detectStates(lat, lng) {
+    const inOR = inState(lat, lng, 'oregon');
+    const inWA = inState(lat, lng, 'washington');
+    // If in both (border overlap), use Washington's southern boundary as tiebreaker
+    // Washington starts at ~45.54 but the actual OR/WA border along Columbia is ~45.62-45.73
+    // If geocoder returns a WA location that also falls in OR box, trust WA
+    if (inOR && inWA) return { inOR: false, inWA: true };
+    return { inOR, inWA };
+  }
+
+  function inState(lat, lng, state) {
+    const b = BOUNDS[state];
+    return lat >= b.minLat && lat <= b.maxLat && lng >= b.minLng && lng <= b.maxLng;
+  }
+
+  function servesLocation(comp, userLat, userLng, userState) {
     if (!comp.location) return false;
-    const inOR = inState(userLat, userLng, 'oregon');
-    const inWA = inState(userLat, userLng, 'washington');
-    const inPNW = inOR || inWA;
     const distToComp = haversineDistance(userLat, userLng, comp.location.lat, comp.location.lng);
+    let inOR, inWA;
+    if (userState === 'OR') {
+      inOR = true; inWA = false;
+    } else if (userState === 'WA') {
+      inOR = false; inWA = true;
+    } else {
+      // Fallback for geolocation: use bounding boxes but never both true simultaneously
+      const rawOR = inState(userLat, userLng, 'oregon');
+      const rawWA = inState(userLat, userLng, 'washington');
+      if (rawOR && rawWA) { inOR = false; inWA = true; } // border overlap → WA wins
+      else { inOR = rawOR; inWA = rawWA; }
+    }
+    const inPNW = inOR || inWA;
     if (comp.serviceArea === 'pnw') return inPNW;
     if (comp.serviceArea === 'oregon') return inOR;
     if (comp.serviceArea === 'washington') return inWA;
@@ -1045,13 +1071,13 @@
     return false;
   }
 
-  function showNearbyResults(userLat, userLng, locationName) {
+  function showNearbyResults(userLat, userLng, locationName, userState) {
     const list = document.getElementById('nearby-list');
     const label = document.getElementById('nearby-label');
     const wrapper = document.getElementById('nearby-results');
 
     const results = DATA.competitions
-      .filter(c => servesLocation(c, userLat, userLng))
+      .filter(c => servesLocation(c, userLat, userLng, userState))
       .map(c => ({
         ...c,
         distance: c.location ? haversineDistance(userLat, userLng, c.location.lat, c.location.lng) : 9999
