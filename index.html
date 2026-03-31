@@ -951,6 +951,7 @@
     L.rectangle(portlandBounds, { color: '#f0a500', weight: 1.5, fillOpacity: 0.06 }).addTo(map);
 
     DATA.competitions.forEach(c => {
+      if (!c.location) return;
       const color = statusColors[c.status] || statusColors.monitor;
       const marker = L.circleMarker([c.location.lat, c.location.lng], {
         radius: 9,
@@ -1020,8 +1021,9 @@
   }
 
   function servesLocation(comp, userLat, userLng) {
+    if (!comp.location) return false;
     const portlandLat = 45.5231, portlandLng = -122.6765;
-    const gorgeLat = 45.7054, gorgeLng = -121.5232;
+    const gorgeLat = 45.5947, gorgeLng = -121.1787;
     const distToPortland = haversineDistance(userLat, userLng, portlandLat, portlandLng);
     const distToGorge = haversineDistance(userLat, userLng, gorgeLat, gorgeLng);
     if (comp.serviceArea === 'pnw') return true;
@@ -1041,7 +1043,7 @@
       .filter(c => servesLocation(c, userLat, userLng))
       .map(c => ({
         ...c,
-        distance: haversineDistance(userLat, userLng, c.location.lat, c.location.lng)
+        distance: c.location ? haversineDistance(userLat, userLng, c.location.lat, c.location.lng) : 9999
       }))
       .sort((a, b) => a.distance - b.distance);
 
