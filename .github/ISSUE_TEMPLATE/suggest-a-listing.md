@@ -25,6 +25,8 @@ assignees: lkaneda
 
 ## Is This New?
 <!-- New is defined as within the last 6 months for a group or website or the first time an event has been hosted. -->
+- [ ] Yes
+- [ ] No
 
 ## Notes
 <!-- Any helpful context — how often they hold events, what industry or stage they focus on, who it's for, current status, etc. -->
