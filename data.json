@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2025-03-31",
+    "lastUpdated": "2026-03-31",
     "maintainer": "PitchMap PNW",
     "contactEmail": "hello@pitchmappnw.com"
   },
@@ -10,46 +10,46 @@
     {
       "id": "demolicious",
       "name": "Demolicious",
-      "org": "Demolicious",
+      "org": "Demolicious / UpStart Collective",
       "url": "https://www.pitchatdemolicious.com",
-      "status": "monitor",
-      "description": "Portland-based pitch and demo event for early-stage startups.",
+      "status": "accepting",
+      "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
-      "tags": ["general", "early-stage"],
-      "notes": ""
+      "tags": ["general", "early-stage", "monthly"],
+      "notes": "Actively accepting pitch applications for 2026. Sign up at their website."
     },
     {
       "id": "tie-oregon",
-      "name": "Pitch Oregon / Westside Pitch / Columbia River Pitch",
+      "name": "Westside Pitch / Columbia River Pitch / Collegiate Startup Challenge",
       "org": "TiE Oregon",
-      "url": "https://www.tieoregon.org/",
-      "status": "monitor",
-      "description": "TiE Oregon hosts multiple pitch events throughout the year including Pitch Oregon, Westside Pitch, and Columbia River Pitch.",
+      "url": "https://www.tieoregon.org/pitch-oregon",
+      "status": "scheduled",
+      "description": "TiE Oregon runs multiple pitch competitions across Oregon and SW Washington. Competitions offer equity investment, cash prizes, and professional services to tech and traded-sector startups.",
       "serviceArea": "oregon",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
-      "tags": ["general", "multi-event"],
-      "notes": ""
+      "tags": ["general", "multi-event", "investor"],
+      "notes": "Westside Pitch confirmed April 23, 2026 in Hillsboro. Applications closed March 9 — monitor for next cycle."
     },
     {
       "id": "oen",
-      "name": "Pitch Please / Reverse Pitch / Pitch Oregon",
+      "name": "Pitch Please / Angel Oregon / Pop Up & Pitch",
       "org": "Oregon Entrepreneurs Network (OEN)",
       "url": "https://www.oen.org/calendar-events/",
-      "status": "monitor",
-      "description": "OEN hosts several pitch formats year-round, including Pitch Please, Reverse Pitch, and Pitch Oregon.",
+      "status": "accepting",
+      "description": "OEN runs year-round pitch programming including the monthly Pitch Please, Angel Oregon investment programs for CPG and tech founders, and Pop Up & Pitch food/bev events.",
       "serviceArea": "oregon",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
-      "tags": ["general", "multi-format"],
-      "notes": ""
+      "tags": ["general", "multi-format", "investor", "food-bev"],
+      "notes": "Angel Oregon CPG 2026 program active now — Pitch Day in April. Pitch Please runs monthly."
     },
     {
       "id": "psu-entrepreneurship",
-      "name": "PSU Pitch Events",
+      "name": "PSU Pitch Events / Invent Oregon Partner",
       "org": "PSU Center for Entrepreneurship",
       "url": "https://www.pdx.edu/entrepreneurship/about-us",
       "status": "monitor",
-      "description": "Portland State University's Center for Entrepreneurship hosts pitch competitions and entrepreneurial programming.",
+      "description": "Portland State University's Center for Entrepreneurship is a founding partner of Invent Oregon and hosts its own pitch and entrepreneurial programming throughout the academic year.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5118, "lng": -122.6843, "city": "Portland, OR" },
       "tags": ["university", "student-friendly"],
@@ -57,23 +57,23 @@
     },
     {
       "id": "invent-oregon",
-      "name": "Invent Oregon",
+      "name": "Invent Oregon (InventOR) Collegiate Challenge",
       "org": "Invent Oregon",
       "url": "https://www.inventoregon.org/",
-      "status": "monitor",
-      "description": "Statewide collegiate invention and pitch competition open to Oregon college students.",
+      "status": "scheduled",
+      "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $30,000 in prizes at the annual June finals.",
       "serviceArea": "oregon",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Oregon (Statewide)" },
-      "tags": ["collegiate", "invention"],
-      "notes": ""
+      "tags": ["collegiate", "invention", "student-only"],
+      "notes": "2026 finals scheduled for June. Bootcamp in May. Apply through your school."
     },
     {
       "id": "obi",
-      "name": "OBI Pitch Events",
+      "name": "OBI / OTRADI Pitch Events",
       "org": "Oregon Bioscience Incubator (OBI / OTRADI)",
       "url": "https://www.otradi.org",
       "status": "monitor",
-      "description": "Oregon's life sciences incubator occasionally hosts pitch and demo events for biotech and health-focused startups.",
+      "description": "Oregon's life sciences incubator occasionally hosts pitch and demo events for biotech and health-focused startups. Also a past venue for Founders Live PDX.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5089, "lng": -122.6861, "city": "Portland, OR" },
       "tags": ["biotech", "life-sciences", "health"],
@@ -81,51 +81,62 @@
     },
     {
       "id": "vertuelab",
-      "name": "VertueLab Pitch & Demo Events",
+      "name": "VertueLab / 45Camp Accelerator",
       "org": "VertueLab",
       "url": "https://www.vertuelab.org/",
       "status": "monitor",
-      "description": "VertueLab supports cleantech and climate startups in the PNW and periodically hosts pitch events.",
+      "description": "VertueLab supports early-stage cleantech startups through two accelerators — Cascadia CleanTech Accelerator and 45Camp — plus a Climate Impact Fund for direct investment.",
       "serviceArea": "pnw",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
-      "tags": ["cleantech", "climate"],
-      "notes": ""
+      "tags": ["cleantech", "climate", "accelerator"],
+      "notes": "Accelerator program runs May–September. Watch for application opening in spring."
     },
     {
       "id": "cascadia-cleantech",
       "name": "Cascadia CleanTech Accelerator",
-      "org": "Cascadia CleanTech",
+      "org": "Cascadia CleanTech / CleanTech Alliance",
       "url": "https://cascadiacleantech.org/",
       "status": "monitor",
-      "description": "Cleantech accelerator serving the Pacific Northwest with pitch and demo programming for climate-focused startups.",
+      "description": "18-week virtual accelerator for pre-seed cleantech startups in the Northwest. Includes mentorship, curriculum, and pitch-based funding competition. Program runs May–September annually.",
       "serviceArea": "pnw",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
-      "tags": ["cleantech", "accelerator"],
-      "notes": ""
+      "tags": ["cleantech", "accelerator", "pre-seed"],
+      "notes": "Applications typically open in spring for May start. Monitor their site."
     },
     {
       "id": "portland-startup-weekend",
-      "name": "Portland Startup Weekend",
-      "org": "Portland Startup Week (Techstars)",
+      "name": "Portland Startup Week",
+      "org": "Portland Startup Week",
       "url": "https://www.portlandstartupweek.com/",
-      "status": "monitor",
-      "description": "Techstars-affiliated weekend event where teams build and pitch startups in 54 hours.",
+      "status": "scheduled",
+      "description": "Week-long celebration of Portland's startup community including pitch events, workshops, and networking. Includes the annual Demolicious Startup Week edition.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
-      "tags": ["weekend-event", "techstars", "early-stage"],
-      "notes": ""
+      "tags": ["community", "multi-event", "annual"],
+      "notes": "Portland Startup Week 2026 confirmed May 11–16. Event submissions open."
     },
     {
       "id": "founders-live",
       "name": "Founders Live Portland",
       "org": "Founders Live",
-      "url": "https://www.founderslive.com/events-list/portland-2025-09",
-      "status": "monitor",
-      "description": "Monthly pitch event series where founders have 99 seconds to pitch their startup to a live audience.",
+      "url": "https://www.founderslive.com/events-list/portland-2026-04",
+      "status": "scheduled",
+      "description": "Monthly pitch competition where founders pitch live to an audience who votes for the winner. New 'Founders Live Build' format for 2026 — 5 founders build apps live, then pitch and demo.",
       "serviceArea": "portland-metro",
-      "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
+      "location": { "lat": 45.5215, "lng": -122.6821, "city": "Portland, OR" },
       "tags": ["monthly", "short-pitch", "community"],
-      "notes": ""
+      "notes": "Next event: April 9, 2026 at Metro Region Innovation Hub, 2130 SW 5th Ave Portland. 6–9pm."
+    },
+    {
+      "id": "gorge-pitchfest",
+      "name": "Gorge PitchFest",
+      "org": "Mid-Columbia Innovation Hub",
+      "url": "https://midcolumbiainnovationhub.org/gorge-pitchfest-2026/",
+      "status": "accepting",
+      "description": "Annual pitch competition hosted by the Mid-Columbia Innovation Hub serving entrepreneurs in the Columbia River Gorge region on both the Oregon and Washington sides.",
+      "serviceArea": "gorge",
+      "tags": ["general", "regional", "annual"],
+      "notes": "2026 event: May 28 at The Granada Theatre. Applications open now — apply at their website."
     },
     {
       "id": "starve-ups",
@@ -133,7 +144,7 @@
       "org": "Starve Ups",
       "url": "https://www.starveups.com/",
       "status": "monitor",
-      "description": "Portland-based startup pitch and networking event.",
+      "description": "Portland-based startup pitch and networking event. Monitor their site for upcoming events.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["community", "networking"],
@@ -144,12 +155,12 @@
       "name": "PIE Pitch Events",
       "org": "Portland Incubator Experiment (PIE)",
       "url": "https://www.piepdx.com/",
-      "status": "monitor",
-      "description": "PIE is one of Portland's most established startup incubators and hosts demo days and pitch events for its cohorts.",
+      "status": "inactive",
+      "description": "One of Portland's most established startup incubators, co-founded by Wieden+Kennedy. Has hosted demo days and pitch events for cohorts since 2009.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["incubator", "demo-day"],
-      "notes": ""
+      "notes": "All PIE programs listed as 'on hiatus for 2026' on their website. Worth monitoring for a return."
     }
   ],
   "aggregators": [
@@ -162,9 +173,9 @@
     },
     {
       "id": "silicon-forest",
-      "name": "Silicon Forest Calendar",
-      "url": "https://www.thesiliconforest.com/events",
-      "description": "Events and news from the Pacific Northwest tech ecosystem.",
+      "name": "Silicon Florist",
+      "url": "https://siliconflorist.com/",
+      "description": "Portland's best local startup news source — excellent coverage of pitch events, demo days, and ecosystem news.",
       "icon": "🌲"
     },
     {
@@ -176,131 +187,26 @@
     }
   ],
   "community": [
-    {
-      "id": "psu-accelerator",
-      "name": "Portland State Business Accelerator",
-      "url": "https://www.pdx.edu/accelerator/about",
-      "focus": "University accelerator"
-    },
-    {
-      "id": "pdx-founders-shakers",
-      "name": "PDX: Founders & Shakers",
-      "url": "https://www.meetup.com/pdx-midtown-strikes-back/",
-      "focus": "Founder community"
-    },
-    {
-      "id": "portland-idea-to-ipo",
-      "name": "Portland Startup: Idea to IPO",
-      "url": "https://www.meetup.com/portland-idea-to-ipo/",
-      "focus": "Startup journey"
-    },
-    {
-      "id": "startup-pdx",
-      "name": "Startup PDX",
-      "url": "https://www.meetup.com/startuppdx/",
-      "focus": "General startup"
-    },
-    {
-      "id": "score",
-      "name": "SCORE Portland",
-      "url": "https://www.score.org/portlandor",
-      "focus": "Mentorship & resources"
-    },
-    {
-      "id": "oen-community",
-      "name": "Oregon Entrepreneurs Network (OEN)",
-      "url": "https://www.oen.org/calendar-events/",
-      "focus": "Statewide entrepreneur network"
-    },
-    {
-      "id": "startup-grind",
-      "name": "StartupGrind Portland",
-      "url": "https://www.startupgrind.com/portland/",
-      "focus": "Global startup community"
-    },
-    {
-      "id": "metro-hub",
-      "name": "Metro Region Innovation Hub",
-      "url": "https://www.portlandmetrohub.org/",
-      "focus": "Regional innovation"
-    },
-    {
-      "id": "north-bank",
-      "name": "North Bank Innovations",
-      "url": "https://www.northbankinnovations.org/",
-      "focus": "SW Washington / Vancouver"
-    },
-    {
-      "id": "rain-catalysts",
-      "name": "RAIN Catalysts",
-      "url": "https://raincatalysts.org",
-      "focus": "Rural entrepreneur support"
-    },
-    {
-      "id": "cedo",
-      "name": "CEDO",
-      "url": "https://www.collaborativeedo.org",
-      "focus": "Economic development"
-    },
-    {
-      "id": "nextnw",
-      "name": "NextNW",
-      "url": "https://nextnw.org/",
-      "focus": "PNW innovation network"
-    },
-    {
-      "id": "psu-entrepreneurship-community",
-      "name": "PSU Center for Entrepreneurship",
-      "url": "https://www.pdx.edu/entrepreneurship/about-us",
-      "focus": "University entrepreneurship"
-    },
-    {
-      "id": "portland-startup-founder-101",
-      "name": "Portland Startup Founder 101",
-      "url": "https://www.meetup.com/portland-startup-founder-101/",
-      "focus": "Early-stage founders"
-    },
-    {
-      "id": "producttank",
-      "name": "ProductTank Portland",
-      "url": "https://www.meetup.com/producttank_portland/",
-      "focus": "Product management"
-    },
-    {
-      "id": "magnet",
-      "name": "Magnet Networking",
-      "url": "https://www.eventbrite.com/d/or--portland/magnet-a-different-kind-of-networking/",
-      "focus": "Networking"
-    },
-    {
-      "id": "out-in-tech",
-      "name": "Out in Tech PDX",
-      "url": "https://www.eventbrite.com/e/out-in-tech-pdx-january-26-mixer-tickets-1978172993675",
-      "focus": "LGBTQ+ tech community"
-    },
-    {
-      "id": "ama-pdx",
-      "name": "American Marketing Association PDX",
-      "url": "https://www.ama-pdx.org/events",
-      "focus": "Marketing"
-    },
-    {
-      "id": "prsa-oregon",
-      "name": "PRSA Oregon",
-      "url": "https://prsaoregon.org/content.aspx?page_id=4001&club_id=533454",
-      "focus": "Public relations"
-    },
-    {
-      "id": "portland-tech-leadership",
-      "name": "Portland Tech Leadership Meetup",
-      "url": "https://www.meetup.com/portland-tech-leadership-meetup/",
-      "focus": "Tech leadership"
-    },
-    {
-      "id": "portland-design-thinkers",
-      "name": "Portland Design Thinkers",
-      "url": "https://www.meetup.com/portland-design-thinkers/",
-      "focus": "Design thinking"
-    }
+    { "id": "psu-accelerator", "name": "Portland State Business Accelerator", "url": "https://www.pdx.edu/accelerator/about", "focus": "University accelerator" },
+    { "id": "pdx-founders-shakers", "name": "PDX: Founders & Shakers", "url": "https://www.meetup.com/pdx-midtown-strikes-back/", "focus": "Founder community" },
+    { "id": "portland-idea-to-ipo", "name": "Portland Startup: Idea to IPO", "url": "https://www.meetup.com/portland-idea-to-ipo/", "focus": "Startup journey" },
+    { "id": "startup-pdx", "name": "Startup PDX", "url": "https://www.meetup.com/startuppdx/", "focus": "General startup" },
+    { "id": "score", "name": "SCORE Portland", "url": "https://www.score.org/portlandor", "focus": "Mentorship & resources" },
+    { "id": "oen-community", "name": "Oregon Entrepreneurs Network (OEN)", "url": "https://www.oen.org/calendar-events/", "focus": "Statewide entrepreneur network" },
+    { "id": "startup-grind", "name": "StartupGrind Portland", "url": "https://www.startupgrind.com/portland/", "focus": "Global startup community" },
+    { "id": "metro-hub", "name": "Metro Region Innovation Hub", "url": "https://www.portlandmetrohub.org/", "focus": "Regional innovation" },
+    { "id": "north-bank", "name": "North Bank Innovations", "url": "https://www.northbankinnovations.org/", "focus": "SW Washington / Vancouver" },
+    { "id": "rain-catalysts", "name": "RAIN Catalysts", "url": "https://raincatalysts.org", "focus": "Rural entrepreneur support" },
+    { "id": "cedo", "name": "CEDO", "url": "https://www.collaborativeedo.org", "focus": "Economic development" },
+    { "id": "nextnw", "name": "NextNW", "url": "https://nextnw.org/", "focus": "PNW innovation network" },
+    { "id": "psu-entrepreneurship-community", "name": "PSU Center for Entrepreneurship", "url": "https://www.pdx.edu/entrepreneurship/about-us", "focus": "University entrepreneurship" },
+    { "id": "portland-startup-founder-101", "name": "Portland Startup Founder 101", "url": "https://www.meetup.com/portland-startup-founder-101/", "focus": "Early-stage founders" },
+    { "id": "producttank", "name": "ProductTank Portland", "url": "https://www.meetup.com/producttank_portland/", "focus": "Product management" },
+    { "id": "magnet", "name": "Magnet Networking", "url": "https://www.eventbrite.com/d/or--portland/magnet-a-different-kind-of-networking/", "focus": "Networking" },
+    { "id": "out-in-tech", "name": "Out in Tech PDX", "url": "https://www.eventbrite.com/e/out-in-tech-pdx-january-26-mixer-tickets-1978172993675", "focus": "LGBTQ+ tech community" },
+    { "id": "ama-pdx", "name": "American Marketing Association PDX", "url": "https://www.ama-pdx.org/events", "focus": "Marketing" },
+    { "id": "prsa-oregon", "name": "PRSA Oregon", "url": "https://prsaoregon.org/content.aspx?page_id=4001&club_id=533454", "focus": "Public relations" },
+    { "id": "portland-tech-leadership", "name": "Portland Tech Leadership Meetup", "url": "https://www.meetup.com/portland-tech-leadership-meetup/", "focus": "Tech leadership" },
+    { "id": "portland-design-thinkers", "name": "Portland Design Thinkers", "url": "https://www.meetup.com/portland-design-thinkers/", "focus": "Design thinking" }
   ]
 }

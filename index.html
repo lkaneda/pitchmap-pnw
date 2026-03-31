@@ -703,6 +703,7 @@
     <button class="pill" data-filter="monitor">🔵 Monitor</button>
     <button class="pill" data-filter="inactive">⚫ Inactive</button>
     <button class="pill" data-filter="portland-metro">📍 Portland Metro</button>
+    <button class="pill" data-filter="gorge">🌊 Gorge</button>
     <button class="pill" data-filter="cleantech">♻️ Cleantech</button>
     <button class="pill" data-filter="university">🎓 University</button>
   </div>
@@ -825,6 +826,7 @@
       'oregon':         ['area-oregon',   '🌲 Oregon'],
       'pnw':            ['area-pnw',      '🏔️ PNW'],
       'washington':     ['area-pnw',      '🏔️ Washington'],
+      'gorge':          ['area-oregon',   '🌊 Columbia River Gorge'],
     };
     const [cls, label] = map[area] || ['', area];
     return `<span class="area-badge ${cls}">${label}</span>`;
@@ -844,6 +846,7 @@
         activeFilter === 'all' ||
         c.status === activeFilter ||
         (activeFilter === 'portland-metro' && c.serviceArea === 'portland-metro') ||
+        (activeFilter === 'gorge' && c.serviceArea === 'gorge') ||
         c.tags.includes(activeFilter);
 
       const q = searchQuery.toLowerCase();
@@ -1017,14 +1020,15 @@
   }
 
   function servesLocation(comp, userLat, userLng) {
-    // All PNW-wide or Oregon/Washington comps always relevant
-    // Portland metro: within ~35 miles of Portland center
     const portlandLat = 45.5231, portlandLng = -122.6765;
+    const gorgeLat = 45.7054, gorgeLng = -121.5232;
     const distToPortland = haversineDistance(userLat, userLng, portlandLat, portlandLng);
+    const distToGorge = haversineDistance(userLat, userLng, gorgeLat, gorgeLng);
     if (comp.serviceArea === 'pnw') return true;
     if (comp.serviceArea === 'oregon') return true;
     if (comp.serviceArea === 'washington') return true;
     if (comp.serviceArea === 'portland-metro' && distToPortland <= 50) return true;
+    if (comp.serviceArea === 'gorge' && distToGorge <= 60) return true;
     return false;
   }
 
