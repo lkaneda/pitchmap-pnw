@@ -3,7 +3,7 @@
 **The community-maintained pitch competition directory for Oregon & Washington entrepreneurs.**
 
 → Live site: [pitchmappnw.com](https://pitchmappnw.com)  
-→ Maintained by: [Your Name / contact]  
+→ Maintained by: [Leila Kaneda](https://github.com/lkaneda)  
 → Community partner: [RAIN Catalysts](https://raincatalysts.org)
 
 ---
