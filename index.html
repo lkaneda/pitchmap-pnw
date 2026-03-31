@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- Leaflet Map -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>" />
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -98,7 +99,7 @@
     /* ── HERO ── */
     .hero {
       padding: 5rem 2rem 3rem;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       position: relative;
     }
@@ -155,7 +156,7 @@
 
     /* ── SEARCH BAR ── */
     .search-section {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 2rem 3rem;
     }
@@ -882,9 +883,8 @@
   function initMap() {
     map = L.map('map', { zoomControl: true }).setView([45.52, -122.68], 8);
 
-    L.tileLayer('https://{s}.basemap.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap contributors © CARTO',
-      subdomains: 'abcd',
+    L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19
     }).addTo(map);
 
