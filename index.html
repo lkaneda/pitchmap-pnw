@@ -387,13 +387,11 @@
       border: 1px solid var(--border);
       overflow: hidden;
       margin-bottom: 1rem;
+    }
+    #map .leaflet-tile-pane {
       filter: invert(1) hue-rotate(180deg) brightness(0.85) saturate(0.7);
     }
-    #map .leaflet-marker-pane,
-    #map .leaflet-overlay-pane,
-    #map .leaflet-popup-pane {
-      filter: invert(1) hue-rotate(180deg);
-    }
+    .map-controls {
       display: flex;
       gap: 0.75rem;
       align-items: center;
@@ -582,6 +580,49 @@
       font-weight: 700;
     }
 
+    /* ── NEARBY RESULTS ── */
+    .nearby-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1.1rem;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .nearby-item:hover { border-color: var(--accent3); background: var(--bg3); }
+    .nearby-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .nearby-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex: 1;
+    }
+    .nearby-org {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .nearby-distance {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      text-align: right;
+    }
+    .nearby-distance strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -696,6 +737,10 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--yellow);"></div> Event Scheduled</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Monitor</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--gray);"></div> Inactive</div>
+    </div>
+    <div id="nearby-results" style="display:none; margin-top:1.5rem;">
+      <div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:0.75rem;" id="nearby-label"></div>
+      <div id="nearby-list"></div>
     </div>
   </section>
 
@@ -933,6 +978,7 @@
         radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
       }).addTo(map).bindPopup('📍 Your location').openPopup();
       map.setView([lat, lng], 10);
+      showNearbyResults(lat, lng, 'your location');
     }, () => alert('Could not get your location.'));
   }
 
@@ -943,17 +989,86 @@
   async function searchLocation(query) {
     if (!query.trim()) return;
     try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query + ', Pacific Northwest')}&limit=1`);
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=us&limit=1`);
       const data = await res.json();
       if (data.length > 0) {
-        const { lat, lon } = data[0];
+        const { lat, lon, display_name } = data[0];
         if (userMarker) map.removeLayer(userMarker);
-        userMarker = L.circleMarker([lat, lon], {
+        userMarker = L.circleMarker([parseFloat(lat), parseFloat(lon)], {
           radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
         }).addTo(map).bindPopup(`📍 ${query}`).openPopup();
-        map.setView([lat, lon], 9);
+        map.setView([parseFloat(lat), parseFloat(lon)], 10);
+        showNearbyResults(parseFloat(lat), parseFloat(lon), query);
+      } else {
+        alert(`Couldn't find "${query}" — try a city name or ZIP code.`);
       }
     } catch(e) { console.warn('Location search failed', e); }
+  }
+
+  // ── DISTANCE HELPERS ──
+  function haversineDistance(lat1, lng1, lat2, lng2) {
+    const R = 3958.8; // miles
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLng/2) * Math.sin(dLng/2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  }
+
+  function servesLocation(comp, userLat, userLng) {
+    // All PNW-wide or Oregon/Washington comps always relevant
+    // Portland metro: within ~35 miles of Portland center
+    const portlandLat = 45.5231, portlandLng = -122.6765;
+    const distToPortland = haversineDistance(userLat, userLng, portlandLat, portlandLng);
+    if (comp.serviceArea === 'pnw') return true;
+    if (comp.serviceArea === 'oregon') return true;
+    if (comp.serviceArea === 'washington') return true;
+    if (comp.serviceArea === 'portland-metro' && distToPortland <= 50) return true;
+    return false;
+  }
+
+  function showNearbyResults(userLat, userLng, locationName) {
+    const list = document.getElementById('nearby-list');
+    const label = document.getElementById('nearby-label');
+    const wrapper = document.getElementById('nearby-results');
+
+    const results = DATA.competitions
+      .filter(c => servesLocation(c, userLat, userLng))
+      .map(c => ({
+        ...c,
+        distance: haversineDistance(userLat, userLng, c.location.lat, c.location.lng)
+      }))
+      .sort((a, b) => a.distance - b.distance);
+
+    if (results.length === 0) {
+      wrapper.style.display = 'block';
+      label.textContent = `No competitions found serving ${locationName}`;
+      list.innerHTML = `<div style="color:var(--text-muted);font-size:0.88rem;padding:1rem 0;">Try broadening your search or check the aggregator calendars below for new listings.</div>`;
+      return;
+    }
+
+    label.textContent = `${results.length} competition${results.length !== 1 ? 's' : ''} serving ${locationName} — sorted by distance`;
+    list.innerHTML = results.map(c => {
+      const color = statusColors[c.status] || statusColors.monitor;
+      const dist = c.distance < 10 ? c.distance.toFixed(1) : Math.round(c.distance);
+      return `
+        <a href="${c.url}" target="_blank" rel="noopener" class="nearby-item">
+          <div class="nearby-dot" style="background:${color};box-shadow:0 0 6px ${color}44;"></div>
+          <div style="flex:1;">
+            <div class="nearby-name">${c.name}</div>
+            <div class="nearby-org">${c.org}</div>
+          </div>
+          ${badgeHTML(c.status)}
+          <div class="nearby-distance">
+            <strong>${dist} mi</strong>
+            to org
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    wrapper.style.display = 'block';
   }
 
   // ── AGGREGATORS ──
