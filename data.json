@@ -135,6 +135,7 @@
       "status": "accepting",
       "description": "Annual pitch competition hosted by the Mid-Columbia Innovation Hub serving entrepreneurs in the Columbia River Gorge region on both the Oregon and Washington sides.",
       "serviceArea": "gorge",
+      "location": { "lat": 45.5947, "lng": -121.1787, "city": "The Dalles, OR" },
       "tags": ["general", "regional", "annual"],
       "notes": "2026 event: May 28 at The Granada Theatre. Applications open now — apply at their website."
     },
