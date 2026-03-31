@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PitchMap PNW — PNW Startup Pitch Competition Directory</title>
+  <meta name="description" content="Find and track startup pitch competitions in Oregon and Washington. PitchMap PNW is a community-maintained directory for PNW entrepreneurs." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #1c2330;
+      --border: #2a3441;
+      --text: #e6edf3;
+      --text-muted: #7d8590;
+      --accent: #f0a500;
+      --accent2: #3fb950;
+      --accent3: #58a6ff;
+      --accent-red: #ff6b6b;
+      --green: #3fb950;
+      --yellow: #d29922;
+      --blue: #58a6ff;
+      --gray: #484f58;
+      --portland: rgba(240, 165, 0, 0.08);
+      --font-head: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 10px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent);
+      color: #000 !important;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-size: 0.8rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85; color: #000 !important; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.2rem;
+    }
+
+    /* ── SEARCH BAR ── */
+    .search-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+    }
+    .search-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+    }
+    .search-bar input {
+      flex: 1;
+      min-width: 200px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+    }
+    .search-bar input::placeholder { color: var(--text-muted); }
+    .filter-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+    .pill {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .pill:hover, .pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-count {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.15rem 0.6rem;
+    }
+
+    section { margin-bottom: 4rem; }
+
+    /* ── COMPETITION CARDS ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .card {
+      background: var(--bg2);
+      padding: 1.5rem;
+      transition: background 0.15s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .card:hover { background: var(--bg3); }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .card-name {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .card-org {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+    .card-tags {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .card-link {
+      font-size: 0.78rem;
+      color: var(--accent3);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .card-link:hover { text-decoration: underline; }
+    .card-notes {
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: rgba(240,165,0,0.06);
+      border-left: 2px solid var(--accent);
+      padding: 0.4rem 0.75rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ── STATUS BADGES ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .badge-accepting {
+      background: rgba(63,185,80,0.12);
+      color: var(--green);
+      border: 1px solid rgba(63,185,80,0.3);
+    }
+    .badge-accepting::before { background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s infinite; }
+    .badge-scheduled {
+      background: rgba(210,153,34,0.12);
+      color: var(--yellow);
+      border: 1px solid rgba(210,153,34,0.3);
+    }
+    .badge-scheduled::before { background: var(--yellow); }
+    .badge-monitor {
+      background: rgba(88,166,255,0.1);
+      color: var(--blue);
+      border: 1px solid rgba(88,166,255,0.25);
+    }
+    .badge-monitor::before { background: var(--blue); }
+    .badge-inactive {
+      background: rgba(72,79,88,0.3);
+      color: var(--gray);
+      border: 1px solid rgba(72,79,88,0.5);
+    }
+    .badge-inactive::before { background: var(--gray); }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--green); }
+      50% { opacity: 0.5; box-shadow: 0 0 2px var(--green); }
+    }
+
+    /* ── SERVICE AREA BADGE ── */
+    .area-badge {
+      font-size: 0.68rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--bg);
+    }
+    .area-portland { border-color: rgba(240,165,0,0.4); color: var(--accent); background: rgba(240,165,0,0.06); }
+    .area-oregon { border-color: rgba(88,166,255,0.3); color: var(--blue); background: rgba(88,166,255,0.06); }
+    .area-pnw { border-color: rgba(63,185,80,0.3); color: var(--green); background: rgba(63,185,80,0.06); }
+
+    /* ── MAP ── */
+    #map-section { }
+    #map {
+      height: 460px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .map-controls {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .map-controls input {
+      flex: 1;
+      min-width: 200px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.85rem;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .map-controls input:focus { border-color: var(--accent3); }
+    .map-legend {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* ── AGGREGATORS ── */
+    .aggregator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .aggregator-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .aggregator-card:hover {
+      border-color: var(--accent3);
+      background: var(--bg3);
+    }
+    .aggregator-icon { font-size: 1.75rem; line-height: 1; }
+    .aggregator-name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+    .aggregator-desc { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* ── COMMUNITY TABLE ── */
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.5rem;
+    }
+    .community-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .community-item:hover {
+      border-color: var(--accent3);
+      background: var(--bg3);
+    }
+    .community-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+    .community-focus {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .community-arrow { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* ── SUGGEST FORM ── */
+    .suggest-section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 680px) {
+      .suggest-section { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+    .suggest-left h2 {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .suggest-left p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .suggest-left .suggest-note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-left: 2px solid var(--border);
+      padding-left: 0.75rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 0.9rem;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--accent3); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group select option { background: var(--bg2); }
+    .btn-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-submit:hover { opacity: 0.85; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--green);
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--text-muted); text-decoration: underline; }
+    footer .footer-credit {
+      margin-top: 0.5rem;
+      font-size: 0.72rem;
+      opacity: 0.6;
+    }
+
+    /* ── NO RESULTS ── */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      grid-column: 1 / -1;
+      background: var(--bg2);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hero, .search-section, main { padding-left: 1rem; padding-right: 1rem; }
+      .hero { padding-top: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">PitchMap<span> PNW</span></div>
+  <ul class="nav-links">
+    <li><a href="#competitions">Competitions</a></li>
+    <li><a href="#map-section">Map</a></li>
+    <li><a href="#aggregators">Calendars</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#suggest" class="nav-cta">Suggest a Listing</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Oregon &amp; Washington · Updated Weekly</div>
+  <h1>Find your next<br /><em>pitch competition.</em></h1>
+  <p>A community-maintained directory of startup pitch competitions and host organizations across the Pacific Northwest.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num" id="stat-total">12</span>
+      <span class="stat-label">Host orgs tracked</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="stat-active">0</span>
+      <span class="stat-label">Active right now</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="stat-updated">—</span>
+      <span class="stat-label">Last updated</span>
+    </div>
+  </div>
+</div>
+
+<div class="search-section">
+  <div class="search-bar">
+    <span style="color:var(--text-muted); font-size:1rem;">🔍</span>
+    <input type="text" id="search-input" placeholder="Search by org name, focus area, or keyword…" />
+  </div>
+  <div class="filter-pills">
+    <button class="pill active" data-filter="all">All</button>
+    <button class="pill" data-filter="accepting">🟢 Accepting Apps</button>
+    <button class="pill" data-filter="scheduled">🟡 Event Scheduled</button>
+    <button class="pill" data-filter="monitor">🔵 Monitor</button>
+    <button class="pill" data-filter="inactive">⚫ Inactive</button>
+    <button class="pill" data-filter="portland-metro">📍 Portland Metro</button>
+    <button class="pill" data-filter="cleantech">♻️ Cleantech</button>
+    <button class="pill" data-filter="university">🎓 University</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- COMPETITIONS -->
+  <section id="competitions">
+    <div class="section-header">
+      <h2>Pitch Competition Hosts</h2>
+      <span class="section-count" id="comp-count">12 organizations</span>
+    </div>
+    <div class="cards-grid" id="cards-grid">
+      <div class="no-results" id="no-results">No competitions match your filter. <a href="#" onclick="resetFilters(); return false;">Clear filters</a></div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section id="map-section">
+    <div class="section-header">
+      <h2>Competition Map</h2>
+      <span class="section-count">PNW Region</span>
+    </div>
+    <div class="map-controls">
+      <input type="text" id="location-input" placeholder="Enter your city or ZIP to find nearby competitions…" />
+      <button class="pill active" style="padding:0.5rem 1rem;" onclick="locateMe()">📍 Use my location</button>
+    </div>
+    <div id="map"></div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div> Accepting Apps</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow);"></div> Event Scheduled</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Monitor</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--gray);"></div> Inactive</div>
+    </div>
+  </section>
+
+  <!-- AGGREGATORS -->
+  <section id="aggregators">
+    <div class="section-header">
+      <h2>Live Event Calendars</h2>
+      <span class="section-count">3 aggregators</span>
+    </div>
+    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:1.25rem;">These calendars aggregate events across the PNW ecosystem in real time. Check them regularly for newly announced pitch events not yet listed here.</p>
+    <div class="aggregator-grid" id="aggregator-grid"></div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="community">
+    <div class="section-header">
+      <h2>Entrepreneurial Community</h2>
+      <span class="section-count" id="community-count">21 groups</span>
+    </div>
+    <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:1.25rem;">These groups don't always host pitch competitions but are where PNW founders connect, learn, and stay in the loop.</p>
+    <div class="community-grid" id="community-grid"></div>
+  </section>
+
+  <!-- SUGGEST -->
+  <section id="suggest">
+    <div class="suggest-section" style="grid-template-columns:1fr;">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1rem 0;">
+        <h2 style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem;">Know something we don't?</h2>
+        <p style="color:var(--text-muted);font-size:0.95rem;max-width:520px;line-height:1.65;margin-bottom:0.75rem;">PitchMap PNW is community-maintained. If you know of a pitch competition, host organization, or community group that should be on this list — or if something has changed — let us know.</p>
+        <p style="color:var(--text-muted);font-size:0.82rem;max-width:480px;margin-bottom:2rem;border-left:2px solid var(--border);padding-left:0.75rem;text-align:left;">Submissions are reviewed before being added. You can also open an issue directly on <a href="https://github.com/lkaneda/pitchmap-pnw/issues/new" target="_blank" style="color:var(--accent3);">GitHub</a>.</p>
+        <a href="https://forms.gle/DGBsjABtrnDjWZv97" target="_blank" rel="noopener" class="btn-submit" style="display:inline-block;text-decoration:none;padding:0.85rem 2.5rem;font-size:1rem;border-radius:8px;max-width:320px;">
+          Suggest a Listing →
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div>
+    <strong style="font-family:var(--font-head);">PitchMap PNW</strong> — A community resource for PNW entrepreneurs.<br />
+    Maintained independently. Shared in partnership with <a href="https://raincatalysts.org" target="_blank">RAIN Catalysts</a> and the PNW startup ecosystem.
+  </div>
+  <div class="footer-credit">
+    Seed data contributed by Matthew Spellman. Built to help founders find their stage.
+    <br />
+    <a href="https://github.com/lkaneda/pitchmap-pnw" target="_blank">GitHub</a> · <a href="#suggest">Suggest a listing</a>
+  </div>
+</footer>
+
+<script>
+  // ── DATA ── (pulled from data.json at runtime; embedded here as fallback)
+  let DATA = null;
+
+  async function loadData() {
+    try {
+      const res = await fetch('data.json');
+      DATA = await res.json();
+    } catch (e) {
+      // If fetch fails (e.g. opened as file://), use inline fallback
+      DATA = FALLBACK_DATA;
+    }
+    init();
+  }
+
+  // ── STATUS HELPERS ── 
+  function badgeHTML(status) {
+    const map = {
+      accepting: ['badge-accepting', '🟢 Accepting Apps'],
+      scheduled: ['badge-scheduled', '🟡 Event Scheduled'],
+      monitor:   ['badge-monitor',   '🔵 Monitor'],
+      inactive:  ['badge-inactive',  '⚫ Inactive'],
+    };
+    const [cls, label] = map[status] || map.monitor;
+    return `<span class="badge ${cls}">${label}</span>`;
+  }
+
+  function areaLabel(area) {
+    const map = {
+      'portland-metro': ['area-portland', '📍 Portland Metro'],
+      'oregon':         ['area-oregon',   '🌲 Oregon'],
+      'pnw':            ['area-pnw',      '🏔️ PNW'],
+      'washington':     ['area-pnw',      '🏔️ Washington'],
+    };
+    const [cls, label] = map[area] || ['', area];
+    return `<span class="area-badge ${cls}">${label}</span>`;
+  }
+
+  // ── RENDER COMPETITIONS ──
+  let activeFilter = 'all';
+  let searchQuery = '';
+
+  function renderCards() {
+    const grid = document.getElementById('cards-grid');
+    const noResults = document.getElementById('no-results');
+    const comps = DATA.competitions;
+
+    const filtered = comps.filter(c => {
+      const matchesFilter =
+        activeFilter === 'all' ||
+        c.status === activeFilter ||
+        (activeFilter === 'portland-metro' && c.serviceArea === 'portland-metro') ||
+        c.tags.includes(activeFilter);
+
+      const q = searchQuery.toLowerCase();
+      const matchesSearch =
+        !q ||
+        c.name.toLowerCase().includes(q) ||
+        c.org.toLowerCase().includes(q) ||
+        c.description.toLowerCase().includes(q) ||
+        c.tags.some(t => t.includes(q));
+
+      return matchesFilter && matchesSearch;
+    });
+
+    // Clear existing cards (keep no-results div)
+    const existing = grid.querySelectorAll('.card');
+    existing.forEach(el => el.remove());
+
+    if (filtered.length === 0) {
+      noResults.style.display = 'block';
+    } else {
+      noResults.style.display = 'none';
+      filtered.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-top">
+            <div>
+              <div class="card-name">${c.name}</div>
+              <div class="card-org">${c.org}</div>
+            </div>
+            ${badgeHTML(c.status)}
+          </div>
+          <div class="card-desc">${c.description}</div>
+          ${c.notes ? `<div class="card-notes">${c.notes}</div>` : ''}
+          <div class="card-footer">
+            <div class="card-tags">
+              ${areaLabel(c.serviceArea)}
+              ${c.tags.slice(0,2).map(t => `<span class="tag">${t}</span>`).join('')}
+            </div>
+            <a href="${c.url}" target="_blank" rel="noopener" class="card-link">Visit →</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    document.getElementById('comp-count').textContent = `${filtered.length} of ${comps.length} organizations`;
+
+    // update active stat
+    const active = comps.filter(c => c.status === 'accepting' || c.status === 'scheduled').length;
+    document.getElementById('stat-active').textContent = active;
+  }
+
+  // ── FILTER PILLS ──
+  document.querySelectorAll('.pill[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pill[data-filter]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      renderCards();
+    });
+  });
+
+  document.getElementById('search-input').addEventListener('input', e => {
+    searchQuery = e.target.value;
+    renderCards();
+  });
+
+  function resetFilters() {
+    activeFilter = 'all';
+    searchQuery = '';
+    document.getElementById('search-input').value = '';
+    document.querySelectorAll('.pill[data-filter]').forEach(b => b.classList.remove('active'));
+    document.querySelector('.pill[data-filter="all"]').classList.add('active');
+    renderCards();
+  }
+
+  // ── MAP ──
+  let map, userMarker;
+  const statusColors = {
+    accepting: '#3fb950',
+    scheduled: '#d29922',
+    monitor: '#58a6ff',
+    inactive: '#484f58',
+  };
+
+  function initMap() {
+    map = L.map('map', { zoomControl: true }).setView([45.52, -122.68], 8);
+
+    L.tileLayer('https://{s}.basemap.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap contributors © CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Service area overlays
+    const portlandBounds = [[45.35, -122.95], [45.75, -122.35]];
+    const oregonBounds = [[41.99, -124.7], [46.26, -116.46]];
+    const pnwBounds = [[41.99, -124.85], [49.0, -116.0]];
+
+    L.rectangle(pnwBounds, { color: '#3fb950', weight: 1, fillOpacity: 0.03, dashArray: '4,4' }).addTo(map);
+    L.rectangle(oregonBounds, { color: '#58a6ff', weight: 1, fillOpacity: 0.04, dashArray: '3,3' }).addTo(map);
+    L.rectangle(portlandBounds, { color: '#f0a500', weight: 1.5, fillOpacity: 0.06 }).addTo(map);
+
+    DATA.competitions.forEach(c => {
+      const color = statusColors[c.status] || statusColors.monitor;
+      const marker = L.circleMarker([c.location.lat, c.location.lng], {
+        radius: 9,
+        fillColor: color,
+        color: color,
+        weight: 2,
+        opacity: 1,
+        fillOpacity: 0.85
+      }).addTo(map);
+
+      marker.bindPopup(`
+        <div style="font-family:'DM Sans',sans-serif;min-width:200px;">
+          <strong style="font-size:0.95rem;">${c.name}</strong><br/>
+          <span style="color:#888;font-size:0.8rem;">${c.org}</span><br/><br/>
+          <span style="font-size:0.8rem;">${c.location.city}</span><br/>
+          <a href="${c.url}" target="_blank" style="color:#58a6ff;font-size:0.8rem;">Visit website →</a>
+        </div>
+      `, { className: 'dark-popup' });
+    });
+  }
+
+  function locateMe() {
+    if (!navigator.geolocation) { alert('Geolocation not supported by your browser.'); return; }
+    navigator.geolocation.getCurrentPosition(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+      if (userMarker) map.removeLayer(userMarker);
+      userMarker = L.circleMarker([lat, lng], {
+        radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
+      }).addTo(map).bindPopup('📍 Your location').openPopup();
+      map.setView([lat, lng], 10);
+    }, () => alert('Could not get your location.'));
+  }
+
+  document.getElementById('location-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') searchLocation(e.target.value);
+  });
+
+  async function searchLocation(query) {
+    if (!query.trim()) return;
+    try {
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query + ', Pacific Northwest')}&limit=1`);
+      const data = await res.json();
+      if (data.length > 0) {
+        const { lat, lon } = data[0];
+        if (userMarker) map.removeLayer(userMarker);
+        userMarker = L.circleMarker([lat, lon], {
+          radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
+        }).addTo(map).bindPopup(`📍 ${query}`).openPopup();
+        map.setView([lat, lon], 9);
+      }
+    } catch(e) { console.warn('Location search failed', e); }
+  }
+
+  // ── AGGREGATORS ──
+  function renderAggregators() {
+    const grid = document.getElementById('aggregator-grid');
+    DATA.aggregators.forEach(a => {
+      grid.innerHTML += `
+        <a href="${a.url}" target="_blank" rel="noopener" class="aggregator-card">
+          <div class="aggregator-icon">${a.icon}</div>
+          <div>
+            <div class="aggregator-name">${a.name}</div>
+            <div class="aggregator-desc">${a.description}</div>
+          </div>
+        </a>
+      `;
+    });
+  }
+
+  // ── COMMUNITY ──
+  function renderCommunity() {
+    const grid = document.getElementById('community-grid');
+    DATA.community.forEach(c => {
+      grid.innerHTML += `
+        <a href="${c.url}" target="_blank" rel="noopener" class="community-item">
+          <div>
+            <div class="community-name">${c.name}</div>
+            <div class="community-focus">${c.focus}</div>
+          </div>
+          <span class="community-arrow">↗</span>
+        </a>
+      `;
+    });
+    document.getElementById('community-count').textContent = `${DATA.community.length} groups`;
+  }
+
+  // ── META ──
+  function renderMeta() {
+    document.getElementById('stat-total').textContent = DATA.competitions.length;
+    document.getElementById('stat-updated').textContent = DATA.meta.lastUpdated;
+  }
+
+
+
+  // ── INIT ──
+  function init() {
+    renderMeta();
+    renderCards();
+    initMap();
+    renderAggregators();
+    renderCommunity();
+  }
+
+  // ── FALLBACK DATA (same as data.json, for file:// open) ──
+  const FALLBACK_DATA = {
+    "meta": { "siteName": "PitchMap PNW", "lastUpdated": "2025-03-31" },
+    "competitions": [],
+    "aggregators": [],
+    "community": []
+  };
+
+  loadData();
+</script>
+
+</body>
+</html>
