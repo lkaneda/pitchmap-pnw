@@ -387,8 +387,13 @@
       border: 1px solid var(--border);
       overflow: hidden;
       margin-bottom: 1rem;
+      filter: invert(1) hue-rotate(180deg) brightness(0.85) saturate(0.7);
     }
-    .map-controls {
+    #map .leaflet-marker-pane,
+    #map .leaflet-overlay-pane,
+    #map .leaflet-popup-pane {
+      filter: invert(1) hue-rotate(180deg);
+    }
       display: flex;
       gap: 0.75rem;
       align-items: center;
@@ -883,8 +888,8 @@
   function initMap() {
     map = L.map('map', { zoomControl: true }).setView([45.52, -122.68], 8);
 
-    L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-      attribution: '© <a href="https://stadiamaps.com/">Stadia Maps</a> © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19
     }).addTo(map);
 
