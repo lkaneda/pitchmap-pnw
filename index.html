@@ -580,6 +580,102 @@
       font-weight: 700;
     }
 
+    /* ── EVENT BULLETS ── */
+    .event-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin: 0.25rem 0;
+    }
+    .event-bullet {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .event-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .event-dot.accepting { background: var(--green); box-shadow: 0 0 5px var(--green); animation: pulse 2s infinite; }
+    .event-dot.scheduled { background: var(--yellow); }
+    .event-dot.monitor   { background: var(--blue); }
+    .event-dot.inactive  { background: var(--gray); }
+    .event-bullet-name { color: var(--text); font-weight: 500; }
+
+    /* ── MODAL EVENTS ── */
+    .modal-event {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .modal-event-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .modal-event-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: var(--font-head);
+    }
+    .modal-event-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .modal-event-notes {
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: rgba(240,165,0,0.06);
+      border-left: 2px solid var(--accent);
+      padding: 0.4rem 0.7rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .modal-event-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .btn-event-primary {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      display: inline-block;
+    }
+    .btn-event-primary:hover { opacity: 0.85; }
+    .btn-event-secondary {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
+      display: inline-block;
+    }
+    .btn-event-secondary:hover { border-color: var(--accent3); color: var(--text); }
+
     /* ── NEARBY RESULTS ── */
     .nearby-item {
       display: flex;
@@ -1002,6 +1098,15 @@
     return `<span class="area-badge ${cls}">${label}</span>`;
   }
 
+  // ── STATUS PRIORITY ──
+  const STATUS_PRIORITY = { accepting: 0, scheduled: 1, monitor: 2, inactive: 3 };
+
+  function topStatus(comp) {
+    return comp.events.reduce((best, e) => {
+      return STATUS_PRIORITY[e.status] < STATUS_PRIORITY[best] ? e.status : best;
+    }, 'inactive');
+  }
+
   // ── RENDER COMPETITIONS ──
   let activeFilter = 'all';
   let searchQuery = '';
@@ -1012,9 +1117,10 @@
     const comps = DATA.competitions;
 
     const filtered = comps.filter(c => {
+      const best = topStatus(c);
       const matchesFilter =
         activeFilter === 'all' ||
-        c.status === activeFilter ||
+        best === activeFilter ||
         (activeFilter === 'portland-metro' && c.serviceArea === 'portland-metro') ||
         (activeFilter === 'gorge' && c.serviceArea === 'gorge') ||
         c.tags.includes(activeFilter);
@@ -1022,15 +1128,13 @@
       const q = searchQuery.toLowerCase();
       const matchesSearch =
         !q ||
-        c.name.toLowerCase().includes(q) ||
         c.org.toLowerCase().includes(q) ||
-        c.description.toLowerCase().includes(q) ||
+        c.events.some(e => e.name.toLowerCase().includes(q) || e.description.toLowerCase().includes(q)) ||
         c.tags.some(t => t.includes(q));
 
       return matchesFilter && matchesSearch;
     });
 
-    // Clear existing cards (keep no-results div)
     const existing = grid.querySelectorAll('.card');
     existing.forEach(el => el.remove());
 
@@ -1039,20 +1143,27 @@
     } else {
       noResults.style.display = 'none';
       filtered.forEach(c => {
+        const best = topStatus(c);
         const card = document.createElement('div');
         card.className = 'card';
         card.style.cursor = 'pointer';
         card.addEventListener('click', () => openModal(c));
+
+        const eventBullets = c.events.map(e => `
+          <div class="event-bullet">
+            <div class="event-dot ${e.status}"></div>
+            <span class="event-bullet-name">${e.name}</span>
+          </div>
+        `).join('');
+
         card.innerHTML = `
           <div class="card-top">
             <div>
-              <div class="card-name">${c.name}</div>
-              <div class="card-org">${c.org}</div>
+              <div class="card-name">${c.org}</div>
             </div>
-            ${badgeHTML(c.status)}
+            ${badgeHTML(best)}
           </div>
-          <div class="card-desc">${c.description}</div>
-          ${c.notes ? `<div class="card-notes">${c.notes}</div>` : ''}
+          <div class="event-list">${eventBullets}</div>
           <div class="card-footer">
             <div class="card-tags">
               ${areaLabel(c.serviceArea)}
@@ -1066,9 +1177,7 @@
     }
 
     document.getElementById('comp-count').textContent = `${filtered.length} of ${comps.length} organizations`;
-
-    // update active stat
-    const active = comps.filter(c => c.status === 'accepting' || c.status === 'scheduled').length;
+    const active = comps.filter(c => { const s = topStatus(c); return s === 'accepting' || s === 'scheduled'; }).length;
     document.getElementById('stat-active').textContent = active;
   }
 
@@ -1124,7 +1233,8 @@
 
     DATA.competitions.forEach(c => {
       if (!c.location) return;
-      const color = statusColors[c.status] || statusColors.monitor;
+      const best = topStatus(c);
+      const color = statusColors[best] || statusColors.monitor;
       const marker = L.circleMarker([c.location.lat, c.location.lng], {
         radius: 9,
         fillColor: color,
@@ -1207,16 +1317,8 @@
   function detectStates(lat, lng) {
     const inOR = inState(lat, lng, 'oregon');
     const inWA = inState(lat, lng, 'washington');
-    // If in both (border overlap), use Washington's southern boundary as tiebreaker
-    // Washington starts at ~45.54 but the actual OR/WA border along Columbia is ~45.62-45.73
-    // If geocoder returns a WA location that also falls in OR box, trust WA
     if (inOR && inWA) return { inOR: false, inWA: true };
     return { inOR, inWA };
-  }
-
-  function inState(lat, lng, state) {
-    const b = BOUNDS[state];
-    return lat >= b.minLat && lat <= b.maxLat && lng >= b.minLng && lng <= b.maxLng;
   }
 
   function servesLocation(comp, userLat, userLng, userState) {
@@ -1248,7 +1350,7 @@
     const label = document.getElementById('nearby-label');
     const wrapper = document.getElementById('nearby-results');
 
-    const results = DATA.competitions
+    const matched = DATA.competitions
       .filter(c => servesLocation(c, userLat, userLng, userState))
       .map(c => ({
         ...c,
@@ -1256,84 +1358,119 @@
       }))
       .sort((a, b) => a.distance - b.distance);
 
-    if (results.length === 0) {
+    if (matched.length === 0) {
       wrapper.style.display = 'block';
       label.textContent = `No competitions found serving ${locationName}`;
       list.innerHTML = `<div style="color:var(--text-muted);font-size:0.88rem;padding:1rem 0;">Try broadening your search or check the aggregator calendars below for new listings.</div>`;
       return;
     }
 
-    label.textContent = `${results.length} competition${results.length !== 1 ? 's' : ''} serving ${locationName} — sorted by distance`;
-    list.innerHTML = results.map(c => {
-      const color = statusColors[c.status] || statusColors.monitor;
-      const dist = c.distance < 10 ? c.distance.toFixed(1) : Math.round(c.distance);
-      return `
-        <a href="${c.url}" target="_blank" rel="noopener" class="nearby-item">
-          <div style="flex:1;">
-            <div class="nearby-name">${c.name}</div>
-            <div class="nearby-org">${c.org}</div>
-          </div>
-          ${badgeHTML(c.status)}
-          <div class="nearby-distance">
-            <strong>${dist} mi</strong>
-            to org
-          </div>
-        </a>
+    // Flatten to one row per event
+    const rows = [];
+    matched.forEach(c => {
+      c.events.forEach(e => {
+        rows.push({ comp: c, event: e, distance: c.distance });
+      });
+    });
+
+    // Sort by status priority first, then distance
+    rows.sort((a, b) => {
+      const sp = STATUS_PRIORITY[a.event.status] - STATUS_PRIORITY[b.event.status];
+      return sp !== 0 ? sp : a.distance - b.distance;
+    });
+
+    label.textContent = `${rows.length} event${rows.length !== 1 ? 's' : ''} serving ${locationName} — sorted by status then distance`;
+    list.innerHTML = '';
+
+    rows.forEach(({ comp, event, distance }) => {
+      const dist = distance < 10 ? distance.toFixed(1) : Math.round(distance);
+      const item = document.createElement('div');
+      item.className = 'nearby-item';
+      item.style.cursor = 'pointer';
+      item.innerHTML = `
+        <div style="flex:1;">
+          <div class="nearby-name">${event.name}</div>
+          <div class="nearby-org">${comp.org} · <em style="color:var(--text-muted);font-style:italic;">${comp.location ? comp.location.city : ''}</em></div>
+        </div>
+        ${badgeHTML(event.status)}
+        <div class="nearby-distance"><strong>${dist} mi</strong> to org</div>
       `;
-    }).join('');
+      item.addEventListener('click', () => openModal(comp, `${dist} mi`, event.name));
+      list.appendChild(item);
+    });
 
     wrapper.style.display = 'block';
   }
 
   // ── MODAL ──
   const statusDescriptions = {
-    accepting: 'This organization is actively accepting pitch applications right now.',
-    scheduled: 'An event has been announced or is coming up soon. Check their site for registration details.',
-    monitor:   'No active event at the moment — but this org has hosted competitions before. Check back periodically.',
-    inactive:  'This org has hosted pitch competitions in the past but appears to be inactive currently. Worth keeping an eye on.',
+    accepting: 'Actively accepting applications right now.',
+    scheduled: 'Event announced — check their site for registration.',
+    monitor:   'No active event right now — check back periodically.',
+    inactive:  'Has hosted in the past but currently inactive.',
   };
 
-  function openModal(comp) {
-    document.getElementById('modal-title').textContent = comp.name;
-    document.getElementById('modal-org').textContent = comp.org;
-    document.getElementById('modal-desc').textContent = comp.description;
+  function openModal(comp, distanceMi, highlightEventName) {
+    document.getElementById('modal-title').textContent = comp.org;
+    document.getElementById('modal-org').textContent = comp.location ? comp.location.city : '';
 
-    // Notes
-    const notesEl = document.getElementById('modal-notes');
-    if (comp.notes) {
-      notesEl.textContent = comp.notes;
-      notesEl.style.display = 'block';
-    } else {
-      notesEl.style.display = 'none';
-    }
+    // Hide the single desc/notes — we use per-event blocks instead
+    document.getElementById('modal-desc').textContent = '';
+    document.getElementById('modal-notes').style.display = 'none';
 
-    // Meta: badge + area + tags
+    // Meta: area + tags + optional distance
     const meta = document.getElementById('modal-meta');
-    const statusNote = statusDescriptions[comp.status] || '';
+    const distHTML = distanceMi != null
+      ? `<span class="tag" style="color:var(--accent);border-color:rgba(240,165,0,0.4);">📍 ${distanceMi} mi away</span>`
+      : '';
     meta.innerHTML = `
-      ${badgeHTML(comp.status)}
       ${areaLabel(comp.serviceArea)}
       ${comp.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-      <div class="modal-status-note">${statusNote}</div>
+      ${distHTML}
     `;
 
-    // Action buttons
+    // Per-event sections replace the single action buttons area
     const actions = document.getElementById('modal-actions');
-    let btns = '';
-    if (comp.eventUrl) {
-      btns += `<a href="${comp.eventUrl}" target="_blank" rel="noopener" class="btn-primary">Apply / Register →</a>`;
-      btns += `<a href="${comp.url}" target="_blank" rel="noopener" class="btn-secondary">Visit Website ↗</a>`;
-    } else {
-      btns += `<a href="${comp.url}" target="_blank" rel="noopener" class="btn-primary">Visit Website →</a>`;
-    }
-    actions.innerHTML = btns;
+    actions.style.flexDirection = 'column';
+    actions.style.gap = '0.75rem';
+    actions.innerHTML = comp.events.map(e => {
+      const isHighlighted = highlightEventName && e.name === highlightEventName;
+      const btns = e.eventUrl
+        ? `<a href="${e.eventUrl}" target="_blank" rel="noopener" class="btn-event-primary">Apply / Register →</a>
+           <a href="${e.url}" target="_blank" rel="noopener" class="btn-event-secondary">Visit Website ↗</a>`
+        : `<a href="${e.url}" target="_blank" rel="noopener" class="btn-event-primary">Visit Website →</a>`;
+      return `
+        <div class="modal-event" style="${isHighlighted ? 'border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);' : ''}">
+          <div class="modal-event-header">
+            <div class="modal-event-name">${isHighlighted ? `<span style="color:var(--accent);">↳ </span>` : ''}${e.name}</div>
+            ${badgeHTML(e.status)}
+          </div>
+          <div class="modal-event-desc">${e.description}</div>
+          ${e.notes ? `<div class="modal-event-notes">${e.notes}</div>` : ''}
+          <div class="modal-event-actions">${btns}</div>
+        </div>
+      `;
+    }).join('');
 
     // Footer
     document.getElementById('modal-updated').textContent = `Last checked: ${DATA.meta.lastUpdated}`;
-    document.getElementById('modal-suggest').href = `https://github.com/lkaneda/pitchmap-pnw/issues/new?template=suggest-a-listing.md&title=Update: ${encodeURIComponent(comp.name)}`;
+    document.getElementById('modal-suggest').href = `https://github.com/lkaneda/pitchmap-pnw/issues/new?template=suggest-a-listing.md&title=Update: ${encodeURIComponent(comp.org)}`;
 
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Scroll highlighted event into view
+    if (highlightEventName) {
+      setTimeout(() => {
+        const modal = document.getElementById('modal');
+        const events = modal.querySelectorAll('.modal-event');
+        events.forEach(el => {
+          if (el.style.borderColor.includes('accent') || el.querySelector('.modal-event-name')?.textContent.includes('↳')) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+      }, 100);
+    }
   }
 
   function closeModalDirect() {
