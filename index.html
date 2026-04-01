@@ -1279,7 +1279,7 @@
       const data = await res.json();
       if (data.length > 0) {
         const { lat, lon, display_name } = data[0];
-        const userState = display_name.includes('Washington') ? 'WA' : display_name.includes('Oregon') ? 'OR' : null;
+        const userState = display_name.includes(', Washington,') ? 'WA' : display_name.includes(', Oregon,') ? 'OR' : null;
         if (userMarker) map.removeLayer(userMarker);
         userMarker = L.circleMarker([parseFloat(lat), parseFloat(lon)], {
           radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
