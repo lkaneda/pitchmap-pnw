@@ -9,163 +9,269 @@
   "competitions": [
     {
       "id": "demolicious",
-      "name": "Demolicious",
       "org": "Demolicious / UpStart Collective",
       "url": "https://www.pitchatdemolicious.com",
-      "eventUrl": "https://forms.gle/pqoyNY9q11CMse8t6",
-      "status": "accepting",
-      "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["general", "early-stage", "monthly"],
-      "notes": "Actively accepting pitch applications for 2026. Sign up at their website."
+      "events": [
+        {
+          "name": "Demolicious Monthly Pitch",
+          "status": "accepting",
+          "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
+          "url": "https://www.pitchatdemolicious.com",
+          "eventUrl": "https://forms.gle/pqoyNY9q11CMse8t6",
+          "notes": "Actively accepting pitch applications for 2026. Sign up at their website."
+        }
+      ]
     },
     {
       "id": "tie-oregon",
-      "name": "Westside Pitch / Columbia River Pitch / Collegiate Startup Challenge",
       "org": "TiE Oregon",
       "url": "https://www.tieoregon.org/pitch-oregon",
-      "eventUrl": "https://events.tie.org/Oregon/WestsidePitch2026",
-      "status": "scheduled",
-      "description": "TiE Oregon runs multiple pitch competitions across Oregon and SW Washington. Competitions offer equity investment, cash prizes, and professional services to tech and traded-sector startups.",
       "serviceArea": "oregon",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
-      "tags": ["general", "multi-event", "investor"],
-      "notes": "Westside Pitch confirmed April 23, 2026 in Hillsboro. Applications closed March 9 — monitor for next cycle."
+      "tags": ["general", "investor", "multi-event"],
+      "events": [
+        {
+          "name": "Westside Pitch",
+          "status": "scheduled",
+          "description": "Pitch competition for Washington County, OR entrepreneurs. Offers equity investment, cash prizes, and professional services to tech and traded-sector startups.",
+          "url": "https://www.tieoregon.org/pitch-oregon/westside-pitch",
+          "eventUrl": "https://events.tie.org/Oregon/WestsidePitch2026",
+          "notes": "April 23, 2026 in Hillsboro. Applications closed March 9 — monitor for next cycle."
+        },
+        {
+          "name": "Columbia River Pitch",
+          "status": "monitor",
+          "description": "Pitch competition for entrepreneurs in the Columbia River region of Oregon and SW Washington.",
+          "url": "https://www.tieoregon.org/pitch-oregon",
+          "eventUrl": null,
+          "notes": "No 2026 date announced yet. Monitor TiE Oregon's events page."
+        },
+        {
+          "name": "Collegiate Startup Challenge",
+          "status": "monitor",
+          "description": "Statewide pitch competition for Oregon and SW Washington college and university entrepreneurs including students, faculty, and alumni.",
+          "url": "https://www.tieoregon.org/pitch-oregon/collegiate-startup-challenge",
+          "eventUrl": null,
+          "notes": "No 2026 date announced yet. Monitor TiE Oregon's events page."
+        }
+      ]
     },
     {
       "id": "oen",
-      "name": "Pitch Please / Angel Oregon / Pop Up & Pitch",
       "org": "Oregon Entrepreneurs Network (OEN)",
       "url": "https://www.oen.org/calendar-events/",
-      "status": "accepting",
-      "description": "OEN runs year-round pitch programming including the monthly Pitch Please, Angel Oregon investment programs for CPG and tech founders, and Pop Up & Pitch food/bev events.",
       "serviceArea": "oregon",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["general", "multi-format", "investor", "food-bev"],
-      "notes": "Angel Oregon CPG 2026 program active now — Pitch Day in April. Pitch Please runs monthly."
+      "events": [
+        {
+          "name": "Pitch Please",
+          "status": "accepting",
+          "description": "Monthly pitch event where founders get 5 minutes to pitch virtually or in person. Regional thought leaders ask questions and give feedback.",
+          "url": "https://www.oen.org/calendar-events/",
+          "eventUrl": null,
+          "notes": "Runs monthly. Check OEN calendar for next date."
+        },
+        {
+          "name": "Angel Oregon CPG",
+          "status": "accepting",
+          "description": "5-week intensive program for consumer packaged goods founders culminating in a live Pitch Day in front of active investors. Investment announced in June 2026.",
+          "url": "https://www.oen.org/2026-angel-oregon-consumer-packaged-goods/",
+          "eventUrl": "https://www.oen.org/2026-angel-oregon-consumer-packaged-goods/",
+          "notes": "2026 program active now. Pitch Day in April."
+        },
+        {
+          "name": "Pop Up & Pitch",
+          "status": "monitor",
+          "description": "Marketplace pitch events for Oregon food and beverage entrepreneurs, co-hosted with partners like Burgerville.",
+          "url": "https://www.oen.org/calendar-events/",
+          "eventUrl": null,
+          "notes": "Typically held spring/summer. Monitor OEN calendar."
+        }
+      ]
     },
     {
       "id": "psu-entrepreneurship",
-      "name": "PSU Pitch Events / Invent Oregon Partner",
       "org": "PSU Center for Entrepreneurship",
       "url": "https://www.pdx.edu/entrepreneurship/about-us",
-      "status": "monitor",
-      "description": "Portland State University's Center for Entrepreneurship is a founding partner of Invent Oregon and hosts its own pitch and entrepreneurial programming throughout the academic year.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5118, "lng": -122.6843, "city": "Portland, OR" },
       "tags": ["university", "student-friendly"],
-      "notes": ""
+      "events": [
+        {
+          "name": "PSU Pitch Events",
+          "status": "monitor",
+          "description": "Portland State University's Center for Entrepreneurship is a founding partner of Invent Oregon and hosts its own pitch and entrepreneurial programming throughout the academic year.",
+          "url": "https://www.pdx.edu/entrepreneurship/about-us",
+          "eventUrl": null,
+          "notes": ""
+        }
+      ]
     },
     {
       "id": "invent-oregon",
-      "name": "Invent Oregon (InventOR) Collegiate Challenge",
       "org": "Invent Oregon",
       "url": "https://www.inventoregon.org/",
-      "status": "scheduled",
-      "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $30,000 in prizes at the annual June finals.",
       "serviceArea": "oregon",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Oregon (Statewide)" },
       "tags": ["collegiate", "invention", "student-only"],
-      "notes": "2026 finals scheduled for June. Bootcamp in May. Apply through your school."
+      "events": [
+        {
+          "name": "InventOR Collegiate Challenge",
+          "status": "scheduled",
+          "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $30,000 in prizes at the annual June finals.",
+          "url": "https://www.inventoregon.org/",
+          "eventUrl": "https://www.inventoregon.org/apply",
+          "notes": "2026 finals scheduled for June. Bootcamp in May. Apply through your school."
+        }
+      ]
     },
     {
       "id": "obi",
-      "name": "OBI / OTRADI Pitch Events",
       "org": "Oregon Bioscience Incubator (OBI / OTRADI)",
       "url": "https://www.otradi.org",
-      "status": "monitor",
-      "description": "Oregon's life sciences incubator occasionally hosts pitch and demo events for biotech and health-focused startups. Also a past venue for Founders Live PDX.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5089, "lng": -122.6861, "city": "Portland, OR" },
       "tags": ["biotech", "life-sciences", "health"],
-      "notes": ""
+      "events": [
+        {
+          "name": "OBI Pitch Events",
+          "status": "monitor",
+          "description": "Oregon's life sciences incubator occasionally hosts pitch and demo events for biotech and health-focused startups. Also a past venue for Founders Live PDX.",
+          "url": "https://www.otradi.org",
+          "eventUrl": null,
+          "notes": ""
+        }
+      ]
     },
     {
       "id": "vertuelab",
-      "name": "VertueLab / 45Camp Accelerator",
       "org": "VertueLab",
       "url": "https://www.vertuelab.org/",
-      "status": "monitor",
-      "description": "VertueLab supports early-stage cleantech startups through two accelerators — Cascadia CleanTech Accelerator and 45Camp — plus a Climate Impact Fund for direct investment.",
       "serviceArea": "pnw",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["cleantech", "climate", "accelerator"],
-      "notes": "Accelerator program runs May–September. Watch for application opening in spring."
+      "events": [
+        {
+          "name": "45Camp Accelerator",
+          "status": "monitor",
+          "description": "VertueLab's accelerator program supporting early-stage cleantech startups with mentorship, curriculum, connections, and funding opportunities.",
+          "url": "https://www.vertuelab.org/",
+          "eventUrl": null,
+          "notes": "Accelerator program runs May–September. Watch for application opening in spring."
+        }
+      ]
     },
     {
       "id": "cascadia-cleantech",
-      "name": "Cascadia CleanTech Accelerator",
       "org": "Cascadia CleanTech / CleanTech Alliance",
       "url": "https://cascadiacleantech.org/",
-      "status": "monitor",
-      "description": "18-week virtual accelerator for pre-seed cleantech startups in the Northwest. Includes mentorship, curriculum, and pitch-based funding competition. Program runs May–September annually.",
       "serviceArea": "pnw",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["cleantech", "accelerator", "pre-seed"],
-      "notes": "Applications typically open in spring for May start. Monitor their site."
+      "events": [
+        {
+          "name": "Cascadia CleanTech Accelerator",
+          "status": "monitor",
+          "description": "18-week virtual accelerator for pre-seed cleantech startups in the Northwest. Includes mentorship, curriculum, and pitch-based funding competition. Program runs May–September annually.",
+          "url": "https://cascadiacleantech.org/accelerate/",
+          "eventUrl": null,
+          "notes": "Applications typically open in spring for May start. Monitor their site."
+        }
+      ]
     },
     {
       "id": "portland-startup-weekend",
-      "name": "Portland Startup Week",
       "org": "Portland Startup Week",
       "url": "https://www.portlandstartupweek.com/",
-      "status": "scheduled",
-      "description": "Week-long celebration of Portland's startup community including pitch events, workshops, and networking. Includes the annual Demolicious Startup Week edition.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["community", "multi-event", "annual"],
-      "notes": "Portland Startup Week 2026 confirmed May 11–16. Event submissions open."
+      "events": [
+        {
+          "name": "Portland Startup Week 2026",
+          "status": "scheduled",
+          "description": "Week-long celebration of Portland's startup community including pitch events, workshops, and networking. Includes the annual Demolicious Startup Week edition.",
+          "url": "https://www.portlandstartupweek.com/",
+          "eventUrl": null,
+          "notes": "May 11–16, 2026. Event submissions open — check their site."
+        }
+      ]
     },
     {
       "id": "founders-live",
-      "name": "Founders Live Portland",
       "org": "Founders Live",
-      "url": "https://www.founderslive.com/events-list/portland-2026-04",
-      "eventUrl": "https://www.eventbrite.com/e/1981803172638",
-      "status": "scheduled",
-      "description": "Monthly pitch competition where founders pitch live to an audience who votes for the winner. New 'Founders Live Build' format for 2026 — 5 founders build apps live, then pitch and demo.",
+      "url": "https://www.founderslive.com/",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5215, "lng": -122.6821, "city": "Portland, OR" },
       "tags": ["monthly", "short-pitch", "community"],
-      "notes": "Next event: April 9, 2026 at Metro Region Innovation Hub, 2130 SW 5th Ave Portland. 6–9pm."
+      "events": [
+        {
+          "name": "Founders Live Build — Portland",
+          "status": "scheduled",
+          "description": "New 2026 format: 5 founders build apps live from a prompt while attendees network, then demo and pitch. Audience votes for the winner.",
+          "url": "https://www.founderslive.com/events-list/portland-2026-04",
+          "eventUrl": "https://www.eventbrite.com/e/1981803172638",
+          "notes": "April 9, 2026 at Metro Region Innovation Hub, 2130 SW 5th Ave Portland. 6–9pm."
+        }
+      ]
     },
     {
       "id": "gorge-pitchfest",
-      "name": "Gorge PitchFest",
       "org": "Mid-Columbia Innovation Hub",
       "url": "https://midcolumbiainnovationhub.org/gorge-pitchfest-2026/",
-      "eventUrl": "https://midcolumbiainnovationhub.org/gorgepitchfest26/",
-      "status": "accepting",
-      "description": "Annual pitch competition hosted by the Mid-Columbia Innovation Hub serving entrepreneurs in the Columbia River Gorge region on both the Oregon and Washington sides.",
       "serviceArea": "gorge",
       "location": { "lat": 45.5947, "lng": -121.1787, "city": "The Dalles, OR" },
       "tags": ["general", "regional", "annual"],
-      "notes": "2026 event: May 28 at The Granada Theatre. Applications open now — apply at their website."
+      "events": [
+        {
+          "name": "Gorge PitchFest 2026",
+          "status": "accepting",
+          "description": "Annual pitch competition hosted by the Mid-Columbia Innovation Hub serving entrepreneurs in the Columbia River Gorge region on both the Oregon and Washington sides.",
+          "url": "https://midcolumbiainnovationhub.org/gorge-pitchfest-2026/",
+          "eventUrl": "https://midcolumbiainnovationhub.org/gorgepitchfest26/",
+          "notes": "May 28, 2026 at The Granada Theatre, The Dalles. Applications open now."
+        }
+      ]
     },
     {
       "id": "starve-ups",
-      "name": "Starve Ups",
       "org": "Starve Ups",
       "url": "https://www.starveups.com/",
-      "status": "monitor",
-      "description": "Portland-based startup pitch and networking event. Monitor their site for upcoming events.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["community", "networking"],
-      "notes": ""
+      "events": [
+        {
+          "name": "Starve Ups",
+          "status": "monitor",
+          "description": "Portland-based startup pitch and networking event. Monitor their site for upcoming events.",
+          "url": "https://www.starveups.com/",
+          "eventUrl": null,
+          "notes": ""
+        }
+      ]
     },
     {
       "id": "pie",
-      "name": "PIE Pitch Events",
       "org": "Portland Incubator Experiment (PIE)",
       "url": "https://www.piepdx.com/",
-      "status": "inactive",
-      "description": "One of Portland's most established startup incubators, co-founded by Wieden+Kennedy. Has hosted demo days and pitch events for cohorts since 2009.",
       "serviceArea": "portland-metro",
       "location": { "lat": 45.5231, "lng": -122.6765, "city": "Portland, OR" },
       "tags": ["incubator", "demo-day"],
-      "notes": "All PIE programs listed as 'on hiatus for 2026' on their website. Worth monitoring for a return."
+      "events": [
+        {
+          "name": "PIE Demo Day",
+          "status": "inactive",
+          "description": "One of Portland's most established startup incubators, co-founded by Wieden+Kennedy. Has hosted demo days and pitch events for cohorts since 2009.",
+          "url": "https://www.piepdx.com/",
+          "eventUrl": null,
+          "notes": "All PIE programs listed as 'on hiatus for 2026' on their website. Worth monitoring for a return."
+        }
+      ]
     }
   ],
   "aggregators": [
