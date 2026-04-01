@@ -238,6 +238,24 @@
       ]
     },
     {
+      "id": "oregon-startup-center",
+      "org": "Oregon Startup Center",
+      "url": "https://www.oregonstartupcenter.org/beaverton-startup-challenge-applications-open",
+      "serviceArea": "portland-metro",
+      "location": { "lat": 45.4871, "lng": -122.8037, "city": "Beaverton, OR" },
+      "tags": ["general", "investor", "annual"],
+      "events": [
+        {
+          "name": "Beaverton Startup Challenge",
+          "status": "scheduled",
+          "description": "Annual funding competition operated by the Oregon Startup Center in partnership with the City of Beaverton and the Westside Startup Fund. Open to scalable startups across tech, consumer products, manufacturing, bio/life sciences, and cleantech. Winners receive a SAFE note investment (historically ~$20k), 6 months of mentorship, and a Demo Day showcase.",
+          "url": "https://www.oregonstartupcenter.org/beaverton-startup-challenge-applications-open",
+          "eventUrl": null,
+          "notes": "Applications closed March 27, 2026. Event/Demo Day upcoming — check their site for date."
+        }
+      ]
+    },
+    {
       "id": "starve-ups",
       "org": "Starve Ups",
       "url": "https://www.starveups.com/",
