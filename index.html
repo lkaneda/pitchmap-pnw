@@ -1245,10 +1245,9 @@
       }).addTo(map);
 
       marker.bindPopup(`
-        <div style="font-family:'DM Sans',sans-serif;min-width:200px;">
-          <strong style="font-size:0.95rem;">${c.name}</strong><br/>
-          <span style="color:#888;font-size:0.8rem;">${c.org}</span><br/><br/>
-          <span style="font-size:0.8rem;">${c.location.city}</span><br/>
+        <div style="font-family:'Inter',sans-serif;min-width:200px;">
+          <strong style="font-size:0.95rem;">${c.org}</strong><br/>
+          <span style="color:#888;font-size:0.8rem;">${c.location.city}</span><br/><br/>
           <a href="${c.url}" target="_blank" style="color:#58a6ff;font-size:0.8rem;">Visit website →</a>
         </div>
       `, { className: 'dark-popup' });
