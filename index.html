@@ -1690,6 +1690,7 @@
     document.getElementById('modal-suggest').href = `https://github.com/lkaneda/pitchmap-pnw/issues/new?template=update-a-listing.md&title=Update: ${encodeURIComponent(comp.org)}`;
 
     document.getElementById('modal-overlay').classList.add('open');
+    document.getElementById('modal').scrollTop = 0;
     document.body.style.overflow = 'hidden';
 
     // Scroll highlighted event into view
