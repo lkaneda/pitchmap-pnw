@@ -3,8 +3,8 @@
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
     "lastUpdated": "2026-04-01",
-    "maintainer": "PitchMap PNW",
-    "contactEmail": "hello@pitchmappnw.com"
+    "maintainer": "Leila Kaneda",
+    "githubHandle": "lkaneda"
   },
   "competitions": [
     {
@@ -47,7 +47,8 @@
       "tags": [
         "general",
         "investor",
-        "multi-event"
+        "multi-event",
+        "student-friendly"
       ],
       "events": [
         {
@@ -57,7 +58,7 @@
           "url": "https://www.tieoregon.org/pitch-oregon/westside-pitch",
           "eventUrl": "https://events.tie.org/Oregon/WestsidePitch2026",
           "notes": "April 23, 2026 in Hillsboro. Applications closed March 9 — monitor for next cycle.",
-          "prizeType": "investment",
+          "prizeType": "both",
           "counties": [
             "Washington County"
           ]
@@ -66,11 +67,15 @@
           "name": "Columbia River Pitch",
           "status": "monitor",
           "description": "Pitch competition for entrepreneurs in the Columbia River region of Oregon and SW Washington.",
-          "url": "https://www.tieoregon.org/pitch-oregon",
+          "url": "https://www.tieoregon.org/pitch-oregon/columbia-river-pitch",
           "eventUrl": null,
           "notes": "No 2026 date announced yet. Monitor TiE Oregon's events page.",
-          "prizeType": "investment",
-          "serves": "Oregon & SW Washington"
+          "prizeType": "both",
+          "counties": [
+            "Washington County",
+            "Clark County",
+            "Multnomah County"
+          ]
         },
         {
           "name": "Collegiate Startup Challenge",
@@ -87,7 +92,7 @@
     {
       "id": "oen",
       "org": "Oregon Entrepreneurs Network (OEN)",
-      "url": "https://www.oen.org/calendar-events/",
+      "url": "https://www.oen.org/",
       "serviceArea": "oregon",
       "location": {
         "lat": 45.5231,
@@ -98,32 +103,53 @@
         "general",
         "multi-format",
         "investor",
-        "food-bev"
+        "food-bev",
+        "life-sciences",
+        "bio-sciences",
+        "technology"
       ],
       "events": [
         {
           "name": "Pitch Please",
           "status": "accepting",
           "description": "Monthly pitch event where founders get 5 minutes to pitch virtually or in person. Regional thought leaders ask questions and give feedback.",
-          "url": "https://www.oen.org/calendar-events/",
+          "url": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=400",
           "eventUrl": null,
           "notes": "Runs monthly. Check OEN calendar for next date.",
-          "prizeType": "cash"
+          "prizeType": "none"
+        },
+        {
+          "name": "Angel Oregon Technology",
+          "status": "scheduled",
+          "description": "5-week intensive program for early-stage technology founders culminating in a live Pitch Day in front of active investors. Investment announced in August 2026.",
+          "url": "https://www.oen.org/2026-technology/",
+          "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=365&",
+          "notes": "2026 program active now. Pitch Day April 7th.",
+          "prizeType": "investment"
         },
         {
           "name": "Angel Oregon CPG",
-          "status": "accepting",
-          "description": "5-week intensive program for consumer packaged goods founders culminating in a live Pitch Day in front of active investors. Investment announced in June 2026.",
+          "status": "scheduled",
+          "description": "5-week intensive program for early-stage consumer packaged goods founders culminating in a live Pitch Day in front of active investors. Investment announced in June 2026.",
           "url": "https://www.oen.org/2026-angel-oregon-consumer-packaged-goods/",
-          "eventUrl": "https://www.oen.org/2026-angel-oregon-consumer-packaged-goods/",
-          "notes": "2026 program active now. Pitch Day in April.",
+          "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=370&",
+          "notes": "2026 program active now. Pitch Day April 8th.",
+          "prizeType": "investment"
+        },
+        {
+          "name": "Angel Oregon BIO",
+          "status": "scheduled",
+          "description": "5-week intensive program for early-stage life science and bioscience founders culminating in a live Pitch Day in front of active investors. Investment announced in December 2026.",
+          "url": "https://www.oen.org/2026-angel-oregon-life-bioscience/",
+          "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=355&",
+          "notes": "2026 program active now. Pitch Day April 9th.",
           "prizeType": "investment"
         },
         {
           "name": "Pop Up & Pitch",
           "status": "monitor",
           "description": "Marketplace pitch events for Oregon food and beverage entrepreneurs, co-hosted with partners like Burgerville.",
-          "url": "https://www.oen.org/calendar-events/",
+          "url": "https://oen.app.neoncrm.com/np/clients/oen/publicaccess/eventCalendarBig.jsp",
           "eventUrl": null,
           "notes": "Typically held spring/summer. Monitor OEN calendar.",
           "prizeType": "cash"
@@ -224,14 +250,15 @@
       "tags": [
         "cleantech",
         "climate",
+        "environment",
         "accelerator"
       ],
       "events": [
         {
           "name": "45Camp Accelerator",
           "status": "monitor",
-          "description": "VertueLab's accelerator program supporting early-stage cleantech startups with mentorship, curriculum, connections, and funding opportunities.",
-          "url": "https://www.vertuelab.org/",
+          "description": "VertueLab's accelerator program supporting early-stage cleantech startups with mentorship, curriculum, connections, and pitch-based funding opportunities.",
+          "url": "https://www.vertuelab.org/45-camp",
           "eventUrl": null,
           "notes": "Accelerator program runs May–September. Watch for application opening in spring.",
           "prizeType": "investment"
@@ -259,7 +286,7 @@
           "status": "monitor",
           "description": "18-week virtual accelerator for pre-seed cleantech startups in the Northwest. Includes mentorship, curriculum, and pitch-based funding competition. Program runs May–September annually.",
           "url": "https://cascadiacleantech.org/accelerate/",
-          "eventUrl": null,
+          "eventUrl": "https://cascadiacleantech.org/accelerate/apply/",
           "notes": "Applications typically open in spring for May start. Monitor their site.",
           "prizeType": "both"
         }
@@ -286,15 +313,15 @@
           "status": "scheduled",
           "description": "Week-long celebration of Portland's startup community including pitch events, workshops, and networking. Includes the annual Demolicious Startup Week edition.",
           "url": "https://www.portlandstartupweek.com/",
-          "eventUrl": null,
+          "eventUrl": "https://eventship.com/event/demolicious-portland-startup-week-edition",
           "notes": "May 11–16, 2026. Event submissions open — check their site.",
           "prizeType": "cash"
         }
       ]
     },
     {
-      "id": "founders-live",
-      "org": "Founders Live",
+      "id": "founders-live-portland",
+      "org": "Founders Live - Portland",
       "url": "https://www.founderslive.com/",
       "serviceArea": "portland-metro",
       "location": {
@@ -310,12 +337,39 @@
       "events": [
         {
           "name": "Founders Live Build — Portland",
-          "status": "scheduled",
+          "status": "accepting",
           "description": "New 2026 format: 5 founders build apps live from a prompt while attendees network, then demo and pitch. Audience votes for the winner.",
           "url": "https://www.founderslive.com/events-list/portland-2026-04",
-          "eventUrl": "https://www.eventbrite.com/e/1981803172638",
+          "eventUrl": "https://www.founderslive.com/build",
           "notes": "April 9, 2026 at Metro Region Innovation Hub, 2130 SW 5th Ave Portland. 6–9pm.",
-          "prizeType": "cash"
+          "prizeType": "in-kind"
+        }
+      ]
+    },
+    {
+      "id": "founders-live-seattle",
+      "org": "Founders Live - Seattle",
+      "url": "https://www.founderslive.com/",
+      "serviceArea": "seattle-metro",
+      "location": {
+        "lat": 47.6062,
+        "lng": -122.3321,
+        "city": "Seattle, WA"
+      },
+      "tags": [
+        "monthly",
+        "short-pitch",
+        "community"
+      ],
+      "events": [
+        {
+          "name": "Founders Live Seattle",
+          "status": "monitor",
+          "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
+          "url": "https://www.founderslive.com/events-list/seattle-2026-02",
+          "eventUrl": null,
+          "notes": "Last event February 26, 2026. No next date announced — monitor their events page.",
+          "prizeType": "in-kind"
         }
       ]
     },
@@ -414,7 +468,7 @@
       "id": "starve-ups",
       "org": "Starve Ups",
       "url": "https://www.starveups.com/",
-      "serviceArea": "portland-metro",
+      "serviceArea": "oregon",
       "location": {
         "lat": 45.5231,
         "lng": -122.6765,
@@ -426,13 +480,13 @@
       ],
       "events": [
         {
-          "name": "Starve Ups",
-          "status": "monitor",
-          "description": "Portland-based startup pitch and networking event. Monitor their site for upcoming events.",
-          "url": "https://www.starveups.com/",
+          "name": "Venture Community",
+          "status": "inactive",
+          "description": "Oregon’s original reverse road show event bringing together 12 leading PNW funds and 26 Oregon startups for 2 days.",
+          "url": "https://www.starveups.com/events/venture-community/",
           "eventUrl": null,
-          "notes": "",
-          "prizeType": "cash"
+          "notes": "Last event was in 2018.",
+          "prizeType": "investment"
         }
       ]
     },
@@ -466,7 +520,7 @@
       "id": "dempsey-startup",
       "org": "UW Buerk Center for Entrepreneurship",
       "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
-      "serviceArea": "seattle-metro",
+      "serviceArea": "pnw",
       "location": {
         "lat": 47.6553,
         "lng": -122.3035,
@@ -483,35 +537,8 @@
           "status": "accepting",
           "description": "One of the Pacific Northwest's premier collegiate startup competitions, open to students at accredited colleges across the Cascadia Corridor (WA, OR, ID, BC, AK). Teams develop business plans and pitch to investors across multiple elimination rounds.",
           "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
-          "eventUrl": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
+          "eventUrl": "https://apply.younoodle.com/showcase/competition/2026_dempsey_startup_competition",
           "notes": "Applications due April 6, 2026. Competition rounds April 1 – May 21, 2026. Open to Oregon students.",
-          "prizeType": "cash"
-        }
-      ]
-    },
-    {
-      "id": "founders-live-seattle",
-      "org": "Founders Live",
-      "url": "https://www.founderslive.com/events-list/seattle-2026-02",
-      "serviceArea": "seattle-metro",
-      "location": {
-        "lat": 47.6062,
-        "lng": -122.3321,
-        "city": "Seattle, WA"
-      },
-      "tags": [
-        "monthly",
-        "short-pitch",
-        "community"
-      ],
-      "events": [
-        {
-          "name": "Founders Live Seattle",
-          "status": "monitor",
-          "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
-          "url": "https://www.founderslive.com/events-list/seattle-2026-02",
-          "eventUrl": null,
-          "notes": "Last event February 26, 2026. No next date announced — monitor their events page.",
           "prizeType": "cash"
         }
       ]
@@ -534,11 +561,11 @@
       "events": [
         {
           "name": "SCORE Washington Women's Pitch Contest",
-          "status": "monitor",
+          "status": "scheduled",
           "description": "Annual pitch competition for women entrepreneurs in Washington, Alaska, and Northern Idaho. Focused on helping women-led businesses secure loan financing. Finalists pitch directly to bank and financial institution loan officers.",
           "url": "https://www.score.org/seattle/2026-womens-pitch-contest",
           "eventUrl": null,
-          "notes": "2026 final event: Washington Small Business Awards Gala, May 6, 2026. Application deadline may have passed — check their site.",
+          "notes": "2026 final event on 4.2.",
           "prizeType": "loan",
           "serves": "Washington, Alaska & Northern Idaho"
         },
@@ -547,7 +574,7 @@
           "status": "accepting",
           "description": "Annual pitch competition for Washington-based tech entrepreneurs at any stage. Participants work with SCORE mentors to develop pitch decks, then compete in front of judges for cash prizes and mentorship.",
           "url": "https://www.score.org/seattle/tech-entrepreneur-pitch-contest/whats-next",
-          "eventUrl": "https://www.score.org/seattle/tech-entrepreneur-pitch-contest/whats-next",
+          "eventUrl": "https://docs.google.com/forms/d/e/1FAIpQLSe3kRi8-dPu_irYBL7GmgNb2lsBaX-8q6ThLcs363NO6mootA/viewform",
           "notes": "Pitch deck submissions due July 31, 2026. Free to enter. Work with a SCORE mentor to prepare.",
           "prizeType": "cash",
           "serves": "Washington (Statewide)"
@@ -573,7 +600,7 @@
     {
       "id": "tao",
       "name": "Technology Association of Oregon (TAO)",
-      "url": "https://www.techoregon.org/communities/ai-and-data",
+      "url": "https://www.techoregon.org/",
       "description": "Oregon's leading tech industry association. Check their calendar for pitch and innovation events.",
       "icon": "🔬"
     }
@@ -612,7 +639,7 @@
     {
       "id": "oen-community",
       "name": "Oregon Entrepreneurs Network (OEN)",
-      "url": "https://www.oen.org/calendar-events/",
+      "url": "https://www.oen.org/",
       "focus": "Statewide entrepreneur network"
     },
     {
@@ -672,25 +699,25 @@
     {
       "id": "magnet",
       "name": "Magnet Networking",
-      "url": "https://www.eventbrite.com/d/or--portland/magnet-a-different-kind-of-networking/",
+      "url": "https://www.magnetworked.com/",
       "focus": "Networking"
     },
     {
       "id": "out-in-tech",
       "name": "Out in Tech PDX",
-      "url": "https://www.eventbrite.com/e/out-in-tech-pdx-january-26-mixer-tickets-1978172993675",
+      "url": "https://outintech.com/",
       "focus": "LGBTQ+ tech community"
     },
     {
       "id": "ama-pdx",
       "name": "American Marketing Association PDX",
-      "url": "https://www.ama-pdx.org/events",
+      "url": "https://www.ama-pdx.org/",
       "focus": "Marketing"
     },
     {
       "id": "prsa-oregon",
       "name": "PRSA Oregon",
-      "url": "https://prsaoregon.org/content.aspx?page_id=4001&club_id=533454",
+      "url": "https://prsaoregon.org/",
       "focus": "Public relations"
     },
     {
