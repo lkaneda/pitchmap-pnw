@@ -69,7 +69,8 @@
           "url": "https://www.tieoregon.org/pitch-oregon",
           "eventUrl": null,
           "notes": "No 2026 date announced yet. Monitor TiE Oregon's events page.",
-          "prizeType": "investment"
+          "prizeType": "investment",
+          "serves": "Oregon & SW Washington"
         },
         {
           "name": "Collegiate Startup Challenge",
@@ -78,7 +79,8 @@
           "url": "https://www.tieoregon.org/pitch-oregon/collegiate-startup-challenge",
           "eventUrl": null,
           "notes": "No 2026 date announced yet. Monitor TiE Oregon's events page.",
-          "prizeType": "investment"
+          "prizeType": "investment",
+          "serves": "Oregon & SW Washington"
         }
       ]
     },
@@ -536,7 +538,8 @@
           "url": "https://www.score.org/seattle/2026-womens-pitch-contest",
           "eventUrl": null,
           "notes": "2026 final event: Washington Small Business Awards Gala, May 6, 2026. Application deadline may have passed — check their site.",
-          "prizeType": "loan"
+          "prizeType": "loan",
+          "serves": "Washington, Alaska & Northern Idaho"
         },
         {
           "name": "SCORE Tech Entrepreneurs Pitch Contest",
@@ -545,7 +548,8 @@
           "url": "https://www.score.org/seattle/tech-entrepreneur-pitch-contest/whats-next",
           "eventUrl": "https://www.score.org/seattle/tech-entrepreneur-pitch-contest/whats-next",
           "notes": "Pitch deck submissions due July 31, 2026. Free to enter. Work with a SCORE mentor to prepare.",
-          "prizeType": "cash"
+          "prizeType": "cash",
+          "serves": "Washington (Statewide)"
         }
       ]
     }
