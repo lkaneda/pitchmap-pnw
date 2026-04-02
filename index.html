@@ -1108,7 +1108,7 @@
     const map = {
       'portland-metro': ['area-portland', '📍 Portland Metro'],
       'seattle-metro':  ['area-seattle',  '📍 Seattle Metro'],
-      'oregon':         ['area-oregon',   '🌲 Oregon'],
+      'oregon-sw-washington': ['area-oregon', '🌲 Oregon & SW Washington'],
       'pnw':            ['area-pnw',      '🏔️ PNW'],
       'washington':     ['area-pnw',      '🏔️ Washington'],
       'gorge':          ['area-oregon',   '🌊 Columbia River Gorge'],
@@ -1128,7 +1128,8 @@
     const areaLabels = {
       'portland-metro': 'Greater Portland Metro Area',
       'seattle-metro':  'Greater Seattle Metro Area',
-      'oregon':         'Oregon (Statewide)',
+      'oregon':              'Oregon (Statewide)',
+      'oregon-sw-washington':'Oregon & SW Washington',
       'washington':     'Washington (Statewide)',
       'pnw':            'Oregon & Washington',
       'gorge':          'Columbia River Gorge Region',
@@ -1187,7 +1188,8 @@
       const serviceAreaText = {
         'portland-metro': 'portland metro oregon',
         'seattle-metro':  'seattle metro washington',
-        'oregon':         'oregon',
+        'oregon':              'oregon',
+      'oregon-sw-washington':'oregon sw washington southwest',
         'washington':     'washington',
         'pnw':            'pacific northwest oregon washington pnw',
         'gorge':          'gorge columbia river gorge oregon washington',
@@ -1470,12 +1472,13 @@
   }
 
   function eventMatchesArea(comp, distToComp, inOR, inWA, inPNW) {
-    if (comp.serviceArea === 'pnw')            return inPNW;
-    if (comp.serviceArea === 'oregon')         return inOR;
-    if (comp.serviceArea === 'washington')     return inWA;
-    if (comp.serviceArea === 'portland-metro') return distToComp <= 50;
-    if (comp.serviceArea === 'seattle-metro')  return distToComp <= 50;
-    if (comp.serviceArea === 'gorge')          return distToComp <= 60;
+    if (comp.serviceArea === 'pnw')                 return inPNW;
+    if (comp.serviceArea === 'oregon')              return inOR;
+    if (comp.serviceArea === 'oregon-sw-washington') return inOR || (inWA && distToComp <= 150);
+    if (comp.serviceArea === 'washington')          return inWA;
+    if (comp.serviceArea === 'portland-metro')      return distToComp <= 50;
+    if (comp.serviceArea === 'seattle-metro')       return distToComp <= 50;
+    if (comp.serviceArea === 'gorge')               return distToComp <= 60;
     return false;
   }
 
