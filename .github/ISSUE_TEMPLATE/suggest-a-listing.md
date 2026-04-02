@@ -33,6 +33,8 @@ assignees: lkaneda
 - [ ] Cash/Grant
 - [ ] Investment
 - [ ] Loan
+- [ ] In Kind
+- [ ] None
 - [ ] Other (please explain)
 
 ## Notes
