@@ -1117,6 +1117,23 @@
     return `<span class="area-badge ${cls}">${label}</span>`;
   }
 
+  function servesLabel(comp, event) {
+    // If event has specific counties, use those
+    if (event.counties && event.counties.length > 0) {
+      return event.counties.join(', ');
+    }
+    // Otherwise derive from serviceArea
+    const areaLabels = {
+      'portland-metro': 'Greater Portland Metro Area',
+      'seattle-metro':  'Greater Seattle Metro Area',
+      'oregon':         'Oregon (Statewide)',
+      'washington':     'Washington (Statewide)',
+      'pnw':            'Oregon & Washington',
+      'gorge':          'Columbia River Gorge Region',
+    };
+    return areaLabels[comp.serviceArea] || comp.serviceArea;
+  }
+
   function prizeTagHTML(prizeType) {
     const map = {
       cash:       ['prize-cash',       '💵 Cash / Grant'],
@@ -1165,10 +1182,19 @@
       const matchesFilter = matchesFilters(c);
 
       const q = searchQuery.toLowerCase();
+      const serviceAreaText = {
+        'portland-metro': 'portland metro oregon',
+        'seattle-metro':  'seattle metro washington',
+        'oregon':         'oregon',
+        'washington':     'washington',
+        'pnw':            'pacific northwest oregon washington pnw',
+        'gorge':          'gorge columbia river gorge oregon washington',
+      }[c.serviceArea] || c.serviceArea;
+
       const matchesSearch =
         !q ||
         c.org.toLowerCase().includes(q) ||
-        c.serviceArea.toLowerCase().includes(q) ||
+        serviceAreaText.includes(q) ||
         (c.location && c.location.city.toLowerCase().includes(q)) ||
         c.tags.some(t => t.toLowerCase().includes(q)) ||
         c.events.some(e =>
@@ -1563,7 +1589,10 @@
             </div>
           </div>
           <div class="modal-event-desc">${e.description}</div>
-          ${e.counties && e.counties.length > 0 ? `<div style="font-size:0.8rem;color:var(--text-muted);display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;"><span style="color:var(--accent3);">📍 Serves:</span> ${e.counties.map(c => `<span class="tag">${c}</span>`).join('')}</div>` : ''}
+          <div style="font-size:0.8rem;color:var(--text-muted);display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;">
+            <span style="color:var(--accent3);">📍 Serves:</span>
+            <span>${servesLabel(comp, e)}</span>
+          </div>
           ${e.notes ? `<div class="modal-event-notes">${e.notes}</div>` : ''}
           <div class="modal-event-actions">${btns}</div>
         </div>
