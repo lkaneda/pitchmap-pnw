@@ -380,6 +380,34 @@
       ]
     },
     {
+      "id": "business-impact-nw",
+      "org": "Business Impact NW",
+      "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
+      "serviceArea": "pnw",
+      "location": {
+        "lat": 47.4601,
+        "lng": -122.2574,
+        "city": "Tukwila, WA"
+      },
+      "tags": [
+        "general",
+        "community-impact",
+        "annual",
+        "multi-stage"
+      ],
+      "events": [
+        {
+          "name": "Impact Pitch Competition",
+          "status": "monitor",
+          "description": "Annual multi-round pitch competition open to small businesses in Alaska, Idaho, Oregon, and Washington. Focuses on community impact alongside business viability. Three categories: Startup/Idea Stage, Early Stage, and Established. Note: tech companies and apps are not eligible.",
+          "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
+          "eventUrl": null,
+          "notes": "2025 competition concluded October 9. Watch for 2026 applications to open around May–June 2026.",
+          "prizeType": "cash"
+        }
+      ]
+    },
+    {
       "id": "starve-ups",
       "org": "Starve Ups",
       "url": "https://www.starveups.com/",
@@ -428,6 +456,96 @@
           "eventUrl": null,
           "notes": "All PIE programs listed as 'on hiatus for 2026' on their website. Worth monitoring for a return.",
           "prizeType": "investment"
+        }
+      ]
+    },
+    {
+      "id": "dempsey-startup",
+      "org": "UW Buerk Center for Entrepreneurship",
+      "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
+      "serviceArea": "seattle-metro",
+      "location": {
+        "lat": 47.6553,
+        "lng": -122.3035,
+        "city": "Seattle, WA"
+      },
+      "tags": [
+        "collegiate",
+        "student-only",
+        "investor"
+      ],
+      "events": [
+        {
+          "name": "Dempsey Startup Competition",
+          "status": "accepting",
+          "description": "One of the Pacific Northwest's premier collegiate startup competitions, open to students at accredited colleges across the Cascadia Corridor (WA, OR, ID, BC, AK). Teams develop business plans and pitch to investors across multiple elimination rounds.",
+          "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
+          "eventUrl": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
+          "notes": "Applications due April 6, 2026. Competition rounds April 1 – May 21, 2026. Open to Oregon students.",
+          "prizeType": "cash"
+        }
+      ]
+    },
+    {
+      "id": "founders-live-seattle",
+      "org": "Founders Live",
+      "url": "https://www.founderslive.com/events-list/seattle-2026-02",
+      "serviceArea": "seattle-metro",
+      "location": {
+        "lat": 47.6062,
+        "lng": -122.3321,
+        "city": "Seattle, WA"
+      },
+      "tags": [
+        "monthly",
+        "short-pitch",
+        "community"
+      ],
+      "events": [
+        {
+          "name": "Founders Live Seattle",
+          "status": "monitor",
+          "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
+          "url": "https://www.founderslive.com/events-list/seattle-2026-02",
+          "eventUrl": null,
+          "notes": "Last event February 26, 2026. No next date announced — monitor their events page.",
+          "prizeType": "cash"
+        }
+      ]
+    },
+    {
+      "id": "score-washington",
+      "org": "SCORE Washington District",
+      "url": "https://www.score.org/seattle",
+      "serviceArea": "seattle-metro",
+      "location": {
+        "lat": 47.6062,
+        "lng": -122.3321,
+        "city": "Seattle, WA"
+      },
+      "tags": [
+        "general",
+        "small-business",
+        "annual"
+      ],
+      "events": [
+        {
+          "name": "SCORE Washington Women's Pitch Contest",
+          "status": "monitor",
+          "description": "Annual pitch competition for women entrepreneurs in Washington, Alaska, and Northern Idaho. Focused on helping women-led businesses secure loan financing. Finalists pitch directly to bank and financial institution loan officers.",
+          "url": "https://www.score.org/seattle/2026-womens-pitch-contest",
+          "eventUrl": null,
+          "notes": "2026 final event: Washington Small Business Awards Gala, May 6, 2026. Application deadline may have passed — check their site.",
+          "prizeType": "loan"
+        },
+        {
+          "name": "SCORE Tech Entrepreneurs Pitch Contest",
+          "status": "accepting",
+          "description": "Annual pitch competition for Washington-based tech entrepreneurs at any stage. Participants work with SCORE mentors to develop pitch decks, then compete in front of judges for cash prizes and mentorship.",
+          "url": "https://www.score.org/seattle/tech-entrepreneur-pitch-contest/whats-next",
+          "eventUrl": "https://www.score.org/seattle/tech-entrepreneur-pitch-contest/whats-next",
+          "notes": "Pitch deck submissions due July 31, 2026. Free to enter. Work with a SCORE mentor to prepare.",
+          "prizeType": "cash"
         }
       ]
     }
