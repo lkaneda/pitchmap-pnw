@@ -734,6 +734,33 @@
       font-weight: 600;
     }
 
+    /* ── PAGINATION ── */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .page-btn {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 0.4rem 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.15s;
+      min-width: 36px;
+      text-align: center;
+    }
+    .page-btn:hover { border-color: var(--accent3); color: var(--text); }
+    .page-btn.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 700; }
+    .page-btn:disabled { opacity: 0.3; cursor: default; }
+    .page-btn:disabled:hover { border-color: var(--border); color: var(--text-muted); }
+
     /* ── MODAL ── */
     .modal-overlay {
       display: none;
@@ -985,6 +1012,7 @@
     <div class="cards-grid" id="cards-grid">
       <div class="no-results" id="no-results">No competitions match your filter. <a href="#" onclick="resetFilters(); return false;">Clear filters</a></div>
     </div>
+    <div class="pagination" id="pagination"></div>
   </section>
 
   <!-- MAP -->
@@ -1034,11 +1062,11 @@
   <section id="suggest">
     <div class="suggest-section" style="grid-template-columns:1fr;">
       <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:1rem 0;">
-        <h2 style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem;">Know something we don't?</h2>
+        <h2 style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:0.75rem;">See something missing?</h2>
         <p style="color:var(--text-muted);font-size:0.95rem;max-width:520px;line-height:1.65;margin-bottom:0.75rem;">PitchMap PNW is community-maintained. If you know of a pitch competition, host organization, or community group that should be on this list — or if something has changed — let us know.</p>
         <p style="color:var(--text-muted);font-size:0.82rem;max-width:480px;margin-bottom:2rem;border-left:2px solid var(--border);padding-left:0.75rem;text-align:left;">Submissions are reviewed before being added. You can also open an issue directly on <a href="https://github.com/lkaneda/pitchmap-pnw/issues/new?template=suggest-a-listing.md" target="_blank" style="color:var(--accent3);">GitHub</a>.</p>
         <a href="https://forms.gle/DGBsjABtrnDjWZv97" target="_blank" rel="noopener" class="btn-submit" style="display:inline-block;text-decoration:none;padding:0.85rem 2.5rem;font-size:1rem;border-radius:8px;max-width:320px;">
-          Suggest a Listing →
+          Suggest a Listing
         </a>
       </div>
     </div>
@@ -1064,7 +1092,7 @@
     </div>
     <div class="modal-footer">
       <span id="modal-updated"></span>
-      <a id="modal-suggest" href="" target="_blank">Suggest an update →</a>
+      <a id="modal-suggest" href="" target="_blank">Suggest an update</a>
     </div>
   </div>
 </div>
@@ -1165,6 +1193,9 @@
 
   // ── RENDER COMPETITIONS ──
   let searchQuery = '';
+  let currentPage = 1;
+  const PAGE_SIZE = 9;
+  let lastFiltered = [];
 
   function matchesFilters(c) {
     if (activeFilters.size === 0) return true;
@@ -1184,7 +1215,8 @@
     });
   }
 
-  function renderCards() {
+  function renderCards(page) {
+    if (page !== undefined) currentPage = page;
     const grid = document.getElementById('cards-grid');
     const noResults = document.getElementById('no-results');
     const comps = DATA.competitions;
@@ -1194,13 +1226,13 @@
 
       const q = searchQuery.toLowerCase();
       const serviceAreaText = {
-        'portland-metro': 'portland metro oregon',
-        'seattle-metro':  'seattle metro washington',
+        'portland-metro':      'portland metro oregon',
+        'seattle-metro':       'seattle metro washington',
         'oregon':              'oregon',
-      'oregon-sw-washington':'oregon sw washington southwest',
-        'washington':     'washington',
-        'pnw':            'pacific northwest oregon washington pnw',
-        'gorge':          'gorge columbia river gorge oregon washington',
+        'oregon-sw-washington':'oregon sw washington southwest',
+        'washington':          'washington',
+        'pnw':                 'pacific northwest oregon washington pnw',
+        'gorge':               'gorge columbia river gorge oregon washington',
       }[c.serviceArea] || c.serviceArea;
 
       const matchesSearch =
@@ -1220,6 +1252,12 @@
       return matchesFilter && matchesSearch;
     });
 
+    lastFiltered = filtered;
+    const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+    if (currentPage > totalPages) currentPage = 1;
+    const pageStart = (currentPage - 1) * PAGE_SIZE;
+    const pageItems = filtered.slice(pageStart, pageStart + PAGE_SIZE);
+
     const existing = grid.querySelectorAll('.card');
     existing.forEach(el => el.remove());
 
@@ -1227,7 +1265,7 @@
       noResults.style.display = 'block';
     } else {
       noResults.style.display = 'none';
-      filtered.forEach(c => {
+      pageItems.forEach(c => {
         const best = topStatus(c);
         const card = document.createElement('div');
         card.className = 'card';
@@ -1255,16 +1293,47 @@
               ${areaLabel(c.serviceArea)}
               ${c.tags.slice(0,2).map(t => `<span class="tag">${t}</span>`).join('')}
             </div>
-            <a href="${c.url}" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">Visit →</a>
+            <a href="${c.url}" target="_blank" rel="noopener" class="card-link" onclick="event.stopPropagation()">Visit</a>
           </div>
         `;
         grid.appendChild(card);
       });
     }
 
-    document.getElementById('comp-count').textContent = `${filtered.length} of ${comps.length} organizations`;
+    // Update count
+    const countEl = document.getElementById('comp-count');
+    if (filtered.length === 0) {
+      countEl.textContent = '0 organizations';
+    } else if (totalPages > 1) {
+      countEl.textContent = `${pageStart + 1}–${Math.min(pageStart + PAGE_SIZE, filtered.length)} of ${filtered.length} organizations`;
+    } else {
+      countEl.textContent = `${filtered.length} of ${comps.length} organizations`;
+    }
+
+    // Render pagination
+    renderPagination(totalPages);
+
     const active = comps.filter(c => { const s = topStatus(c); return s === 'accepting' || s === 'scheduled'; }).length;
     document.getElementById('stat-active').textContent = active;
+  }
+
+  function renderPagination(totalPages) {
+    const el = document.getElementById('pagination');
+    if (totalPages <= 1) { el.innerHTML = ''; return; }
+
+    let html = '';
+    html += `<button class="page-btn" onclick="renderCards(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>‹ Prev</button>`;
+
+    for (let i = 1; i <= totalPages; i++) {
+      if (totalPages > 7 && i > 2 && i < totalPages - 1 && Math.abs(i - currentPage) > 1) {
+        if (i === 3 || i === totalPages - 2) html += `<span style="color:var(--text-muted);padding:0 0.25rem;">…</span>`;
+        continue;
+      }
+      html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="renderCards(${i})">${i}</button>`;
+    }
+
+    html += `<button class="page-btn" onclick="renderCards(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next ›</button>`;
+    el.innerHTML = html;
   }
 
   // ── FILTER PILLS (multi-select) ──
@@ -1290,12 +1359,14 @@
           btn.classList.add('active');
         }
       }
+      currentPage = 1;
       renderCards();
     });
   });
 
   document.getElementById('search-input').addEventListener('input', e => {
     searchQuery = e.target.value;
+    currentPage = 1;
     renderCards();
   });
 
@@ -1351,7 +1422,7 @@
         <div style="font-family:'Inter',sans-serif;min-width:200px;">
           <strong style="font-size:0.95rem;">${c.org}</strong><br/>
           <span style="color:#888;font-size:0.8rem;">${c.location.city}</span><br/><br/>
-          <a href="${c.url}" target="_blank" style="color:#58a6ff;font-size:0.8rem;">Visit website →</a>
+          <a href="${c.url}" target="_blank" style="color:#58a6ff;font-size:0.8rem;">Visit website</a>
         </div>
       `, { className: 'dark-popup' });
     });
@@ -1591,9 +1662,9 @@
     actions.innerHTML = comp.events.map(e => {
       const isHighlighted = highlightEventName && e.name === highlightEventName;
       const btns = e.eventUrl
-        ? `<a href="${e.eventUrl}" target="_blank" rel="noopener" class="btn-event-primary">Apply / Register →</a>
-           <a href="${e.url}" target="_blank" rel="noopener" class="btn-event-secondary">Visit Website ↗</a>`
-        : `<a href="${e.url}" target="_blank" rel="noopener" class="btn-event-primary">Visit Website →</a>`;
+        ? `<a href="${e.eventUrl}" target="_blank" rel="noopener" class="btn-event-primary">Apply / Register</a>
+           <a href="${e.url}" target="_blank" rel="noopener" class="btn-event-secondary">Visit Website</a>`
+        : `<a href="${e.url}" target="_blank" rel="noopener" class="btn-event-primary">Visit Website</a>`;
       return `
         <div class="modal-event" style="${isHighlighted ? 'border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);' : ''}">
           <div class="modal-event-header">
@@ -1616,7 +1687,7 @@
 
     // Footer
     document.getElementById('modal-updated').textContent = `Last checked: ${DATA.meta.lastUpdated}`;
-    document.getElementById('modal-suggest').href = `https://github.com/lkaneda/pitchmap-pnw/issues/new?template=suggest-a-listing.md&title=Update: ${encodeURIComponent(comp.org)}`;
+    document.getElementById('modal-suggest').href = `https://github.com/lkaneda/pitchmap-pnw/issues/new?template=update-a-listing.md&title=Update: ${encodeURIComponent(comp.org)}`;
 
     document.getElementById('modal-overlay').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1672,7 +1743,7 @@
             <div class="community-name">${c.name}</div>
             <div class="community-focus">${c.focus}</div>
           </div>
-          <span class="community-arrow">↗</span>
+          
         </a>
       `;
     });
