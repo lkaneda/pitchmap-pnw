@@ -376,6 +376,7 @@
       background: var(--bg);
     }
     .area-portland { border-color: rgba(240,165,0,0.4); color: var(--accent); background: rgba(240,165,0,0.06); }
+    .area-seattle  { border-color: rgba(88,166,255,0.4); color: var(--blue);  background: rgba(88,166,255,0.06); }
     .area-oregon { border-color: rgba(88,166,255,0.3); color: var(--blue); background: rgba(88,166,255,0.06); }
     .area-pnw { border-color: rgba(63,185,80,0.3); color: var(--green); background: rgba(63,185,80,0.06); }
 
@@ -590,6 +591,7 @@
     .prize-cash       { background: rgba(63,185,80,0.1);  color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
     .prize-investment { background: rgba(88,166,255,0.1); color: var(--blue);  border: 1px solid rgba(88,166,255,0.3); }
     .prize-both       { background: rgba(240,165,0,0.1);  color: var(--accent);border: 1px solid rgba(240,165,0,0.3); }
+    .prize-loan       { background: rgba(210,153,34,0.1); color: var(--yellow);border: 1px solid rgba(210,153,34,0.3); }
 
     /* ── EVENT BULLETS ── */
     .event-list {
@@ -957,12 +959,14 @@
     <button class="pill" data-filter="monitor">Monitor</button>
     <button class="pill" data-filter="inactive">Inactive</button>
     <button class="pill" data-filter="portland-metro">📍 Portland Metro</button>
+    <button class="pill" data-filter="seattle-metro">📍 Seattle Metro</button>
     <button class="pill" data-filter="gorge">🌊 Gorge</button>
     <button class="pill" data-filter="cleantech">♻️ Cleantech</button>
     <button class="pill" data-filter="university">🎓 University</button>
     <button class="pill" data-filter="cash">💵 Cash / Grant</button>
     <button class="pill" data-filter="investment">📈 Investment</button>
     <button class="pill" data-filter="both">💵📈 Cash + Investment</button>
+    <button class="pill" data-filter="loan">🏦 Loan</button>
   </div>
 </div>
 
@@ -1103,6 +1107,7 @@
   function areaLabel(area) {
     const map = {
       'portland-metro': ['area-portland', '📍 Portland Metro'],
+      'seattle-metro':  ['area-seattle',  '📍 Seattle Metro'],
       'oregon':         ['area-oregon',   '🌲 Oregon'],
       'pnw':            ['area-pnw',      '🏔️ PNW'],
       'washington':     ['area-pnw',      '🏔️ Washington'],
@@ -1117,6 +1122,7 @@
       cash:       ['prize-cash',       '💵 Cash / Grant'],
       investment: ['prize-investment', '📈 Investment'],
       both:       ['prize-both',       '💵📈 Cash + Investment'],
+      loan:       ['prize-loan',       '🏦 Loan'],
     };
     const [cls, label] = map[prizeType] || map.cash;
     return `<span class="prize-tag ${cls}">${label}</span>`;
@@ -1139,11 +1145,13 @@
     const best = topStatus(c);
     return [...activeFilters].every(f => {
       if (f === 'portland-metro') return c.serviceArea === 'portland-metro';
+      if (f === 'seattle-metro')  return c.serviceArea === 'seattle-metro';
       if (f === 'gorge')          return c.serviceArea === 'gorge';
       if (f === 'accepting' || f === 'scheduled' || f === 'monitor' || f === 'inactive') return best === f;
       if (f === 'cash')       return c.events.some(e => e.prizeType === 'cash' || e.prizeType === 'both');
       if (f === 'investment') return c.events.some(e => e.prizeType === 'investment' || e.prizeType === 'both');
       if (f === 'both')       return c.events.some(e => e.prizeType === 'both');
+      if (f === 'loan')       return c.events.some(e => e.prizeType === 'loan');
       return c.tags.includes(f);
     });
   }
@@ -1434,11 +1442,12 @@
   }
 
   function eventMatchesArea(comp, distToComp, inOR, inWA, inPNW) {
-    if (comp.serviceArea === 'pnw')          return inPNW;
-    if (comp.serviceArea === 'oregon')       return inOR;
-    if (comp.serviceArea === 'washington')   return inWA;
+    if (comp.serviceArea === 'pnw')            return inPNW;
+    if (comp.serviceArea === 'oregon')         return inOR;
+    if (comp.serviceArea === 'washington')     return inWA;
     if (comp.serviceArea === 'portland-metro') return distToComp <= 50;
-    if (comp.serviceArea === 'gorge')        return distToComp <= 60;
+    if (comp.serviceArea === 'seattle-metro')  return distToComp <= 50;
+    if (comp.serviceArea === 'gorge')          return distToComp <= 60;
     return false;
   }
 
