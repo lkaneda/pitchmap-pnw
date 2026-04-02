@@ -18,7 +18,8 @@ Each listing includes:
 
 - **Host organization** and the events they run
 - **Status** — whether applications are open, an event is scheduled, or it's worth monitoring
-- **Service area** — Portland Metro, Oregon statewide, Washington, PNW-wide, or the Columbia River Gorge
+- **Service area** — Portland Metro, Oregon statewide, Seattle Metro, Washington, PNW-wide, or the Columbia River Gorge
+- **Award type** — Cash/Grant, Investment, or Loan
 - **Notes** — deadlines, event dates, and other timely details
 - **Links** — to the organization's website and event/application page when available
 
@@ -57,7 +58,10 @@ Everything in the directory lives in a single file: [`data.json`](data.json). Ea
       "description": "A brief description of the event.",
       "url": "https://example.org/pitch",
       "eventUrl": "https://example.org/apply",
-      "notes": "Applications open through May 1. Event on May 20."
+      "notes": "Applications open through May 1. Event on May 20.",
+      "prizeType": "cash",
+      "serves": "Greater Portland Metro Area",
+      "counties": ["Multnomah County", "Washington County"]
     }
   ]
 }
@@ -77,10 +81,21 @@ Everything in the directory lives in a single file: [`data.json`](data.json). Ea
 | Value | Meaning |
 |---|---|
 | `"portland-metro"` | Greater Portland area (~50 mile radius) |
+| `"seattle-metro"` | Greater Seattle area (~50 mile radius) |
 | `"gorge"` | Columbia River Gorge region (~60 mile radius from The Dalles) |
 | `"oregon"` | Oregon state |
 | `"washington"` | Washington state |
 | `"pnw"` | Oregon + Washington |
+
+### Prize type values
+
+| Value | Meaning |
+|---|---|
+| `"cash"` | Cash prize or grant |
+| `"investment"` | Equity or SAFE investment |
+| `"both"` | Cash prize plus investment |
+| `"loan"` | Loan financing opportunity |
+
 
 ---
 
