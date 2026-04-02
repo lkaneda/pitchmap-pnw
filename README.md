@@ -19,7 +19,7 @@ Each listing includes:
 - **Host organization** and the events they run
 - **Status** — whether applications are open, an event is scheduled, or it's worth monitoring
 - **Service area** — Portland Metro, Oregon statewide, Seattle Metro, Washington, PNW-wide, or the Columbia River Gorge
-- **Award type** — Cash/Grant, Investment, or Loan
+- **Award type** — Cash/Grant, Investment, Loan, In Kind, or None
 - **Notes** — deadlines, event dates, and other timely details
 - **Links** — to the organization's website and event/application page when available
 
