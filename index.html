@@ -1369,7 +1369,9 @@
   async function searchLocation(query) {
     if (!query.trim()) return;
     try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=us&limit=1`);
+      // Bias toward PNW (Oregon + Washington bounding box), but don't restrict
+      const pnwViewbox = '-124.85,41.99,-116.46,49.00';
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=us&viewbox=${pnwViewbox}&bounded=0&limit=1`);
       const data = await res.json();
       if (data.length > 0) {
         const { lat, lon, display_name } = data[0];
