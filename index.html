@@ -1143,6 +1143,8 @@
       investment: ['prize-investment', '📈 Investment'],
       both:       ['prize-both',       '💵📈 Cash + Investment'],
       loan:       ['prize-loan',       '🏦 Loan'],
+      in_kind:    ['prize-in-kind',    '🎁 In Kind'],
+      none:       ['prize-none',       '❌ None'],
     };
     const [cls, label] = map[prizeType] || map.cash;
     return `<span class="prize-tag ${cls}">${label}</span>`;
@@ -1172,6 +1174,8 @@
       if (f === 'investment') return c.events.some(e => e.prizeType === 'investment' || e.prizeType === 'both');
       if (f === 'both')       return c.events.some(e => e.prizeType === 'both');
       if (f === 'loan')       return c.events.some(e => e.prizeType === 'loan');
+      if (f === 'in-kind')    return c.events.some(e => e.prizeType === 'in-kind');
+      if (f === 'none')       return c.events.some(e => e.prizeType === 'none');
       return c.tags.includes(f);
     });
   }
