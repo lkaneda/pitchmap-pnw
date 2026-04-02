@@ -39,6 +39,18 @@ All submissions are reviewed before being added. The maintainer typically proces
 
 ---
 
+## How to request a feature, report a bug, or update a listing
+
+All requests are tracked as GitHub issues. Use the links below to open the right template:
+
+- **Update a listing** — something has changed with an existing org or event (new status, wrong link, outdated info): [Open an update request](https://github.com/lkaneda/pitchmap-pnw/issues/new?template=update-a-listing.md)
+- **Request a feature** — an idea for something new the site should do: [Open a feature request](https://github.com/lkaneda/pitchmap-pnw/issues/new?template=feature_request.md)
+- **Report a bug** — something on the site is broken or behaving unexpectedly: [Open a bug report](https://github.com/lkaneda/pitchmap-pnw/issues/new?template=bug_report.md)
+
+You can also browse [all open issues](https://github.com/lkaneda/pitchmap-pnw/issues) to see what's already been reported or requested before filing a new one.
+
+---
+
 ## How the data works
 
 Everything in the directory lives in a single file: [`data.json`](data.json). Each host organization has an entry that looks like this:
@@ -84,6 +96,7 @@ Everything in the directory lives in a single file: [`data.json`](data.json). Ea
 | `"seattle-metro"` | Greater Seattle area (~50 mile radius) |
 | `"gorge"` | Columbia River Gorge region (~60 mile radius from The Dalles) |
 | `"oregon"` | Oregon state |
+| `"oregon-sw-washington"` | Oregon and SW Washington (e.g. Vancouver, WA area) |
 | `"washington"` | Washington state |
 | `"pnw"` | Oregon + Washington |
 
