@@ -580,6 +580,17 @@
       font-weight: 700;
     }
 
+    .prize-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .prize-cash       { background: rgba(63,185,80,0.1);  color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+    .prize-investment { background: rgba(88,166,255,0.1); color: var(--blue);  border: 1px solid rgba(88,166,255,0.3); }
+    .prize-both       { background: rgba(240,165,0,0.1);  color: var(--accent);border: 1px solid rgba(240,165,0,0.3); }
+
     /* ── EVENT BULLETS ── */
     .event-list {
       display: flex;
@@ -949,6 +960,8 @@
     <button class="pill" data-filter="gorge">🌊 Gorge</button>
     <button class="pill" data-filter="cleantech">♻️ Cleantech</button>
     <button class="pill" data-filter="university">🎓 University</button>
+    <button class="pill" data-filter="cash">💵 Cash / Grant</button>
+    <button class="pill" data-filter="investment">📈 Investment</button>
   </div>
 </div>
 
@@ -1098,6 +1111,16 @@
     return `<span class="area-badge ${cls}">${label}</span>`;
   }
 
+  function prizeTagHTML(prizeType) {
+    const map = {
+      cash:       ['prize-cash',       '💵 Cash / Grant'],
+      investment: ['prize-investment', '📈 Investment'],
+      both:       ['prize-both',       '💵📈 Cash + Investment'],
+    };
+    const [cls, label] = map[prizeType] || map.cash;
+    return `<span class="prize-tag ${cls}">${label}</span>`;
+  }
+
   // ── STATUS PRIORITY ──
   const STATUS_PRIORITY = { accepting: 0, scheduled: 1, monitor: 2, inactive: 3 };
 
@@ -1123,7 +1146,8 @@
         best === activeFilter ||
         (activeFilter === 'portland-metro' && c.serviceArea === 'portland-metro') ||
         (activeFilter === 'gorge' && c.serviceArea === 'gorge') ||
-        c.tags.includes(activeFilter);
+        c.tags.includes(activeFilter) ||
+        c.events.some(e => e.prizeType === activeFilter || (activeFilter === 'cash' && e.prizeType === 'both') || (activeFilter === 'investment' && e.prizeType === 'both'));
 
       const q = searchQuery.toLowerCase();
       const matchesSearch =
@@ -1153,6 +1177,7 @@
           <div class="event-bullet">
             <div class="event-dot ${e.status}"></div>
             <span class="event-bullet-name">${e.name}</span>
+            ${prizeTagHTML(e.prizeType)}
           </div>
         `).join('');
 
@@ -1391,6 +1416,7 @@
           <div class="nearby-name">${event.name}</div>
           <div class="nearby-org">${comp.org} · <em style="color:var(--text-muted);font-style:italic;">${comp.location ? comp.location.city : ''}</em></div>
         </div>
+        ${prizeTagHTML(event.prizeType)}
         ${badgeHTML(event.status)}
         <div class="nearby-distance"><strong>${dist} mi</strong> to org</div>
       `;
@@ -1442,7 +1468,10 @@
         <div class="modal-event" style="${isHighlighted ? 'border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);' : ''}">
           <div class="modal-event-header">
             <div class="modal-event-name">${isHighlighted ? `<span style="color:var(--accent);">↳ </span>` : ''}${e.name}</div>
-            ${badgeHTML(e.status)}
+            <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;justify-content:flex-end;">
+              ${prizeTagHTML(e.prizeType)}
+              ${badgeHTML(e.status)}
+            </div>
           </div>
           <div class="modal-event-desc">${e.description}</div>
           ${e.notes ? `<div class="modal-event-notes">${e.notes}</div>` : ''}
