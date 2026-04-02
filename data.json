@@ -114,7 +114,7 @@
           "status": "accepting",
           "description": "Monthly pitch event where founders get 5 minutes to pitch virtually or in person. Regional thought leaders ask questions and give feedback.",
           "url": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=400",
-          "eventUrl": null,
+          "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/eventRegistration.jsp?event=400",
           "notes": "Runs monthly. Check OEN calendar for next date.",
           "prizeType": "none"
         },
