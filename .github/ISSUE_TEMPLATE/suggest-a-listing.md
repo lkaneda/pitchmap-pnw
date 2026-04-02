@@ -29,10 +29,10 @@ assignees: lkaneda
 - [ ] No
 
 ## If it's a competition, is the prize cash/grant based or an investment?
-<!-- Check one by putting an x in the brackets -->
+<!-- Check all that apply by putting an x in the brackets -->
 - [ ] Cash/Grant
 - [ ] Investment
-- [ ] Both
+- [ ] Loan
 - [ ] Other (please explain)
 
 ## Notes
