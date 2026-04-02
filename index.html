@@ -1160,8 +1160,16 @@
       const matchesSearch =
         !q ||
         c.org.toLowerCase().includes(q) ||
-        c.events.some(e => e.name.toLowerCase().includes(q) || e.description.toLowerCase().includes(q)) ||
-        c.tags.some(t => t.includes(q));
+        c.serviceArea.toLowerCase().includes(q) ||
+        (c.location && c.location.city.toLowerCase().includes(q)) ||
+        c.tags.some(t => t.toLowerCase().includes(q)) ||
+        c.events.some(e =>
+          e.name.toLowerCase().includes(q) ||
+          e.description.toLowerCase().includes(q) ||
+          e.status.toLowerCase().includes(q) ||
+          e.prizeType.toLowerCase().includes(q) ||
+          (e.notes && e.notes.toLowerCase().includes(q))
+        );
 
       return matchesFilter && matchesSearch;
     });
@@ -1312,7 +1320,7 @@
         radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
       }).addTo(map).bindPopup('📍 Your location').openPopup();
       map.setView([lat, lng], 10);
-      showNearbyResults(lat, lng, 'your location', null);
+      showNearbyResults(lat, lng, 'your location', null, null);
     }, () => alert('Could not get your location.'));
   }
 
@@ -1327,17 +1335,39 @@
       const data = await res.json();
       if (data.length > 0) {
         const { lat, lon, display_name } = data[0];
-        const userState = display_name.includes(', Washington,') ? 'WA' : display_name.includes(', Oregon,') ? 'OR' : null;
+        const userLocation = parseDisplayName(display_name);
         if (userMarker) map.removeLayer(userMarker);
         userMarker = L.circleMarker([parseFloat(lat), parseFloat(lon)], {
           radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
         }).addTo(map).bindPopup(`📍 ${query}`).openPopup();
         map.setView([parseFloat(lat), parseFloat(lon)], 10);
-        showNearbyResults(parseFloat(lat), parseFloat(lon), query, userState);
+        showNearbyResults(parseFloat(lat), parseFloat(lon), query, userLocation.stateCode, userLocation.county);
       } else {
         alert(`Couldn't find "${query}" — try a city name or ZIP code.`);
       }
     } catch(e) { console.warn('Location search failed', e); }
+  }
+
+  // ── LOCATION PARSER ──
+  function parseDisplayName(display_name) {
+    // Nominatim returns comma-separated parts e.g.:
+    // "Beaverton, Washington County, Oregon, United States"
+    // "Hood River, Hood River County, Oregon, United States"
+    // "97031, Hood River County, Oregon, United States"
+    const parts = display_name.split(',').map(p => p.trim());
+    // Work backwards: last part is country, second-to-last is state
+    const country = parts[parts.length - 1] || '';
+    const state   = parts[parts.length - 2] || '';
+    const county  = parts[parts.length - 3] || '';
+    const city    = parts[parts.length - 4] || parts[0] || '';
+    return {
+      raw: display_name,
+      city,
+      county,
+      state,
+      country,
+      stateCode: state.includes('Washington') ? 'WA' : state.includes('Oregon') ? 'OR' : null,
+    };
   }
 
   // ── DISTANCE HELPERS ──
@@ -1369,7 +1399,7 @@
     return { inOR, inWA };
   }
 
-  function servesLocation(comp, userLat, userLng, userState) {
+  function servesLocation(comp, userLat, userLng, userState, userCounty) {
     if (!comp.location) return false;
     const distToComp = haversineDistance(userLat, userLng, comp.location.lat, comp.location.lng);
     let inOR, inWA;
@@ -1378,28 +1408,47 @@
     } else if (userState === 'WA') {
       inOR = false; inWA = true;
     } else {
-      // Fallback for geolocation: use bounding boxes but never both true simultaneously
       const rawOR = inState(userLat, userLng, 'oregon');
       const rawWA = inState(userLat, userLng, 'washington');
-      if (rawOR && rawWA) { inOR = false; inWA = true; } // border overlap → WA wins
+      if (rawOR && rawWA) { inOR = false; inWA = true; }
       else { inOR = rawOR; inWA = rawWA; }
     }
     const inPNW = inOR || inWA;
-    if (comp.serviceArea === 'pnw') return inPNW;
-    if (comp.serviceArea === 'oregon') return inOR;
-    if (comp.serviceArea === 'washington') return inWA;
+
+    // Check if ANY event serves this location
+    // Events with counties: must match user's county
+    // Events without counties: use area-level logic
+    const hasAnyMatchingEvent = comp.events.some(e => {
+      if (e.counties && e.counties.length > 0) {
+        if (!userCounty) {
+          // No county info (geolocation fallback) — fall back to area radius
+          return eventMatchesArea(comp, distToComp, inOR, inWA, inPNW);
+        }
+        return e.counties.some(c => userCounty.toLowerCase().includes(c.toLowerCase().replace(' county', '')) ||
+                                    c.toLowerCase().includes(userCounty.toLowerCase().replace(' county', '')));
+      }
+      return eventMatchesArea(comp, distToComp, inOR, inWA, inPNW);
+    });
+
+    return hasAnyMatchingEvent;
+  }
+
+  function eventMatchesArea(comp, distToComp, inOR, inWA, inPNW) {
+    if (comp.serviceArea === 'pnw')          return inPNW;
+    if (comp.serviceArea === 'oregon')       return inOR;
+    if (comp.serviceArea === 'washington')   return inWA;
     if (comp.serviceArea === 'portland-metro') return distToComp <= 50;
-    if (comp.serviceArea === 'gorge') return distToComp <= 60;
+    if (comp.serviceArea === 'gorge')        return distToComp <= 60;
     return false;
   }
 
-  function showNearbyResults(userLat, userLng, locationName, userState) {
+  function showNearbyResults(userLat, userLng, locationName, userState, userCounty) {
     const list = document.getElementById('nearby-list');
     const label = document.getElementById('nearby-label');
     const wrapper = document.getElementById('nearby-results');
 
     const matched = DATA.competitions
-      .filter(c => servesLocation(c, userLat, userLng, userState))
+      .filter(c => servesLocation(c, userLat, userLng, userState, userCounty))
       .map(c => ({
         ...c,
         distance: c.location ? haversineDistance(userLat, userLng, c.location.lat, c.location.lng) : 9999
@@ -1413,10 +1462,17 @@
       return;
     }
 
-    // Flatten to one row per event
+    // Flatten to one row per event, filtering out county-specific events that don't match
     const rows = [];
     matched.forEach(c => {
       c.events.forEach(e => {
+        if (e.counties && e.counties.length > 0 && userCounty) {
+          const countyMatch = e.counties.some(ec =>
+            userCounty.toLowerCase().includes(ec.toLowerCase().replace(' county', '')) ||
+            ec.toLowerCase().includes(userCounty.toLowerCase().replace(' county', ''))
+          );
+          if (!countyMatch) return; // skip this event — wrong county
+        }
         rows.push({ comp: c, event: e, distance: c.distance });
       });
     });
@@ -1498,6 +1554,7 @@
             </div>
           </div>
           <div class="modal-event-desc">${e.description}</div>
+          ${e.counties && e.counties.length > 0 ? `<div style="font-size:0.8rem;color:var(--text-muted);display:flex;align-items:center;gap:0.4rem;flex-wrap:wrap;"><span style="color:var(--accent3);">📍 Serves:</span> ${e.counties.map(c => `<span class="tag">${c}</span>`).join('')}</div>` : ''}
           ${e.notes ? `<div class="modal-event-notes">${e.notes}</div>` : ''}
           <div class="modal-event-actions">${btns}</div>
         </div>

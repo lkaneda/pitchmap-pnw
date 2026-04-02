@@ -57,7 +57,10 @@
           "url": "https://www.tieoregon.org/pitch-oregon/westside-pitch",
           "eventUrl": "https://events.tie.org/Oregon/WestsidePitch2026",
           "notes": "April 23, 2026 in Hillsboro. Applications closed March 9 — monitor for next cycle.",
-          "prizeType": "investment"
+          "prizeType": "investment",
+          "counties": [
+            "Washington County"
+          ]
         },
         {
           "name": "Columbia River Pitch",
@@ -336,7 +339,13 @@
           "url": "https://midcolumbiainnovationhub.org/gorge-pitchfest-2026/",
           "eventUrl": "https://midcolumbiainnovationhub.org/gorgepitchfest26/",
           "notes": "May 28, 2026 at The Granada Theatre, The Dalles. Applications open now.",
-          "prizeType": "cash"
+          "prizeType": "cash",
+          "counties": [
+            "Hood River County",
+            "Wasco County",
+            "Skamania County",
+            "Klickitat County"
+          ]
         }
       ]
     },
@@ -363,7 +372,10 @@
           "url": "https://www.oregonstartupcenter.org/beaverton-startup-challenge-applications-open",
           "eventUrl": null,
           "notes": "Applications closed March 27, 2026. Event/Demo Day upcoming — check their site for date.",
-          "prizeType": "investment"
+          "prizeType": "investment",
+          "counties": [
+            "Washington County"
+          ]
         }
       ]
     },
