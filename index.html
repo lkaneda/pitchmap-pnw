@@ -1118,11 +1118,13 @@
   }
 
   function servesLabel(comp, event) {
-    // If event has specific counties, use those
+    // Event-level override takes priority
+    if (event.serves) return event.serves;
+    // Specific counties next
     if (event.counties && event.counties.length > 0) {
       return event.counties.join(', ');
     }
-    // Otherwise derive from serviceArea
+    // Fall back to serviceArea
     const areaLabels = {
       'portland-metro': 'Greater Portland Metro Area',
       'seattle-metro':  'Greater Seattle Metro Area',
