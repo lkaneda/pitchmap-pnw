@@ -38,7 +38,7 @@
       "id": "tie-oregon",
       "org": "TiE Oregon",
       "url": "https://www.tieoregon.org/pitch-oregon",
-      "serviceArea": "oregon",
+      "serviceArea": "oregon-sw-washington",
       "location": {
         "lat": 45.5231,
         "lng": -122.6765,
@@ -160,7 +160,7 @@
       "id": "invent-oregon",
       "org": "Invent Oregon",
       "url": "https://www.inventoregon.org/",
-      "serviceArea": "oregon",
+      "serviceArea": "oregon-sw-washington",
       "location": {
         "lat": 45.5231,
         "lng": -122.6765,
@@ -179,7 +179,8 @@
           "url": "https://www.inventoregon.org/",
           "eventUrl": "https://www.inventoregon.org/apply",
           "notes": "2026 finals scheduled for June. Bootcamp in May. Apply through your school.",
-          "prizeType": "cash"
+          "prizeType": "cash",
+          "serves": "Oregon & SW Washington (collegiate)"
         }
       ]
     },
