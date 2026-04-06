@@ -592,15 +592,15 @@
     },
     {
       "id": "silicon-forest",
-      "name": "Silicon Florist",
-      "url": "https://siliconflorist.com/",
+      "name": "Silicon Forest",
+      "url": "https://www.thesiliconforest.com/events",
       "description": "Portland's best local startup news source — excellent coverage of pitch events, demo days, and ecosystem news.",
       "icon": "🌲"
     },
     {
       "id": "tao",
       "name": "Technology Association of Oregon (TAO)",
-      "url": "https://www.techoregon.org/",
+      "url": "https://www.techoregon.org/events",
       "description": "Oregon's leading tech industry association. Check their calendar for pitch and innovation events.",
       "icon": "🔬"
     }
