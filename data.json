@@ -580,6 +580,34 @@
           "serves": "Washington (Statewide)"
         }
       ]
+    },
+    {
+      "id": "tao-aisis",
+      "org": "Technology Association of Oregon (TAO)",
+      "url": "https://www.techoregon.org/",
+      "serviceArea": "pnw",
+      "location": {
+        "lat": 45.5231,
+        "lng": -122.6765,
+        "city": "Portland, OR"
+      },
+      "tags": [
+        "ai",
+        "investor",
+        "pre-seed"
+      ],
+      "events": [
+        {
+          "name": "TAO AI Startup Innovation Sandbox",
+          "status": "scheduled",
+          "description": "Live pitch competition showcasing early-stage AI startups with Pacific Northwest roots. Features an investor reverse pitch panel, a live startup pitch competition with investor voting, and networking with founders, investors, and regional innovation leaders.",
+          "url": "https://www.techoregon.org/",
+          "eventUrl": "https://web.cvent.com/event/df647f26-4b9b-45d9-ad8f-07b1126ee6b3/summary",
+          "notes": "April 22, 2026 in Portland. Open to pre-seed and seed-stage AI startups with PNW roots.",
+          "prizeType": "none",
+          "serves": "Oregon & Washington"
+        }
+      ]
     }
   ],
   "aggregators": [
