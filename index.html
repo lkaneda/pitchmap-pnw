@@ -1255,7 +1255,8 @@
           e.description.toLowerCase().includes(q) ||
           e.status.toLowerCase().includes(q) ||
           e.prizeType.toLowerCase().includes(q) ||
-          (e.notes && e.notes.toLowerCase().includes(q))
+          (e.notes && e.notes.toLowerCase().includes(q)) ||
+          (e.accelerator === true && 'accelerator'.includes(q))
         );
 
       return matchesFilter && matchesSearch;
@@ -1688,6 +1689,9 @@
             <span style="color:var(--accent3);">📍 Serves:</span>
             <span>${servesLabel(comp, e)}</span>
           </div>
+          ${e.accelerator === true ? `<div style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:0.4rem;">
+            <span style="border:1px solid rgba(163,113,247,0.35);color:#a371f7;background:rgba(163,113,247,0.07);border-radius:4px;padding:0.1rem 0.45rem;">🔒 Accelerator program — pitch competition not open to all applicants</span>
+          </div>` : ''}
           ${e.notes ? `<div class="modal-event-notes">${e.notes}</div>` : ''}
           <div class="modal-event-actions">${btns}</div>
         </div>

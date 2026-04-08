@@ -125,7 +125,8 @@
           "url": "https://www.oen.org/2026-technology/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=365&",
           "notes": "2026 program active now. Pitch Day April 7th.",
-          "prizeType": "investment"
+          "prizeType": "investment",
+          "accelerator": true
         },
         {
           "name": "Angel Oregon CPG",
@@ -134,7 +135,8 @@
           "url": "https://www.oen.org/2026-angel-oregon-consumer-packaged-goods/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=370&",
           "notes": "2026 program active now. Pitch Day April 8th.",
-          "prizeType": "investment"
+          "prizeType": "investment",
+          "accelerator": true
         },
         {
           "name": "Angel Oregon BIO",
@@ -143,7 +145,8 @@
           "url": "https://www.oen.org/2026-angel-oregon-life-bioscience/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=355&",
           "notes": "2026 program active now. Pitch Day April 9th.",
-          "prizeType": "investment"
+          "prizeType": "investment",
+          "accelerator": true
         },
         {
           "name": "Pop Up & Pitch",
@@ -261,7 +264,8 @@
           "url": "https://www.vertuelab.org/45-camp",
           "eventUrl": null,
           "notes": "Accelerator program runs May–September. Watch for application opening in spring.",
-          "prizeType": "investment"
+          "prizeType": "investment",
+          "accelerator": true
         }
       ]
     },
@@ -288,7 +292,8 @@
           "url": "https://cascadiacleantech.org/accelerate/",
           "eventUrl": "https://cascadiacleantech.org/accelerate/apply/",
           "notes": "Applications typically open in spring for May start. Monitor their site.",
-          "prizeType": "both"
+          "prizeType": "both",
+          "accelerator": true
         }
       ]
     },
