@@ -4,6 +4,8 @@
 
 🌐 **[pitchmappnw.com](https://pitchmappnw.com)**
 
+**Updated on Wednesdays.**
+
 ---
 
 PitchMap PNW helps entrepreneurs in the Pacific Northwest find pitch competitions, track which ones are actively accepting applications, and discover the organizations that host them. It's searchable by location, filterable by status, and includes a map so you can find opportunities near you.
