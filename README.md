@@ -72,6 +72,7 @@ Everything in the directory lives in a single file: [`data.json`](data.json). Ea
       "eventUrl": "https://example.org/apply",
       "notes": "Applications open through May 1. Event on May 20.",
       "prizeType": "cash",
+      "accelerator": true,
       "serves": "Greater Portland Metro Area",
       "counties": ["Multnomah County", "Washington County"]
     }
@@ -99,6 +100,14 @@ Everything in the directory lives in a single file: [`data.json`](data.json). Ea
 | `"oregon-sw-washington"` | Oregon and SW Washington (e.g. Vancouver, WA area) |
 | `"washington"` | Washington state |
 | `"pnw"` | Oregon + Washington |
+
+### Optional event fields
+
+| Field | Type | Meaning |
+|---|---|---|
+| `"accelerator"` | boolean | Whether the pitch is part of an accelerator program and not open to all applicants. Defaults to `false`; only set when `true`. |
+| `"serves"` | string | Override the service area label displayed in the modal (e.g. `"Oregon & SW Washington"`) |
+| `"counties"` | array | Restrict the event to specific counties (e.g. `["Multnomah County"]`) |
 
 ### Prize type values
 
