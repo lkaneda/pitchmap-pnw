@@ -316,6 +316,70 @@
       white-space: nowrap;
     }
     .card-link:hover { text-decoration: underline; }
+
+    /* ── SPOTLIGHT CARDS (new/updated internal tags) ── */
+    .card-spotlight-new {
+      border-color: rgba(63,185,80,0.45);
+      box-shadow: 0 0 20px rgba(63,185,80,0.1);
+    }
+    .card-spotlight-new:hover { border-color: rgba(63,185,80,0.65); }
+    .card-spotlight-updated {
+      border-color: rgba(88,166,255,0.45);
+      box-shadow: 0 0 20px rgba(88,166,255,0.1);
+    }
+    .card-spotlight-updated:hover { border-color: rgba(88,166,255,0.65); }
+    .card-spotlight-banner {
+      font-size: 0.68rem;
+      font-weight: 700;
+      font-family: var(--font-head);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.3rem 1.5rem;
+      margin: -1.5rem -1.5rem 0 -1.5rem;
+      text-align: center;
+    }
+    .card-spotlight-banner-new {
+      background: rgba(63,185,80,0.1);
+      color: var(--green);
+      border-bottom: 1px solid rgba(63,185,80,0.25);
+    }
+    .card-spotlight-banner-updated {
+      background: rgba(88,166,255,0.1);
+      color: var(--blue);
+      border-bottom: 1px solid rgba(88,166,255,0.25);
+    }
+    .modal-event-spotlight-new {
+      border-color: rgba(63,185,80,0.45) !important;
+      box-shadow: 0 0 0 1px rgba(63,185,80,0.15);
+    }
+    .modal-event-spotlight-updated {
+      border-color: rgba(88,166,255,0.45) !important;
+      box-shadow: 0 0 0 1px rgba(88,166,255,0.15);
+    }
+    .modal-event-spotlight-banner {
+      font-size: 0.68rem;
+      font-weight: 700;
+      font-family: var(--font-head);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.4rem;
+    }
+    .modal-event-spotlight-banner-new {
+      background: rgba(63,185,80,0.1);
+      color: var(--green);
+      border: 1px solid rgba(63,185,80,0.25);
+    }
+    .modal-event-spotlight-banner-updated {
+      background: rgba(88,166,255,0.1);
+      color: var(--blue);
+      border: 1px solid rgba(88,166,255,0.25);
+    }
+
     .card-notes {
       font-size: 0.8rem;
       color: var(--accent);
@@ -1262,6 +1326,14 @@
       return matchesFilter && matchesSearch;
     });
 
+    // Spotlighted (new/updated) first, then by status priority
+    filtered.sort((a, b) => {
+      const aSpot = a.internalTags && (a.internalTags.includes('new') || a.internalTags.includes('updated')) ? 0 : 1;
+      const bSpot = b.internalTags && (b.internalTags.includes('new') || b.internalTags.includes('updated')) ? 0 : 1;
+      if (aSpot !== bSpot) return aSpot - bSpot;
+      return STATUS_PRIORITY[topStatus(a)] - STATUS_PRIORITY[topStatus(b)];
+    });
+
     lastFiltered = filtered;
     const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
     if (currentPage > totalPages) currentPage = 1;
@@ -1277,10 +1349,17 @@
       noResults.style.display = 'none';
       pageItems.forEach(c => {
         const best = topStatus(c);
+        const spotTag = c.internalTags && c.internalTags.includes('new') ? 'new'
+                      : c.internalTags && c.internalTags.includes('updated') ? 'updated'
+                      : null;
         const card = document.createElement('div');
-        card.className = 'card';
+        card.className = spotTag ? `card card-spotlight-${spotTag}` : 'card';
         card.style.cursor = 'pointer';
         card.addEventListener('click', () => openModal(c));
+
+        const spotBanner = spotTag
+          ? `<div class="card-spotlight-banner card-spotlight-banner-${spotTag}">${spotTag === 'new' ? '✨ Newly Added!' : '🔄 New Updates!'}</div>`
+          : '';
 
         const eventBullets = c.events.map(e => `
           <div class="event-bullet">
@@ -1291,6 +1370,7 @@
         `).join('');
 
         card.innerHTML = `
+          ${spotBanner}
           <div class="card-top">
             <div>
               <div class="card-name">${c.org}</div>
@@ -1669,14 +1749,21 @@
     const actions = document.getElementById('modal-actions');
     actions.style.flexDirection = 'column';
     actions.style.gap = '0.75rem';
+    const compSpotTag = comp.internalTags && comp.internalTags.includes('new') ? 'new'
+                      : comp.internalTags && comp.internalTags.includes('updated') ? 'updated'
+                      : null;
     actions.innerHTML = comp.events.map(e => {
       const isHighlighted = highlightEventName && e.name === highlightEventName;
       const btns = e.eventUrl
         ? `<a href="${e.eventUrl}" target="_blank" rel="noopener" class="btn-event-primary">Apply / Register</a>
            <a href="${e.url}" target="_blank" rel="noopener" class="btn-event-secondary">Visit Website</a>`
         : `<a href="${e.url}" target="_blank" rel="noopener" class="btn-event-primary">Visit Website</a>`;
+      const spotBannerHTML = compSpotTag
+        ? `<div class="modal-event-spotlight-banner modal-event-spotlight-banner-${compSpotTag}">${compSpotTag === 'new' ? '✨ Newly Added!' : '🔄 New Updates!'}</div>`
+        : '';
       return `
-        <div class="modal-event" style="${isHighlighted ? 'border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);' : ''}">
+        <div class="modal-event${compSpotTag ? ` modal-event-spotlight-${compSpotTag}` : ''}" style="${isHighlighted ? 'border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);' : ''}">
+          ${spotBannerHTML}
           <div class="modal-event-header">
             <div class="modal-event-name">${isHighlighted ? `<span style="color:var(--accent);">↳ </span>` : ''}${e.name}</div>
             <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;justify-content:flex-end;">
