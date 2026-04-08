@@ -4,7 +4,7 @@
 
 🌐 **[pitchmappnw.com](https://pitchmappnw.com)**
 
-**Updated on Wednesdays.**
+✏️ Updated on Wednesdays.
 
 ---
 
