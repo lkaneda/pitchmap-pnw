@@ -42,6 +42,7 @@ For each competition in `data.json`:
 2. Compare what you find on the page against the current entry's `events`, `notes`, `status`, `description`, and `eventUrl` fields.
 3. If anything has materially changed (new application window opened, status changed, date announced, new event added, event cancelled, etc.):
    - Update the relevant fields in `data.json`.
+   - If an event's `status` is being set to `monitor` or `inactive`, also set that event's `eventUrl` to `null`.
    - Add `"internalTags": ["updated"]` to that competition object (at the same level as `"tags"`, not inside events).
    - Record what changed for the summary.
 4. If nothing material has changed, leave the entry as-is. Do not add internalTags.
