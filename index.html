@@ -1368,8 +1368,8 @@
           const eSpotTag = e.internalTags && e.internalTags.includes('new') ? 'new'
                          : e.internalTags && e.internalTags.includes('updated') ? 'updated'
                          : null;
-          const eSpotBadge = eSpotTag === 'new' ? `<span style="font-size:0.65rem;color:#3fb950;border:1px solid rgba(63,185,80,0.4);border-radius:3px;padding:0.05rem 0.3rem;white-space:nowrap;">✨ new</span>`
-                           : eSpotTag === 'updated' ? `<span style="font-size:0.65rem;color:var(--accent);border:1px solid rgba(240,165,0,0.4);border-radius:3px;padding:0.05rem 0.3rem;white-space:nowrap;">🔄 updated</span>`
+          const eSpotBadge = eSpotTag === 'new' ? `<span style="font-size:0.62rem;color:rgba(63,185,80,0.7);white-space:nowrap;">✨ new</span>`
+                           : eSpotTag === 'updated' ? `<span style="font-size:0.62rem;color:rgba(240,165,0,0.6);white-space:nowrap;">🔄 updated</span>`
                            : '';
           return `
           <div class="event-bullet">
