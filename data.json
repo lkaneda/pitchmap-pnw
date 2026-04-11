@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-04-08",
+    "lastUpdated": "2026-04-10",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -108,6 +108,7 @@
         "bio-sciences",
         "technology"
       ],
+      "internalTags": ["updated"],
       "events": [
         {
           "name": "Pitch Please",
@@ -120,31 +121,31 @@
         },
         {
           "name": "Angel Oregon Technology",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "5-week intensive program for early-stage technology founders culminating in a live Pitch Day in front of active investors. Investment announced in August 2026.",
           "url": "https://www.oen.org/2026-technology/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=365&",
-          "notes": "2026 program active now. Pitch Day April 7th.",
+          "notes": "2026 Pitch Day completed April 7. Investment decision announced August 2026.",
           "prizeType": "investment",
           "accelerator": true
         },
         {
           "name": "Angel Oregon CPG",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "5-week intensive program for early-stage consumer packaged goods founders culminating in a live Pitch Day in front of active investors. Investment announced in June 2026.",
           "url": "https://www.oen.org/2026-angel-oregon-consumer-packaged-goods/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=370&",
-          "notes": "2026 program active now. Pitch Day April 8th.",
+          "notes": "2026 Pitch Day completed April 8. Investment decision announced June 2026.",
           "prizeType": "investment",
           "accelerator": true
         },
         {
           "name": "Angel Oregon BIO",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "5-week intensive program for early-stage life science and bioscience founders culminating in a live Pitch Day in front of active investors. Investment announced in December 2026.",
           "url": "https://www.oen.org/2026-angel-oregon-life-bioscience/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=355&",
-          "notes": "2026 program active now. Pitch Day April 9th.",
+          "notes": "2026 Pitch Day completed April 9. Investment decision announced December 2026.",
           "prizeType": "investment",
           "accelerator": true
         },
@@ -256,6 +257,7 @@
         "environment",
         "accelerator"
       ],
+      "internalTags": ["updated"],
       "events": [
         {
           "name": "45Camp Accelerator",
@@ -263,7 +265,7 @@
           "description": "VertueLab's accelerator program supporting early-stage cleantech startups with mentorship, curriculum, connections, and pitch-based funding opportunities.",
           "url": "https://www.vertuelab.org/45-camp",
           "eventUrl": null,
-          "notes": "Accelerator program runs May–September. Watch for application opening in spring.",
+          "notes": "Applications for the 2026 cohort are now closed. Program runs May–September.",
           "prizeType": "investment",
           "accelerator": true
         }
@@ -339,14 +341,15 @@
         "short-pitch",
         "community"
       ],
+      "internalTags": ["updated"],
       "events": [
         {
           "name": "Founders Live Build — Portland",
-          "status": "accepting",
+          "status": "monitor",
           "description": "New 2026 format: 5 founders build apps live from a prompt while attendees network, then demo and pitch. Audience votes for the winner.",
-          "url": "https://www.founderslive.com/events-list/portland-2026-04",
-          "eventUrl": "https://www.founderslive.com/build",
-          "notes": "April 9, 2026 at Metro Region Innovation Hub, 2130 SW 5th Ave Portland. 6–9pm.",
+          "url": "https://www.founderslive.com/",
+          "eventUrl": null,
+          "notes": "April 9, 2026 event completed. No next Portland date announced — monitor their events page.",
           "prizeType": "in-kind"
         }
       ]
@@ -366,14 +369,15 @@
         "short-pitch",
         "community"
       ],
+      "internalTags": ["updated"],
       "events": [
         {
           "name": "Founders Live Seattle",
-          "status": "monitor",
+          "status": "scheduled",
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
-          "url": "https://www.founderslive.com/events-list/seattle-2026-02",
-          "eventUrl": null,
-          "notes": "Last event February 26, 2026. No next date announced — monitor their events page.",
+          "url": "https://www.founderslive.com/events-list/seattle-2026-05",
+          "eventUrl": "https://www.founderslive.com/pitch",
+          "notes": "Next event May 28, 2026. Check their events page for registration.",
           "prizeType": "in-kind"
         }
       ]
@@ -536,14 +540,15 @@
         "student-only",
         "investor"
       ],
+      "internalTags": ["updated"],
       "events": [
         {
           "name": "Dempsey Startup Competition",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "One of the Pacific Northwest's premier collegiate startup competitions, open to students at accredited colleges across the Cascadia Corridor (WA, OR, ID, BC, AK). Teams develop business plans and pitch to investors across multiple elimination rounds.",
           "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
           "eventUrl": "https://apply.younoodle.com/showcase/competition/2026_dempsey_startup_competition",
-          "notes": "Applications due April 6, 2026. Competition rounds April 1 – May 21, 2026. Open to Oregon students.",
+          "notes": "Applications closed April 6, 2026. Competition rounds ongoing through May 21, 2026. Open to Oregon students.",
           "prizeType": "cash"
         }
       ]
@@ -563,14 +568,15 @@
         "small-business",
         "annual"
       ],
+      "internalTags": ["updated"],
       "events": [
         {
           "name": "SCORE Washington Women's Pitch Contest",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Annual pitch competition for women entrepreneurs in Washington, Alaska, and Northern Idaho. Focused on helping women-led businesses secure loan financing. Finalists pitch directly to bank and financial institution loan officers.",
           "url": "https://www.score.org/seattle/2026-womens-pitch-contest",
           "eventUrl": null,
-          "notes": "2026 final event on 4.2.",
+          "notes": "2026 competition concluded. Winners announced April 2, 2026. Monitor for next cycle.",
           "prizeType": "loan",
           "serves": "Washington, Alaska & Northern Idaho"
         },
@@ -601,7 +607,6 @@
         "investor",
         "pre-seed"
       ],
-      "internalTags": ["new"],
       "events": [
         {
           "name": "TAO AI Startup Innovation Sandbox",
@@ -612,6 +617,34 @@
           "notes": "April 22, 2026 in Portland. Open to pre-seed and seed-stage AI startups with PNW roots.",
           "prizeType": "none",
           "serves": "Oregon & Washington"
+        }
+      ]
+    },
+    {
+      "id": "startup-world-cup-portland",
+      "org": "Startup World Cup — Oregon Regional",
+      "url": "https://www.startupworldcup.io/portland-oregon",
+      "serviceArea": "portland-metro",
+      "location": {
+        "lat": 45.5231,
+        "lng": -122.6765,
+        "city": "Portland, OR"
+      },
+      "tags": [
+        "general",
+        "investor",
+        "annual"
+      ],
+      "internalTags": ["new"],
+      "events": [
+        {
+          "name": "Startup World Cup Portland Regional",
+          "status": "accepting",
+          "description": "Inaugural Portland regional of the global Startup World Cup, organized in partnership with Oregon Entrepreneurs Network, Upstart Collective, and Business Oregon's Oregon Innovation Showcase. Ten finalist startups each give a 4-minute pitch and 2-minute Q&A before an investor panel. The regional winner advances to the global finale competing for $1,000,000.",
+          "url": "https://www.startupworldcup.io/portland-oregon",
+          "eventUrl": "https://form.123formbuilder.com/6925524/usa-portland-startup-world-cup-application",
+          "notes": "May 13–14, 2026 at Upstart Collective, 111 SW 5th Ave, Portland. Applications open through May 8. Co-hosted alongside Portland Startup Week.",
+          "prizeType": "investment"
         }
       ]
     }
