@@ -1326,10 +1326,13 @@
       return matchesFilter && matchesSearch;
     });
 
-    // Spotlighted (new/updated) first, then by status priority
+    // new first, then updated, then everything else, then by status priority
+    const spotPriority = c => c.events.some(e => e.internalTags && e.internalTags.includes('new')) ? 0
+                            : c.events.some(e => e.internalTags && e.internalTags.includes('updated')) ? 1
+                            : 2;
     filtered.sort((a, b) => {
-      const aSpot = a.internalTags && (a.internalTags.includes('new') || a.internalTags.includes('updated')) ? 0 : 1;
-      const bSpot = b.internalTags && (b.internalTags.includes('new') || b.internalTags.includes('updated')) ? 0 : 1;
+      const aSpot = spotPriority(a);
+      const bSpot = spotPriority(b);
       if (aSpot !== bSpot) return aSpot - bSpot;
       return STATUS_PRIORITY[topStatus(a)] - STATUS_PRIORITY[topStatus(b)];
     });
@@ -1349,8 +1352,8 @@
       noResults.style.display = 'none';
       pageItems.forEach(c => {
         const best = topStatus(c);
-        const spotTag = c.internalTags && c.internalTags.includes('new') ? 'new'
-                      : c.internalTags && c.internalTags.includes('updated') ? 'updated'
+        const spotTag = c.events.some(e => e.internalTags && e.internalTags.includes('new')) ? 'new'
+                      : c.events.some(e => e.internalTags && e.internalTags.includes('updated')) ? 'updated'
                       : null;
         const card = document.createElement('div');
         card.className = spotTag ? `card card-spotlight-${spotTag}` : 'card';
@@ -1361,13 +1364,21 @@
           ? `<div class="card-spotlight-banner card-spotlight-banner-${spotTag}">${spotTag === 'new' ? '✨ Newly Added!' : '🔄 New Updates!'}</div>`
           : '';
 
-        const eventBullets = c.events.map(e => `
+        const eventBullets = c.events.map(e => {
+          const eSpotTag = e.internalTags && e.internalTags.includes('new') ? 'new'
+                         : e.internalTags && e.internalTags.includes('updated') ? 'updated'
+                         : null;
+          const eSpotBadge = eSpotTag === 'new' ? `<span style="font-size:0.65rem;color:#3fb950;border:1px solid rgba(63,185,80,0.4);border-radius:3px;padding:0.05rem 0.3rem;white-space:nowrap;">✨ new</span>`
+                           : eSpotTag === 'updated' ? `<span style="font-size:0.65rem;color:var(--accent);border:1px solid rgba(240,165,0,0.4);border-radius:3px;padding:0.05rem 0.3rem;white-space:nowrap;">🔄 updated</span>`
+                           : '';
+          return `
           <div class="event-bullet">
             <div class="event-dot ${e.status}"></div>
             <span class="event-bullet-name">${e.name}</span>
             ${prizeTagHTML(e.prizeType)}
-          </div>
-        `).join('');
+            ${eSpotBadge}
+          </div>`;
+        }).join('');
 
         card.innerHTML = `
           ${spotBanner}
@@ -1749,20 +1760,20 @@
     const actions = document.getElementById('modal-actions');
     actions.style.flexDirection = 'column';
     actions.style.gap = '0.75rem';
-    const compSpotTag = comp.internalTags && comp.internalTags.includes('new') ? 'new'
-                      : comp.internalTags && comp.internalTags.includes('updated') ? 'updated'
-                      : null;
     actions.innerHTML = comp.events.map(e => {
       const isHighlighted = highlightEventName && e.name === highlightEventName;
+      const eSpotTag = e.internalTags && e.internalTags.includes('new') ? 'new'
+                     : e.internalTags && e.internalTags.includes('updated') ? 'updated'
+                     : null;
       const btns = e.eventUrl
         ? `<a href="${e.eventUrl}" target="_blank" rel="noopener" class="btn-event-primary">Apply / Register</a>
            <a href="${e.url}" target="_blank" rel="noopener" class="btn-event-secondary">Visit Website</a>`
         : `<a href="${e.url}" target="_blank" rel="noopener" class="btn-event-primary">Visit Website</a>`;
-      const spotBannerHTML = compSpotTag
-        ? `<div class="modal-event-spotlight-banner modal-event-spotlight-banner-${compSpotTag}">${compSpotTag === 'new' ? '✨ Newly Added!' : '🔄 New Updates!'}</div>`
+      const spotBannerHTML = eSpotTag
+        ? `<div class="modal-event-spotlight-banner modal-event-spotlight-banner-${eSpotTag}">${eSpotTag === 'new' ? '✨ Newly Added!' : '🔄 New Updates!'}</div>`
         : '';
       return `
-        <div class="modal-event${compSpotTag ? ` modal-event-spotlight-${compSpotTag}` : ''}" style="${isHighlighted ? 'border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);' : ''}">
+        <div class="modal-event${eSpotTag ? ` modal-event-spotlight-${eSpotTag}` : ''}" style="${isHighlighted ? 'border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);' : ''}">
           ${spotBannerHTML}
           <div class="modal-event-header">
             <div class="modal-event-name">${isHighlighted ? `<span style="color:var(--accent);">↳ </span>` : ''}${e.name}</div>
