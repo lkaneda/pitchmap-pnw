@@ -27,6 +27,12 @@
 
   <style>
     :root {
+      --font-head: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 10px;
+    }
+
+    [data-theme="dark"] {
       --bg: #0d1117;
       --bg2: #161b22;
       --bg3: #1c2330;
@@ -42,10 +48,30 @@
       --blue: #58a6ff;
       --gray: #484f58;
       --portland: rgba(240, 165, 0, 0.08);
-      --font-head: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --radius: 10px;
       --shadow: 0 4px 24px rgba(0,0,0,0.4);
+      --nav-bg: rgba(13,17,23,0.92);
+      --map-filter: invert(1) hue-rotate(180deg) brightness(0.85) saturate(0.7);
+    }
+
+    [data-theme="light"] {
+      --bg: #faf8f5;
+      --bg2: #f0ece6;
+      --bg3: #e6e1da;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --text-muted: #656d76;
+      --accent: #bf8700;
+      --accent2: #1a7f37;
+      --accent3: #0969da;
+      --accent-red: #d1242f;
+      --green: #1a7f37;
+      --yellow: #9a6700;
+      --blue: #0969da;
+      --gray: #6e7781;
+      --portland: rgba(191, 135, 0, 0.08);
+      --shadow: 0 4px 24px rgba(0,0,0,0.1);
+      --nav-bg: rgba(250,248,245,0.92);
+      --map-filter: none;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,7 +90,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(13,17,23,0.92);
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       display: flex;
@@ -463,7 +489,7 @@
       margin-bottom: 1rem;
     }
     #map .leaflet-tile-pane {
-      filter: invert(1) hue-rotate(180deg) brightness(0.85) saturate(0.7);
+      filter: var(--map-filter);
     }
     .map-controls {
       display: flex;
@@ -1007,6 +1033,21 @@
       background: var(--bg2);
     }
 
+    /* ── THEME TOGGLE ── */
+    .theme-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      padding: 0.3rem 0.55rem;
+      transition: border-color 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--accent3); color: var(--text); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       nav { padding: 0 1rem; }
@@ -1015,6 +1056,15 @@
       .hero { padding-top: 3rem; }
     }
   </style>
+
+  <script>
+    // Set theme before first paint to avoid flash
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    })();
+  </script>
 </head>
 <body>
 
@@ -1027,6 +1077,9 @@
     <li><a href="#community">Community</a></li>
     <li><a href="#suggest" class="nav-cta">Suggest a Listing</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">
+    <span id="theme-icon"></span>
+  </button>
 </nav>
 
 <div class="hero">
@@ -1870,6 +1923,20 @@
 
 
 
+  // ── THEME ──
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.getElementById('theme-icon').textContent = next === 'dark' ? '☀️' : '🌙';
+  }
+
+  function initThemeIcon() {
+    const theme = document.documentElement.getAttribute('data-theme');
+    document.getElementById('theme-icon').textContent = theme === 'dark' ? '☀️' : '🌙';
+  }
+
   // ── INIT ──
   function init() {
     renderMeta();
@@ -1877,6 +1944,7 @@
     initMap();
     renderAggregators();
     renderCommunity();
+    initThemeIcon();
   }
 
   // ── FALLBACK DATA (same as data.json, for file:// open) ──
