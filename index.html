@@ -1604,43 +1604,23 @@
     try {
       // Bias toward PNW (Oregon + Washington bounding box), but don't restrict
       const pnwViewbox = '-124.85,41.99,-116.46,49.00';
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=us&viewbox=${pnwViewbox}&bounded=0&limit=1`);
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=us&viewbox=${pnwViewbox}&bounded=0&limit=1&addressdetails=1`);
       const data = await res.json();
       if (data.length > 0) {
-        const { lat, lon, display_name } = data[0];
-        const userLocation = parseDisplayName(display_name);
+        const { lat, lon, address } = data[0];
+        const state = address.state || '';
+        const stateCode = state.includes('Washington') ? 'WA' : state.includes('Oregon') ? 'OR' : null;
+        const userCounty = address.county || '';
         if (userMarker) map.removeLayer(userMarker);
         userMarker = L.circleMarker([parseFloat(lat), parseFloat(lon)], {
           radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
         }).addTo(map).bindPopup(`📍 ${query}`).openPopup();
         map.setView([parseFloat(lat), parseFloat(lon)], 10);
-        showNearbyResults(parseFloat(lat), parseFloat(lon), query, userLocation.stateCode, userLocation.county);
+        showNearbyResults(parseFloat(lat), parseFloat(lon), query, stateCode, userCounty);
       } else {
         alert(`Couldn't find "${query}" — try a city name or ZIP code.`);
       }
     } catch(e) { console.warn('Location search failed', e); }
-  }
-
-  // ── LOCATION PARSER ──
-  function parseDisplayName(display_name) {
-    // Nominatim returns comma-separated parts e.g.:
-    // "Beaverton, Washington County, Oregon, United States"
-    // "Hood River, Hood River County, Oregon, United States"
-    // "97031, Hood River County, Oregon, United States"
-    const parts = display_name.split(',').map(p => p.trim());
-    // Work backwards: last part is country, second-to-last is state
-    const country = parts[parts.length - 1] || '';
-    const state   = parts[parts.length - 2] || '';
-    const county  = parts[parts.length - 3] || '';
-    const city    = parts[parts.length - 4] || parts[0] || '';
-    return {
-      raw: display_name,
-      city,
-      county,
-      state,
-      country,
-      stateCode: state.includes('Washington') ? 'WA' : state.includes('Oregon') ? 'OR' : null,
-    };
   }
 
   // ── DISTANCE HELPERS ──
@@ -1693,10 +1673,7 @@
     // Events without counties: use area-level logic
     const hasAnyMatchingEvent = comp.events.some(e => {
       if (e.counties && e.counties.length > 0) {
-        if (!userCounty) {
-          // No county info (geolocation fallback) — fall back to area radius
-          return eventMatchesArea(comp, distToComp, inOR, inWA, inPNW);
-        }
+        if (!userCounty) return false; // county unknown — exclude county-restricted events
         return e.counties.some(c => userCounty.toLowerCase().includes(c.toLowerCase().replace(' county', '')) ||
                                     c.toLowerCase().includes(userCounty.toLowerCase().replace(' county', '')));
       }
@@ -1741,7 +1718,8 @@
     const rows = [];
     matched.forEach(c => {
       c.events.forEach(e => {
-        if (e.counties && e.counties.length > 0 && userCounty) {
+        if (e.counties && e.counties.length > 0) {
+          if (!userCounty) return; // county unknown — skip county-restricted events
           const countyMatch = e.counties.some(ec =>
             userCounty.toLowerCase().includes(ec.toLowerCase().replace(' county', '')) ||
             ec.toLowerCase().includes(userCounty.toLowerCase().replace(' county', ''))
