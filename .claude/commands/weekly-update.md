@@ -54,20 +54,18 @@ Work through all competitions. Fetch their URLs in parallel where possible to sa
 
 **If GitHub issue numbers were provided in `$ARGUMENTS`:**
 
-For each issue number, run:
+For each issue number, fetch it via the GitHub API using WebFetch:
 ```
-gh issue view <number> --repo lkaneda/pitchmap-pnw
+https://api.github.com/repos/lkaneda/pitchmap-pnw/issues/<number>
 ```
-Read the issue body to extract the organization name, website URL, type, prize type, and any notes. Use that information plus the competition's website (WebFetch the URL from the issue) to construct a full competition entry following the existing `data.json` schema.
+Read the issue body to extract the organization name, website URL, type, prize type, and any notes. Check the `labels` array to determine how to handle it:
 
-Issues with label `listing-request` → add as a new competition entry.
-Issues with label `listing-update` → apply the described update to the matching existing entry instead (and tag it `"updated"`).
+- Label `listing-request` → add as a new competition entry.
+- Label `listing-update` → apply the described update to the matching existing entry instead (and tag it `"updated"`).
 
-After processing, close the issue with a comment:
-```
-gh issue comment <number> --repo lkaneda/pitchmap-pnw --body "Added to the directory in the weekly update. Thanks for the suggestion!"
-gh issue close <number> --repo lkaneda/pitchmap-pnw
-```
+WebFetch the URL from the issue body to fill in full event details before writing the entry.
+
+After all changes are written, note in the summary which issues were processed and remind the user to close them manually on GitHub, since issue management requires browser access.
 
 **If URLs were provided in `$ARGUMENTS`:**
 
