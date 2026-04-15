@@ -1116,6 +1116,7 @@
     <button class="pill" data-filter="portland-metro">📍 Portland Metro</button>
     <button class="pill" data-filter="seattle-metro">📍 Seattle Metro</button>
     <button class="pill" data-filter="gorge">🌊 Gorge</button>
+    <button class="pill" data-filter="oregon-south-coast">🌊 South Coast</button>
     <button class="pill" data-filter="cleantech">♻️ Cleantech</button>
     <button class="pill" data-filter="university">🎓 University</button>
     <button class="pill" data-filter="cash">💵 Cash / Grant</button>
@@ -1270,6 +1271,7 @@
       'pnw':            ['area-pnw',      '🏔️ PNW'],
       'washington':     ['area-pnw',      '🏔️ Washington'],
       'gorge':          ['area-oregon',   '🌊 Columbia River Gorge'],
+      'oregon-south-coast': ['area-oregon', '🌊 Oregon South Coast'],
     };
     const [cls, label] = map[area] || ['', area];
     return `<span class="area-badge ${cls}">${label}</span>`;
@@ -1330,6 +1332,7 @@
       if (f === 'portland-metro') return c.serviceArea === 'portland-metro';
       if (f === 'seattle-metro')  return c.serviceArea === 'seattle-metro';
       if (f === 'gorge')          return c.serviceArea === 'gorge';
+      if (f === 'oregon-south-coast') return c.serviceArea === 'oregon-south-coast';
       if (f === 'accepting' || f === 'scheduled' || f === 'monitor' || f === 'inactive') return best === f;
       if (f === 'cash')       return c.events.some(e => e.prizeType === 'cash' || e.prizeType === 'both');
       if (f === 'investment') return c.events.some(e => e.prizeType === 'investment' || e.prizeType === 'both');
@@ -1359,6 +1362,7 @@
         'washington':          'washington',
         'pnw':                 'pacific northwest oregon washington pnw',
         'gorge':               'gorge columbia river gorge oregon washington',
+        'oregon-south-coast':  'oregon south coast coos curry douglas lane florence reedsport coos bay brookings',
       }[c.serviceArea] || c.serviceArea;
 
       const matchesSearch =
@@ -1611,12 +1615,13 @@
         const state = address.state || '';
         const stateCode = state.includes('Washington') ? 'WA' : state.includes('Oregon') ? 'OR' : null;
         const userCounty = address.county || '';
+        const userCity = address.city || address.town || address.village || address.hamlet || '';
         if (userMarker) map.removeLayer(userMarker);
         userMarker = L.circleMarker([parseFloat(lat), parseFloat(lon)], {
           radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
         }).addTo(map).bindPopup(`📍 ${query}`).openPopup();
         map.setView([parseFloat(lat), parseFloat(lon)], 10);
-        showNearbyResults(parseFloat(lat), parseFloat(lon), query, stateCode, userCounty);
+        showNearbyResults(parseFloat(lat), parseFloat(lon), query, stateCode, userCounty, userCity);
       } else {
         alert(`Couldn't find "${query}" — try a city name or ZIP code.`);
       }
@@ -1652,7 +1657,7 @@
     return { inOR, inWA };
   }
 
-  function servesLocation(comp, userLat, userLng, userState, userCounty) {
+  function servesLocation(comp, userLat, userLng, userState, userCounty, userCity = '') {
     if (!comp.location) return false;
     const distToComp = haversineDistance(userLat, userLng, comp.location.lat, comp.location.lng);
     let inOR, inWA;
@@ -1677,13 +1682,13 @@
         return e.counties.some(c => userCounty.toLowerCase().includes(c.toLowerCase().replace(' county', '')) ||
                                     c.toLowerCase().includes(userCounty.toLowerCase().replace(' county', '')));
       }
-      return eventMatchesArea(comp, distToComp, inOR, inWA, inPNW);
+      return eventMatchesArea(comp, distToComp, inOR, inWA, inPNW, userCity);
     });
 
     return hasAnyMatchingEvent;
   }
 
-  function eventMatchesArea(comp, distToComp, inOR, inWA, inPNW) {
+  function eventMatchesArea(comp, distToComp, inOR, inWA, inPNW, userCity = '') {
     if (comp.serviceArea === 'pnw')                 return inPNW;
     if (comp.serviceArea === 'oregon')              return inOR;
     if (comp.serviceArea === 'oregon-sw-washington') return inOR || (inWA && distToComp <= 150);
@@ -1691,16 +1696,21 @@
     if (comp.serviceArea === 'portland-metro')      return distToComp <= 50;
     if (comp.serviceArea === 'seattle-metro')       return distToComp <= 50;
     if (comp.serviceArea === 'gorge')               return distToComp <= 60;
+    if (comp.serviceArea === 'oregon-south-coast') {
+      const southCoastCities = ['florence','reedsport','north bend','coos bay','bandon','coquille','lakeside','myrtle point','powers','port orford','gold beach','brookings'];
+      const city = userCity.toLowerCase();
+      return inOR && southCoastCities.some(c => city.includes(c) || c.includes(city) && city.length > 3);
+    }
     return false;
   }
 
-  function showNearbyResults(userLat, userLng, locationName, userState, userCounty) {
+  function showNearbyResults(userLat, userLng, locationName, userState, userCounty, userCity = '') {
     const list = document.getElementById('nearby-list');
     const label = document.getElementById('nearby-label');
     const wrapper = document.getElementById('nearby-results');
 
     const matched = DATA.competitions
-      .filter(c => servesLocation(c, userLat, userLng, userState, userCounty))
+      .filter(c => servesLocation(c, userLat, userLng, userState, userCounty, userCity))
       .map(c => ({
         ...c,
         distance: c.location ? haversineDistance(userLat, userLng, c.location.lat, c.location.lng) : 9999
