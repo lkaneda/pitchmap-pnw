@@ -100,6 +100,7 @@ Everything in the directory lives in a single file: [`data.json`](data.json). Ea
 | `"gorge"` | Columbia River Gorge region (~60 mile radius from The Dalles) |
 | `"oregon"` | Oregon state |
 | `"oregon-sw-washington"` | Oregon and SW Washington (e.g. Vancouver, WA area) |
+| `"oregon-south-coast"` | Oregon Southern Coastal Cities - Florence, Reedsport, North Bend, Coos Bay, Bandon, Coquille, Lakeside, Myrtle Point, Powers, Port Orford, Gold Beach, and Brookings |
 | `"washington"` | Washington state |
 | `"pnw"` | Oregon + Washington |
 
