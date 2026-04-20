@@ -11,10 +11,8 @@ assignees: lkaneda
 ## Organization or Event Name
 <!-- e.g. Portland Pitch Night -->
 
-
 ## Website URL
 <!-- e.g. https://example.com -->
-
 
 ## Type
 <!-- Check one by putting an x in the brackets -->
@@ -36,6 +34,11 @@ assignees: lkaneda
 - [ ] In Kind
 - [ ] None
 - [ ] Other (please explain)
+
+## Is this part of an accelerator?
+<!-- Accelerator participants are the only ones who can participate in the pitch competition -->
+- [ ] Yes
+- [ ] No
 
 ## Notes
 <!-- Any helpful context — how often they hold events, what industry or stage they focus on, who it's for, current status, etc. -->
