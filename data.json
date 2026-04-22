@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-04-15",
+    "lastUpdated": "2026-04-22",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -29,8 +29,8 @@
           "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
-          "notes": "Actively accepting pitch applications for 2026. Sign up at their website.",
-          "prizeType": "cash",
+          "notes": "Actively accepting pitch applications for 2026. Upcoming events: May 14 (Portland Startup Week Edition) and June 11. Sign up at their website.",
+          "prizeType": "none",
           "internalTags": ["updated"]
         }
       ]
@@ -58,35 +58,43 @@
           "description": "Pitch competition for Washington County, OR entrepreneurs. Offers equity investment, cash prizes, and professional services to tech and traded-sector startups.",
           "url": "https://www.tieoregon.org/pitch-oregon/westside-pitch",
           "eventUrl": "https://events.tie.org/Oregon/WestsidePitch2026",
-          "notes": "April 23, 2026 in Hillsboro. Applications closed March 9 \u2014 monitor for next cycle.",
+          "notes": "April 23, 2026 in Hillsboro. Applications closed March 9 — monitor for next cycle.",
           "prizeType": "both",
           "counties": [
             "Washington County"
           ]
         },
         {
-          "name": "Columbia River Pitch",
-          "status": "monitor",
-          "description": "Pitch competition for entrepreneurs in the Columbia River region of Oregon and SW Washington.",
-          "url": "https://www.tieoregon.org/pitch-oregon/columbia-river-pitch",
-          "eventUrl": null,
-          "notes": "No 2026 date announced yet. Monitor TiE Oregon's events page.",
-          "prizeType": "both",
-          "counties": [
-            "Washington County",
-            "Clark County",
-            "Multnomah County"
-          ]
+          "name": "TiE Pitch Club",
+          "status": "accepting",
+          "description": "Monthly mock investor meeting where entrepreneurs present pitches and receive real-time feedback from TiE Oregon angel investors. Includes Q&A sessions with experienced investors, written peer and investor feedback, and a digital copy of your pitch. Focused on skill-building and refining pitches — no competition prize.",
+          "url": "https://www.tieoregon.org/pitch-club",
+          "eventUrl": "https://events.tie.org/Oregon/PitchClub_June2026",
+          "notes": "Ongoing monthly program. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
+          "prizeType": "none",
+          "internalTags": ["new"]
         },
         {
-          "name": "Collegiate Startup Challenge",
+          "name": "TiE Women Global Pitch Competition",
+          "status": "accepting",
+          "description": "Global pitch competition dedicated to empowering women entrepreneurs. The PNW regional winner advances to compete globally for equity-free prize money. Open to female-founded or co-founded businesses (minimum 33% female equity) established after January 1, 2018 and actively seeking funding.",
+          "url": "https://www.tieoregon.org/programs/tie-women",
+          "eventUrl": "https://tiewomen.org",
+          "notes": "2026 application deadline: June 15, 2026. Apply through TiEWomen.org.",
+          "prizeType": "cash",
+          "serves": "Pacific Northwest (with global competition)",
+          "internalTags": ["new"]
+        },
+        {
+          "name": "TiE U Regional Pitch Competition",
           "status": "monitor",
-          "description": "Statewide pitch competition for Oregon and SW Washington college and university entrepreneurs including students, faculty, and alumni.",
-          "url": "https://www.tieoregon.org/pitch-oregon/collegiate-startup-challenge",
+          "description": "Entrepreneurship program for Oregon-based university students with a regional pitch competition and global competition opportunity at the TiE Global Summit. Teams of 2–7 members with at least 2 current students or recent graduates (within 24 months). Includes mentorship from successful Oregon business leaders and access to TiE's global network.",
+          "url": "https://www.tieoregon.org/programs/tie-university",
           "eventUrl": null,
-          "notes": "No 2026 date announced yet. Monitor TiE Oregon's events page.",
-          "prizeType": "investment",
-          "serves": "Oregon & SW Washington"
+          "notes": "2025–2026 regional pitch completed April 4, 2026. Global competition December 2026 at TiE Global Summit in Silicon Valley. Monitor for 2026–2027 registration (typically opens November).",
+          "prizeType": "cash",
+          "accelerator": true,
+          "internalTags": ["new"]
         }
       ]
     },
@@ -264,7 +272,7 @@
           "description": "VertueLab's accelerator program supporting early-stage cleantech startups with mentorship, curriculum, connections, and pitch-based funding opportunities.",
           "url": "https://www.vertuelab.org/45-camp",
           "eventUrl": null,
-          "notes": "Applications for the 2026 cohort are now closed. Program runs May\u2013September.",
+          "notes": "Applications for the 2026 cohort are now closed. Program runs May–September.",
           "prizeType": "investment",
           "accelerator": true
         }
@@ -289,7 +297,7 @@
         {
           "name": "Cascadia CleanTech Accelerator",
           "status": "monitor",
-          "description": "18-week virtual accelerator for pre-seed cleantech startups in the Northwest. Includes mentorship, curriculum, and pitch-based funding competition. Program runs May\u2013September annually.",
+          "description": "18-week virtual accelerator for pre-seed cleantech startups in the Northwest. Includes mentorship, curriculum, and pitch-based funding competition. Program runs May–September annually.",
           "url": "https://cascadiacleantech.org/accelerate/",
           "eventUrl": "https://cascadiacleantech.org/accelerate/apply/",
           "notes": "Applications typically open in spring for May start. Monitor their site.",
@@ -320,7 +328,7 @@
           "description": "Week-long celebration of Portland's startup community including pitch events, workshops, and networking. Includes the annual Demolicious Startup Week edition.",
           "url": "https://www.portlandstartupweek.com/",
           "eventUrl": "https://eventship.com/event/demolicious-portland-startup-week-edition",
-          "notes": "May 11\u201316, 2026. Event submissions open \u2014 check their site.",
+          "notes": "May 11–16, 2026. Event submissions open — check their site.",
           "prizeType": "cash"
         }
       ]
@@ -342,12 +350,12 @@
       ],
       "events": [
         {
-          "name": "Founders Live Build \u2014 Portland",
+          "name": "Founders Live Build — Portland",
           "status": "monitor",
           "description": "New 2026 format: 5 founders build apps live from a prompt while attendees network, then demo and pitch. Audience votes for the winner.",
           "url": "https://www.founderslive.com/",
           "eventUrl": null,
-          "notes": "April 9, 2026 event completed. No next Portland date announced \u2014 monitor their events page.",
+          "notes": "April 9, 2026 event completed. No next Portland date announced — monitor their events page.",
           "prizeType": "in-kind"
         }
       ]
@@ -397,12 +405,13 @@
       "events": [
         {
           "name": "Gorge PitchFest 2026",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "Annual pitch competition hosted by the Mid-Columbia Innovation Hub serving entrepreneurs in the Columbia River Gorge region on both the Oregon and Washington sides.",
           "url": "https://midcolumbiainnovationhub.org/gorge-pitchfest-2026/",
           "eventUrl": "https://midcolumbiainnovationhub.org/gorgepitchfest26/",
-          "notes": "May 28, 2026 at The Granada Theatre, The Dalles. Applications open now.",
+          "notes": "May 28, 2026 at The Granada Theatre, The Dalles. Applications closed.",
           "prizeType": "cash",
+          "internalTags": ["updated"],
           "counties": [
             "Hood River County",
             "Wasco County",
@@ -434,7 +443,7 @@
           "description": "Annual funding competition operated by the Oregon Startup Center in partnership with the City of Beaverton and the Westside Startup Fund. Open to scalable startups across tech, consumer products, manufacturing, bio/life sciences, and cleantech. Winners receive a SAFE note investment (historically ~$20k), 6 months of mentorship, and a Demo Day showcase.",
           "url": "https://www.oregonstartupcenter.org/beaverton-startup-challenge",
           "eventUrl": null,
-          "notes": "Applications closed March 27, 2026. Event/Demo Day upcoming \u2014 check their site for date.",
+          "notes": "Applications closed March 27, 2026. Event/Demo Day upcoming — check their site for date.",
           "prizeType": "investment",
           "counties": [
             "Washington County"
@@ -465,7 +474,7 @@
           "description": "Annual multi-round pitch competition open to small businesses in Alaska, Idaho, Oregon, and Washington. Focuses on community impact alongside business viability. Three categories: Startup/Idea Stage, Early Stage, and Established. Note: tech companies and apps are not eligible.",
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
           "eventUrl": null,
-          "notes": "2025 competition concluded October 9. Watch for 2026 applications to open around May\u2013June 2026.",
+          "notes": "2025 competition concluded October 9. Watch for 2026 applications to open around May–June 2026.",
           "prizeType": "cash"
         }
       ]
@@ -488,7 +497,7 @@
         {
           "name": "Venture Community",
           "status": "inactive",
-          "description": "Oregon\u2019s original reverse road show event bringing together 12 leading PNW funds and 26 Oregon startups for 2 days.",
+          "description": "Oregon's original reverse road show event bringing together 12 leading PNW funds and 26 Oregon startups for 2 days.",
           "url": "https://www.starveups.com/events/venture-community/",
           "eventUrl": null,
           "notes": "Last event was in 2018.",
@@ -571,7 +580,7 @@
           "description": "Annual pitch competition for women entrepreneurs in Washington, Alaska, and Northern Idaho. Focused on helping women-led businesses secure loan financing. Finalists pitch directly to bank and financial institution loan officers.",
           "url": "https://www.score.org/seattle/2026-womens-pitch-contest",
           "eventUrl": null,
-          "notes": "2026 competition concluded. Winners announced April 2, 2026. Monitor for next cycle.",
+          "notes": "2026 competition concluded. Winners announced April 2, 2026. Recognition event May 6, 2026 at Washington Small Business Awards Gala. Monitor for next cycle.",
           "prizeType": "loan",
           "serves": "Washington, Alaska & Northern Idaho"
         },
@@ -581,9 +590,10 @@
           "description": "Annual pitch competition for Washington-based tech entrepreneurs at any stage. Participants work with SCORE mentors to develop pitch decks, then compete in front of judges for cash prizes and mentorship.",
           "url": "https://www.score.org/seattle/tech-entrepreneur-pitch-contest/whats-next",
           "eventUrl": "https://docs.google.com/forms/d/e/1FAIpQLSe3kRi8-dPu_irYBL7GmgNb2lsBaX-8q6ThLcs363NO6mootA/viewform",
-          "notes": "Pitch deck submissions due July 31, 2026. Free to enter. Work with a SCORE mentor to prepare.",
+          "notes": "Pitch deck submissions due July 31, 2026 by 5 PM Pacific. Contest event: September 16, 2026. Free to enter. Work with a SCORE mentor to prepare.",
           "prizeType": "cash",
-          "serves": "Washington (Statewide)"
+          "serves": "Washington (Statewide)",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -605,11 +615,11 @@
       "events": [
         {
           "name": "TAO AI Startup Innovation Sandbox",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Live pitch competition showcasing early-stage AI startups with Pacific Northwest roots. Features an investor reverse pitch panel, a live startup pitch competition with investor voting, and networking with founders, investors, and regional innovation leaders.",
           "url": "https://www.techoregon.org/",
-          "eventUrl": "https://web.cvent.com/event/df647f26-4b9b-45d9-ad8f-07b1126ee6b3/summary",
-          "notes": "April 22, 2026 in Portland. Open to pre-seed and seed-stage AI startups with PNW roots.",
+          "eventUrl": null,
+          "notes": "April 22, 2026 event completed. Monitor techoregon.org for next cycle.",
           "prizeType": "in-kind",
           "serves": "Oregon & Washington",
           "internalTags": ["updated"]
@@ -618,7 +628,7 @@
     },
     {
       "id": "startup-world-cup-portland",
-      "org": "Startup World Cup \u2014 Portland Regional",
+      "org": "Startup World Cup — Portland Regional",
       "url": "https://www.startupworldcup.io/portland-oregon",
       "serviceArea": "portland-metro",
       "location": {
@@ -638,7 +648,7 @@
           "description": "Inaugural Portland regional of the global Startup World Cup, organized in partnership with Oregon Entrepreneurs Network, Upstart Collective, and Business Oregon's Oregon Innovation Showcase. Ten finalist startups each give a 4-minute pitch and 2-minute Q&A before an investor panel. The regional winner advances to the global finale competing for $1,000,000.",
           "url": "https://www.startupworldcup.io/portland-oregon",
           "eventUrl": "https://form.123formbuilder.com/6925524/usa-portland-startup-world-cup-application",
-          "notes": "May 13\u201314, 2026 at Upstart Collective, 111 SW 5th Ave, Portland. Applications open through May 8. Co-hosted alongside Portland Startup Week.",
+          "notes": "May 13–14, 2026 at Upstart Collective, 111 SW 5th Ave, Portland. Applications open through May 8. Co-hosted alongside Portland Startup Week.",
           "prizeType": "investment"
         }
       ]
@@ -665,14 +675,13 @@
           "description": "Annual pitch competition hosted by the South Coast Development Council serving entrepreneurs in Coos, Curry, and Douglas Counties. Focuses on priority sectors including outdoor recreation, digital services, advanced manufacturing, value-added agriculture, clean energy, marine/coastal industries, and forestry innovation.",
           "url": "https://scdcinc.org/entrepreneurship/pitch-night/",
           "eventUrl": "https://scdcinc.org/contact/apply-to-pitch-at-pitch-night/",
-          "notes": "Applications due April 29, 2026 at 8:00 AM. Open to entrepreneurs and startups in the Innovation Hub's priority sectors.",
+          "notes": "Applications due April 29, 2026 at 8:00 AM. Event date: June 12, 2026, 5–8 PM at Mr. Ed's, Port Orford. Open to entrepreneurs and startups in the Innovation Hub's priority sectors.",
           "prizeType": "cash",
           "counties": [
             "Coos County",
             "Curry County",
             "Douglas County"
-          ],
-          "internalTags": ["new"]
+          ]
         }
       ]
     }
@@ -683,21 +692,21 @@
       "name": "Calagator",
       "url": "https://calagator.org/",
       "description": "Portland's community tech calendar. A great first stop for spotting new pitch and startup events.",
-      "icon": "\ud83d\udcc5"
+      "icon": "📅"
     },
     {
       "id": "silicon-forest",
       "name": "Silicon Forest",
       "url": "https://www.thesiliconforest.com/events",
-      "description": "Portland's best local startup news source \u2014 excellent coverage of pitch events, demo days, and ecosystem news.",
-      "icon": "\ud83c\udf32"
+      "description": "Portland's best local startup news source — excellent coverage of pitch events, demo days, and ecosystem news.",
+      "icon": "🌲"
     },
     {
       "id": "tao",
       "name": "Technology Association of Oregon (TAO)",
       "url": "https://www.techoregon.org/events",
       "description": "Oregon's leading tech industry association. Check their calendar for pitch and innovation events.",
-      "icon": "\ud83d\udd2c"
+      "icon": "🔬"
     }
   ],
   "community": [
