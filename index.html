@@ -832,6 +832,7 @@
       white-space: nowrap;
       text-align: right;
     }
+    .nearby-tags-col { display: contents; }
     .nearby-distance strong {
       display: block;
       font-size: 0.88rem;
@@ -1061,8 +1062,8 @@
       .hero, .search-section, main { padding-left: 1rem; padding-right: 1rem; }
       .hero { padding-top: 3rem; }
       .card-footer { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
-      .nearby-item { flex-wrap: wrap; }
-      .nearby-distance { flex-basis: 100%; text-align: left; }
+      .nearby-tags-col { display: flex; flex-direction: column; align-items: flex-end; gap: 0.3rem; flex-shrink: 0; }
+      .nearby-distance { text-align: right; }
     }
   </style>
 
@@ -1767,13 +1768,15 @@
       item.className = 'nearby-item';
       item.style.cursor = 'pointer';
       item.innerHTML = `
-        <div style="flex:1;">
+        <div style="flex:1;min-width:0;">
           <div class="nearby-name">${event.name}</div>
           <div class="nearby-org">${comp.org} · <em style="color:var(--text-muted);font-style:italic;">${comp.location ? comp.location.city : ''}</em></div>
         </div>
-        ${prizeTagHTML(event.prizeType)}
-        ${badgeHTML(event.status)}
-        <div class="nearby-distance"><strong>${dist} mi</strong> to org</div>
+        <div class="nearby-tags-col">
+          ${prizeTagHTML(event.prizeType)}
+          ${badgeHTML(event.status)}
+          <div class="nearby-distance"><strong>${dist} mi</strong> to org</div>
+        </div>
       `;
       item.addEventListener('click', () => openModal(comp, `${dist} mi`, event.name));
       list.appendChild(item);
