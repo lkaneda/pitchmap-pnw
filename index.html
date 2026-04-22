@@ -1209,7 +1209,10 @@
         <div class="modal-title" id="modal-title"></div>
         <div class="modal-org" id="modal-org"></div>
       </div>
-      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <button class="modal-close" id="modal-copy" onclick="copyModalLink()" title="Copy link">🔗</button>
+        <button class="modal-close" onclick="closeModalDirect()">✕</button>
+      </div>
     </div>
     <div class="modal-body">
       <div class="modal-meta" id="modal-meta"></div>
@@ -1844,6 +1847,7 @@
     document.getElementById('modal-overlay').classList.add('open');
     document.getElementById('modal').scrollTop = 0;
     document.body.style.overflow = 'hidden';
+    history.replaceState(null, '', '#' + comp.id);
 
     // Scroll highlighted event into view
     if (highlightEventName) {
@@ -1859,9 +1863,22 @@
     }
   }
 
+  function copyModalLink() {
+    navigator.clipboard.writeText(location.href).then(() => {
+      const btn = document.getElementById('modal-copy');
+      btn.textContent = 'Copied!';
+      btn.style.color = 'var(--accent)';
+      setTimeout(() => {
+        btn.textContent = '🔗';
+        btn.style.color = '';
+      }, 2000);
+    });
+  }
+
   function closeModalDirect() {
     document.getElementById('modal-overlay').classList.remove('open');
     document.body.style.overflow = '';
+    history.replaceState(null, '', location.pathname);
   }
 
   function closeModal(e) {
@@ -1933,6 +1950,11 @@
     renderAggregators();
     renderCommunity();
     initThemeIcon();
+    const hash = location.hash.slice(1);
+    if (hash) {
+      const comp = DATA.competitions.find(c => c.id === hash);
+      if (comp) openModal(comp);
+    }
   }
 
   // ── FALLBACK DATA (same as data.json, for file:// open) ──
