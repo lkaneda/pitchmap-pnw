@@ -1601,14 +1601,26 @@
 
   function locateMe() {
     if (!navigator.geolocation) { alert('Geolocation not supported by your browser.'); return; }
-    navigator.geolocation.getCurrentPosition(pos => {
+    navigator.geolocation.getCurrentPosition(async pos => {
       const { latitude: lat, longitude: lng } = pos.coords;
       if (userMarker) map.removeLayer(userMarker);
       userMarker = L.circleMarker([lat, lng], {
         radius: 8, fillColor: '#fff', color: '#f0a500', weight: 3, fillOpacity: 1
       }).addTo(map).bindPopup('📍 Your location').openPopup();
       map.setView([lat, lng], 10);
-      showNearbyResults(lat, lng, 'your location', null, null);
+      let stateCode = null, userCounty = null, userCity = '';
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&addressdetails=1`);
+        const data = await res.json();
+        if (data && data.address) {
+          const { address } = data;
+          const state = address.state || '';
+          stateCode = state.includes('Washington') ? 'WA' : state.includes('Oregon') ? 'OR' : null;
+          userCounty = address.county || '';
+          userCity = address.city || address.town || address.village || address.hamlet || '';
+        }
+      } catch(e) { console.warn('Reverse geocode failed', e); }
+      showNearbyResults(lat, lng, 'your location', stateCode, userCounty, userCity);
     }, () => alert('Could not get your location.'));
   }
 
