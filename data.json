@@ -439,9 +439,10 @@
           "status": "scheduled",
           "description": "Annual funding competition operated by the Oregon Startup Center in partnership with the City of Beaverton and the Westside Startup Fund. Open to scalable startups across tech, consumer products, manufacturing, bio/life sciences, and cleantech. Winners receive a SAFE note investment (historically ~$20k), 6 months of mentorship, and a Demo Day showcase.",
           "url": "https://www.oregonstartupcenter.org/beaverton-startup-challenge",
-          "eventUrl": null,
-          "notes": "Applications closed March 27, 2026. Event/Demo Day upcoming — check their site for date.",
+          "eventUrl": "https://eventship.com/event/beaverton-startup-challenge-demo-day",
+          "notes": "Applications closed March 27, 2026. Event/Demo Day on May 13 at the Patricia Reser Center for the Arts. Registration open.",
           "prizeType": "investment",
+          "internalTags": ["updated"],
           "counties": [
             "Washington County"
           ]
