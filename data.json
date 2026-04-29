@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-04-22",
+    "lastUpdated": "2026-04-28",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -30,8 +30,7 @@
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
           "notes": "Actively accepting pitch applications for 2026. Upcoming events: May 14 (Portland Startup Week Edition) and June 11. Sign up at their website.",
-          "prizeType": "none",
-          "internalTags": ["updated"]
+          "prizeType": "none"
         }
       ]
     },
@@ -54,12 +53,13 @@
       "events": [
         {
           "name": "Westside Pitch",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Pitch competition for Washington County, OR entrepreneurs. Offers equity investment, cash prizes, and professional services to tech and traded-sector startups.",
           "url": "https://www.tieoregon.org/pitch-oregon/westside-pitch",
-          "eventUrl": "https://events.tie.org/Oregon/WestsidePitch2026",
-          "notes": "April 23, 2026 in Hillsboro. Applications closed March 9 — monitor for next cycle.",
+          "eventUrl": null,
+          "notes": "2026 cycle completed April 23 in Hillsboro. Monitor for 2027 cycle — applications typically open early winter.",
           "prizeType": "both",
+          "internalTags": ["updated"],
           "counties": [
             "Washington County"
           ]
@@ -71,8 +71,7 @@
           "url": "https://www.tieoregon.org/pitch-club",
           "eventUrl": "https://events.tie.org/Oregon/PitchClub_June2026",
           "notes": "Ongoing monthly program. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
-          "prizeType": "none",
-          "internalTags": ["new"]
+          "prizeType": "none"
         },
         {
           "name": "TiE Women Global Pitch Competition",
@@ -82,8 +81,7 @@
           "eventUrl": "https://tiewomen.org",
           "notes": "2026 application deadline: June 15, 2026. Apply through TiEWomen.org.",
           "prizeType": "cash",
-          "serves": "Pacific Northwest (with global competition)",
-          "internalTags": ["new"]
+          "serves": "Pacific Northwest (with global competition)"
         },
         {
           "name": "TiE U Regional Pitch Competition",
@@ -93,8 +91,7 @@
           "eventUrl": null,
           "notes": "2025–2026 regional pitch completed April 4, 2026. Global competition December 2026 at TiE Global Summit in Silicon Valley. Monitor for 2026–2027 registration (typically opens November).",
           "prizeType": "cash",
-          "accelerator": true,
-          "internalTags": ["new"]
+          "accelerator": true
         }
       ]
     },
@@ -350,13 +347,14 @@
       ],
       "events": [
         {
-          "name": "Founders Live Build — Portland",
-          "status": "monitor",
-          "description": "New 2026 format: 5 founders build apps live from a prompt while attendees network, then demo and pitch. Audience votes for the winner.",
-          "url": "https://www.founderslive.com/",
-          "eventUrl": null,
-          "notes": "April 9, 2026 event completed. No next Portland date announced — monitor their events page.",
-          "prizeType": "in-kind"
+          "name": "Founders Live Portland",
+          "status": "accepting",
+          "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by 4 minutes of audience Q&A. Audience votes determine the winner.",
+          "url": "https://www.founderslive.com/events-list/portland-2026-06",
+          "eventUrl": "https://www.founderslive.com/pitch",
+          "notes": "Next event June 25, 2026 at White Owl Social Club, 1305 SE 8th Ave, Portland (6–7 PM). Apply to pitch at founderslive.com/pitch.",
+          "prizeType": "in-kind",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -411,7 +409,6 @@
           "eventUrl": "https://midcolumbiainnovationhub.org/gorgepitchfest26/",
           "notes": "May 28, 2026 at The Granada Theatre, The Dalles. Applications closed.",
           "prizeType": "cash",
-          "internalTags": ["updated"],
           "counties": [
             "Hood River County",
             "Wasco County",
@@ -470,12 +467,13 @@
       "events": [
         {
           "name": "Impact Pitch Competition",
-          "status": "monitor",
+          "status": "scheduled",
           "description": "Annual multi-round pitch competition open to small businesses in Alaska, Idaho, Oregon, and Washington. Focuses on community impact alongside business viability. Three categories: Startup/Idea Stage, Early Stage, and Established. Note: tech companies and apps are not eligible.",
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
-          "eventUrl": null,
-          "notes": "2025 competition concluded October 9. Watch for 2026 applications to open around May–June 2026.",
-          "prizeType": "cash"
+          "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
+          "notes": "2026 application information now available but submissions not yet open. Round 1 deadline: June 1, 2026 by 5 PM PST. Round 2 closes June 30. Round 3 submissions due August 10. Live pitch event October 1, 2026. $46,000 total in prizes.",
+          "prizeType": "cash",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -592,8 +590,7 @@
           "eventUrl": "https://docs.google.com/forms/d/e/1FAIpQLSe3kRi8-dPu_irYBL7GmgNb2lsBaX-8q6ThLcs363NO6mootA/viewform",
           "notes": "Pitch deck submissions due July 31, 2026 by 5 PM Pacific. Contest event: September 16, 2026. Free to enter. Work with a SCORE mentor to prepare.",
           "prizeType": "cash",
-          "serves": "Washington (Statewide)",
-          "internalTags": ["updated"]
+          "serves": "Washington (Statewide)"
         }
       ]
     },
@@ -621,8 +618,7 @@
           "eventUrl": null,
           "notes": "April 22, 2026 event completed. Monitor techoregon.org for next cycle.",
           "prizeType": "in-kind",
-          "serves": "Oregon & Washington",
-          "internalTags": ["updated"]
+          "serves": "Oregon & Washington"
         }
       ]
     },
