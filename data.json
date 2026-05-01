@@ -468,11 +468,11 @@
       "events": [
         {
           "name": "Impact Pitch Competition",
-          "status": "scheduled",
+          "status": "accepting",
           "description": "Annual multi-round pitch competition open to small businesses in Alaska, Idaho, Oregon, and Washington. Focuses on community impact alongside business viability. Three categories: Startup/Idea Stage, Early Stage, and Established. Note: tech companies and apps are not eligible.",
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
-          "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
-          "notes": "2026 application information now available but submissions not yet open. Round 1 deadline: June 1, 2026 by 5 PM PST. Round 2 closes June 30. Round 3 submissions due August 10. Live pitch event October 1, 2026. $46,000 total in prizes.",
+          "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/contest/#ipapplication",
+          "notes": "2026 application information now available. Round 1 deadline: June 1, 2026 by 5 PM PST. Round 2 closes June 30. Round 3 submissions due August 10. Live pitch event October 1, 2026. $46,000 total in prizes.",
           "prizeType": "cash",
           "internalTags": ["updated"]
         }
