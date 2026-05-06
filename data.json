@@ -374,7 +374,7 @@
       "events": [
         {
           "name": "Founders Live Seattle",
-          "status": "scheduled",
+          "status": "accepting",
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
           "url": "https://www.founderslive.com/events-list/seattle-2026-05",
           "eventUrl": "https://www.founderslive.com/pitch",
