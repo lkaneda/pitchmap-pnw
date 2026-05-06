@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-04-28",
+    "lastUpdated": "2026-05-06",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -59,7 +59,6 @@
           "eventUrl": null,
           "notes": "2026 cycle completed April 23 in Hillsboro. Monitor for 2027 cycle — applications typically open early winter.",
           "prizeType": "both",
-          "internalTags": ["updated"],
           "counties": [
             "Washington County"
           ]
@@ -353,8 +352,7 @@
           "url": "https://www.founderslive.com/events-list/portland-2026-06",
           "eventUrl": "https://www.founderslive.com/pitch",
           "notes": "Next event June 25, 2026 at White Owl Social Club, 1305 SE 8th Ave, Portland (6–7 PM). Apply to pitch at founderslive.com/pitch.",
-          "prizeType": "in-kind",
-          "internalTags": ["updated"]
+          "prizeType": "in-kind"
         }
       ]
     },
@@ -380,8 +378,9 @@
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
           "url": "https://www.founderslive.com/events-list/seattle-2026-05",
           "eventUrl": "https://www.founderslive.com/pitch",
-          "notes": "Next event May 28, 2026. Check their events page for registration.",
-          "prizeType": "in-kind"
+          "notes": "Next event May 28, 2026 at Seattle Climate Innovation Hub, 1215 4th Ave, Seattle.",
+          "prizeType": "in-kind",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -442,7 +441,6 @@
           "eventUrl": "https://eventship.com/event/beaverton-startup-challenge-demo-day",
           "notes": "Applications closed March 27, 2026. Event/Demo Day on May 13 at the Patricia Reser Center for the Arts. Registration open.",
           "prizeType": "investment",
-          "internalTags": ["updated"],
           "counties": [
             "Washington County"
           ]
@@ -473,8 +471,7 @@
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
           "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/contest/#ipapplication",
           "notes": "2026 application information now available. Round 1 deadline: June 1, 2026 by 5 PM PST. Round 2 closes June 30. Round 3 submissions due August 10. Live pitch event October 1, 2026. $46,000 total in prizes.",
-          "prizeType": "cash",
-          "internalTags": ["updated"]
+          "prizeType": "cash"
         }
       ]
     },
@@ -668,12 +665,13 @@
       "events": [
         {
           "name": "Pitch Night: Curry County",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "Annual pitch competition hosted by the South Coast Development Council serving entrepreneurs in Coos, Curry, and Douglas Counties. Focuses on priority sectors including outdoor recreation, digital services, advanced manufacturing, value-added agriculture, clean energy, marine/coastal industries, and forestry innovation.",
           "url": "https://scdcinc.org/entrepreneurship/pitch-night/",
-          "eventUrl": "https://scdcinc.org/contact/apply-to-pitch-at-pitch-night/",
-          "notes": "Applications due April 29, 2026 at 8:00 AM. Event date: June 12, 2026, 5–8 PM at Mr. Ed's, Port Orford. Open to entrepreneurs and startups in the Innovation Hub's priority sectors.",
+          "eventUrl": null,
+          "notes": "Applications closed April 29, 2026. Event date: June 12, 2026, 5–8 PM at Mr. Ed's, Port Orford.",
           "prizeType": "cash",
+          "internalTags": ["updated"],
           "counties": [
             "Coos County",
             "Curry County",
