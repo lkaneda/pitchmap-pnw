@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-05-13",
+    "lastUpdated": "2026-05-20",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -29,8 +29,9 @@
           "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
-          "notes": "Actively accepting pitch applications for 2026. Upcoming events: May 14 (Portland Startup Week Edition) and June 11. Sign up at their website.",
-          "prizeType": "none"
+          "notes": "Actively accepting pitch applications for 2026. Next event: June 11 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
+          "prizeType": "none",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -141,17 +142,17 @@
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=520&",
           "notes": "Cohort 1 Pitch Day completed April 8. Cohort 2 now accepting registrations: September 16 – October 21, 2026. Pitch Day is October 21. $150 OEN members / $200 non-members.",
           "prizeType": "investment",
-          "internalTags": ["updated"],
           "accelerator": true
         },
         {
           "name": "Angel Oregon BIO",
-          "status": "monitor",
+          "status": "accepting",
           "description": "5-week intensive program for early-stage life science and bioscience founders culminating in a live Pitch Day in front of active investors. Investment announced in December 2026.",
           "url": "https://www.oen.org/2026-angel-oregon-life-bioscience/",
-          "eventUrl": null,
-          "notes": "2026 Pitch Day completed April 9. Investment decision announced December 2026.",
+          "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=525&",
+          "notes": "Cohort 1 Pitch Day completed April 9. Cohort 2 now accepting registrations: September 17 – October 22, 2026. Pitch Day is October 22. $150 OEN members / $200 non-members. Investment decision announced December 2026.",
           "prizeType": "investment",
+          "internalTags": ["updated"],
           "accelerator": true
         },
         {
@@ -324,9 +325,10 @@
           "status": "scheduled",
           "description": "Week-long celebration of Portland's startup community including pitch events, workshops, and networking. Includes the annual Demolicious Startup Week edition.",
           "url": "https://www.portlandstartupweek.com/",
-          "eventUrl": "https://eventship.com/event/demolicious-portland-startup-week-edition",
-          "notes": "May 11–16, 2026. Event submissions open — check their site.",
-          "prizeType": "cash"
+          "eventUrl": null,
+          "notes": "May 11–16, 2026 event completed (4,000+ attendees). Next: Portland Startup Week 2027, May 10–15, 2027.",
+          "prizeType": "cash",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -441,7 +443,6 @@
           "eventUrl": null,
           "notes": "2026 Demo Day completed May 13 at the Patricia Reser Center for the Arts. Monitor for 2027 cycle — applications typically open Q1.",
           "prizeType": "investment",
-          "internalTags": ["updated"],
           "counties": [
             "Washington County"
           ]
@@ -639,7 +640,7 @@
       "events": [
         {
           "name": "Startup World Cup Portland Regional",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Inaugural Portland regional of the global Startup World Cup, organized in partnership with Oregon Entrepreneurs Network, Upstart Collective, and Business Oregon's Oregon Innovation Showcase. Ten finalist startups each give a 4-minute pitch and 2-minute Q&A before an investor panel. The regional winner advances to the global finale competing for $1,000,000.",
           "url": "https://www.startupworldcup.io/portland-oregon",
           "eventUrl": null,
