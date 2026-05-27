@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-05-20",
+    "lastUpdated": "2026-05-27",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -29,7 +29,7 @@
           "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
-          "notes": "Actively accepting pitch applications for 2026. Next event: June 11 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
+          "notes": "Actively accepting pitch applications for 2026. Upcoming events: June 11 and July 16 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
           "prizeType": "none",
           "internalTags": ["updated"]
         }
@@ -76,10 +76,11 @@
         {
           "name": "TiE Women Global Pitch Competition",
           "status": "accepting",
-          "description": "Global pitch competition dedicated to empowering women entrepreneurs. The PNW regional winner advances to compete globally for equity-free prize money. Open to female-founded or co-founded businesses (minimum 33% female equity) established after January 1, 2018 and actively seeking funding.",
-          "url": "https://www.tieoregon.org/programs/tie-women",
-          "eventUrl": "https://tiewomen.org",
-          "notes": "2026 application deadline: June 15, 2026. Apply through TiEWomen.org.",
+          "description": "Global pitch competition dedicated to empowering women entrepreneurs. The PNW regional winner advances to compete globally for equity-free prize money. Open to female-founded or co-founded businesses (minimum 33% female equity) registered after January 1, 2019 and actively seeking funding.",
+          "url": "https://www.tiewomen.org/",
+          "eventUrl": "https://tiewomen.pitchday.pro/events-portfolio/1710",
+          "notes": "2026 application deadline: June 25, 2026. Regional Finals June 16–Aug 15; Semi-finals Sept 24–Oct 7; Grand Finale December 2026. Apply through TiEWomen.org.",
+          "internalTags": ["updated"]
           "prizeType": "cash",
           "serves": "Pacific Northwest (with global competition)"
         },
@@ -152,7 +153,6 @@
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=525&",
           "notes": "Cohort 1 Pitch Day completed April 9. Cohort 2 now accepting registrations: September 17 – October 22, 2026. Pitch Day is October 22. $150 OEN members / $200 non-members. Investment decision announced December 2026.",
           "prizeType": "investment",
-          "internalTags": ["updated"],
           "accelerator": true
         },
         {
@@ -211,12 +211,13 @@
         {
           "name": "InventOR Collegiate Challenge",
           "status": "scheduled",
-          "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $30,000 in prizes at the annual June finals.",
+          "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $25,000 in prizes at the annual June finals.",
           "url": "https://www.inventoregon.org/",
-          "eventUrl": "https://www.inventoregon.org/apply",
-          "notes": "2026 finals scheduled for June. Bootcamp in May. Apply through your school.",
+          "eventUrl": "https://www.eventbrite.com/e/2026-invent-oregon-finals-tickets-1987564555088",
+          "notes": "2026 finals: June 26 at OSU-Cascades, Bend, OR. Bootcamp in May (completed). Apply through your school.",
           "prizeType": "cash",
-          "serves": "Oregon & SW Washington (collegiate)"
+          "serves": "Oregon & SW Washington (collegiate)",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -327,8 +328,7 @@
           "url": "https://www.portlandstartupweek.com/",
           "eventUrl": null,
           "notes": "May 11–16, 2026 event completed (4,000+ attendees). Next: Portland Startup Week 2027, May 10–15, 2027.",
-          "prizeType": "cash",
-          "internalTags": ["updated"]
+          "prizeType": "cash"
         }
       ]
     },
@@ -547,11 +547,12 @@
       "events": [
         {
           "name": "Dempsey Startup Competition",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "One of the Pacific Northwest's premier collegiate startup competitions, open to students at accredited colleges across the Cascadia Corridor (WA, OR, ID, BC, AK). Teams develop business plans and pitch to investors across multiple elimination rounds.",
           "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
-          "eventUrl": "https://apply.younoodle.com/showcase/competition/2026_dempsey_startup_competition",
-          "notes": "Applications closed April 6, 2026. Competition rounds ongoing through May 21, 2026. Open to Oregon students.",
+          "eventUrl": null,
+          "notes": "2026 competition rounds completed through May 21, 2026. Monitor for 2027 cycle.",
+          "internalTags": ["updated"]
           "prizeType": "cash"
         }
       ]
@@ -586,11 +587,12 @@
           "name": "SCORE Tech Entrepreneurs Pitch Contest",
           "status": "accepting",
           "description": "Annual pitch competition for Washington-based tech entrepreneurs at any stage. Participants work with SCORE mentors to develop pitch decks, then compete in front of judges for cash prizes and mentorship.",
-          "url": "https://www.score.org/seattle/tech-entrepreneur-pitch-contest/whats-next",
+          "url": "https://www.score.org/wa/greater-seattle/tech-entrepreneurs-pitch-contest/",
           "eventUrl": "https://docs.google.com/forms/d/e/1FAIpQLSe3kRi8-dPu_irYBL7GmgNb2lsBaX-8q6ThLcs363NO6mootA/viewform",
           "notes": "Pitch deck submissions due July 31, 2026 by 5 PM Pacific. Contest event: September 16, 2026. Free to enter. Work with a SCORE mentor to prepare.",
           "prizeType": "cash",
-          "serves": "Washington (Statewide)"
+          "serves": "Washington (Statewide)",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -645,8 +647,7 @@
           "url": "https://www.startupworldcup.io/portland-oregon",
           "eventUrl": null,
           "notes": "2026 event completed May 13–14 at Upstart Collective, 111 SW 5th Ave, Portland. Monitor for 2027 cycle.",
-          "prizeType": "investment",
-          "internalTags": ["updated"]
+          "prizeType": "investment"
         }
       ]
     },
