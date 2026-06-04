@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-05-27",
+    "lastUpdated": "2026-06-04",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -30,8 +30,7 @@
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
           "notes": "Actively accepting pitch applications for 2026. Upcoming events: June 11 and July 16 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
-          "prizeType": "none",
-          "internalTags": ["updated"]
+          "prizeType": "none"
         }
       ]
     },
@@ -80,7 +79,6 @@
           "url": "https://www.tiewomen.org/",
           "eventUrl": "https://tiewomen.pitchday.pro/events-portfolio/1710",
           "notes": "2026 application deadline: June 25, 2026. Regional Finals June 16–Aug 15; Semi-finals Sept 24–Oct 7; Grand Finale December 2026. Apply through TiEWomen.org.",
-          "internalTags": ["updated"],
           "prizeType": "cash",
           "serves": "Pacific Northwest (with global competition)"
         },
@@ -216,8 +214,7 @@
           "eventUrl": "https://www.eventbrite.com/e/2026-invent-oregon-finals-tickets-1987564555088",
           "notes": "2026 finals: June 26 at OSU-Cascades, Bend, OR. Bootcamp in May (completed). Apply through your school.",
           "prizeType": "cash",
-          "serves": "Oregon & SW Washington (collegiate)",
-          "internalTags": ["updated"]
+          "serves": "Oregon & SW Washington (collegiate)"
         }
       ]
     },
@@ -379,9 +376,10 @@
           "name": "Founders Live Seattle",
           "status": "accepting",
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
-          "url": "https://www.founderslive.com/events-list/seattle-2026-05",
+          "url": "https://www.founderslive.com/events-list/seattle-2026-07",
           "eventUrl": "https://www.founderslive.com/pitch",
-          "notes": "Next event May 28, 2026 at Seattle Climate Innovation Hub, 1215 4th Ave, Seattle.",
+          "notes": "Next event July 30, 2026 in Seattle (location TBD). Apply to pitch at founderslive.com/pitch.",
+          "internalTags": ["updated"],
           "prizeType": "in-kind"
         }
       ]
@@ -404,11 +402,12 @@
       "events": [
         {
           "name": "Gorge PitchFest 2026",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Annual pitch competition hosted by the Mid-Columbia Innovation Hub serving entrepreneurs in the Columbia River Gorge region on both the Oregon and Washington sides.",
           "url": "https://midcolumbiainnovationhub.org/gorge-pitchfest-2026/",
-          "eventUrl": "https://midcolumbiainnovationhub.org/gorgepitchfest26/",
-          "notes": "May 28, 2026 at The Granada Theatre, The Dalles. Applications closed.",
+          "eventUrl": null,
+          "notes": "2026 event completed May 28 at The Granada Theatre, The Dalles. Monitor for 2027 cycle.",
+          "internalTags": ["updated"],
           "prizeType": "cash",
           "counties": [
             "Hood River County",
@@ -472,7 +471,8 @@
           "description": "Annual multi-round pitch competition open to small businesses in Alaska, Idaho, Oregon, and Washington. Focuses on community impact alongside business viability. Three categories: Startup/Idea Stage, Early Stage, and Established. Note: tech companies and apps are not eligible.",
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
           "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/contest/#ipapplication",
-          "notes": "2026 application information now available. Round 1 deadline: June 1, 2026 by 5 PM PST. Round 2 closes June 30. Round 3 submissions due August 10. Live pitch event October 1, 2026. $46,000 total in prizes.",
+          "notes": "Round 1 closed June 1. Round 2 now open, closes June 30. Round 3 submissions due August 10. Live pitch event October 1, 2026. $46,000 total in prizes.",
+          "internalTags": ["updated"],
           "prizeType": "cash"
         }
       ]
@@ -552,7 +552,6 @@
           "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
           "eventUrl": null,
           "notes": "2026 competition rounds completed through May 21, 2026. Monitor for 2027 cycle.",
-          "internalTags": ["updated"],
           "prizeType": "cash"
         }
       ]
@@ -579,20 +578,20 @@
           "description": "Annual pitch competition for women entrepreneurs in Washington, Alaska, and Northern Idaho. Focused on helping women-led businesses secure loan financing. Finalists pitch directly to bank and financial institution loan officers.",
           "url": "https://www.score.org/seattle/2026-womens-pitch-contest",
           "eventUrl": null,
-          "notes": "2026 competition concluded. Winners announced April 2, 2026. Recognition event May 6, 2026 at Washington Small Business Awards Gala. Monitor for next cycle.",
+          "notes": "2026 competition concluded. Winners announced April 2, 2026. Recognition event May 6, 2026 at Washington Small Business Awards Gala. Check back October 2026 for next cycle.",
           "prizeType": "loan",
           "serves": "Washington, Alaska & Northern Idaho"
         },
         {
           "name": "SCORE Tech Entrepreneurs Pitch Contest",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "Annual pitch competition for Washington-based tech entrepreneurs at any stage. Participants work with SCORE mentors to develop pitch decks, then compete in front of judges for cash prizes and mentorship.",
           "url": "https://www.score.org/wa/greater-seattle/tech-entrepreneurs-pitch-contest/",
-          "eventUrl": "https://docs.google.com/forms/d/e/1FAIpQLSe3kRi8-dPu_irYBL7GmgNb2lsBaX-8q6ThLcs363NO6mootA/viewform",
-          "notes": "Pitch deck submissions due July 31, 2026 by 5 PM Pacific. Contest event: September 16, 2026. Free to enter. Work with a SCORE mentor to prepare.",
-          "prizeType": "cash",
-          "serves": "Washington (Statewide)",
-          "internalTags": ["updated"]
+          "eventUrl": "https://www.score.org/wa/greater-seattle/tech-entrepreneurs-pitch-contest/",
+          "notes": "Applications closed May 30, 2026. Contest event: September 16, 2026. Monitor for 2027 cycle.",
+          "internalTags": ["updated"],
+          "prizeType": "in-kind",
+          "serves": "Washington (Statewide)"
         }
       ]
     },
@@ -673,7 +672,8 @@
           "description": "Annual pitch competition hosted by the South Coast Development Council serving entrepreneurs in Coos, Curry, and Douglas Counties. Focuses on priority sectors including outdoor recreation, digital services, advanced manufacturing, value-added agriculture, clean energy, marine/coastal industries, and forestry innovation.",
           "url": "https://scdcinc.org/entrepreneurship/pitch-night/",
           "eventUrl": null,
-          "notes": "Applications closed April 29, 2026. Event date: June 12, 2026, 5–8 PM at Mr. Ed's, Port Orford.",
+          "notes": "Applications closed April 29, 2026. Event date: June 12, 2026, 5–8 PM at Mr. Ed's, Port Orford. Prizes: 1st $6,500 / 2nd $2,000 / 3rd $1,200 / 4th–5th $650 each + audience choice.",
+          "internalTags": ["updated"],
           "prizeType": "cash",
           "counties": [
             "Coos County",
