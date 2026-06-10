@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-06-04",
+    "lastUpdated": "2026-06-10",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -379,7 +379,6 @@
           "url": "https://www.founderslive.com/events-list/seattle-2026-07",
           "eventUrl": "https://www.founderslive.com/pitch",
           "notes": "Next event July 30, 2026 in Seattle (location TBD). Apply to pitch at founderslive.com/pitch.",
-          "internalTags": ["updated"],
           "prizeType": "in-kind"
         }
       ]
@@ -407,7 +406,6 @@
           "url": "https://midcolumbiainnovationhub.org/gorge-pitchfest-2026/",
           "eventUrl": null,
           "notes": "2026 event completed May 28 at The Granada Theatre, The Dalles. Monitor for 2027 cycle.",
-          "internalTags": ["updated"],
           "prizeType": "cash",
           "counties": [
             "Hood River County",
@@ -472,7 +470,6 @@
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
           "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/contest/#ipapplication",
           "notes": "Round 1 closed June 1. Round 2 now open, closes June 30. Round 3 submissions due August 10. Live pitch event October 1, 2026. $46,000 total in prizes.",
-          "internalTags": ["updated"],
           "prizeType": "cash"
         }
       ]
@@ -589,7 +586,6 @@
           "url": "https://www.score.org/wa/greater-seattle/tech-entrepreneurs-pitch-contest/",
           "eventUrl": "https://www.score.org/wa/greater-seattle/tech-entrepreneurs-pitch-contest/",
           "notes": "Applications closed May 30, 2026. Contest event: September 16, 2026. Monitor for 2027 cycle.",
-          "internalTags": ["updated"],
           "prizeType": "in-kind",
           "serves": "Washington (Statewide)"
         }
@@ -673,7 +669,6 @@
           "url": "https://scdcinc.org/entrepreneurship/pitch-night/",
           "eventUrl": null,
           "notes": "Applications closed April 29, 2026. Event date: June 12, 2026, 5–8 PM at Mr. Ed's, Port Orford. Prizes: 1st $6,500 / 2nd $2,000 / 3rd $1,200 / 4th–5th $650 each + audience choice.",
-          "internalTags": ["updated"],
           "prizeType": "cash",
           "counties": [
             "Coos County",
