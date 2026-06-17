@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-06-10",
+    "lastUpdated": "2026-06-17",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -29,7 +29,7 @@
           "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
-          "notes": "Actively accepting pitch applications for 2026. Upcoming events: June 11 and July 16 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
+          "notes": "Actively accepting pitch applications for 2026. Next upcoming event: July 16 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
           "prizeType": "none"
         }
       ]
@@ -118,20 +118,22 @@
           "name": "Pitch Please",
           "status": "accepting",
           "description": "Monthly pitch event where founders get 5 minutes to pitch virtually or in person. Regional thought leaders ask questions and give feedback.",
-          "url": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=400",
-          "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/eventRegistration.jsp?event=400",
+          "url": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=546",
+          "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=546",
           "notes": "Runs monthly. Check OEN calendar for next date.",
-          "prizeType": "none"
+          "prizeType": "none",
+          "internalTags": ["updated"]
         },
         {
           "name": "Angel Oregon Technology",
-          "status": "monitor",
-          "description": "5-week intensive program for early-stage technology founders culminating in a live Pitch Day in front of active investors. Investment announced in August 2026.",
+          "status": "accepting",
+          "description": "5-week intensive program for early-stage technology founders culminating in a live Pitch Day in front of active investors.",
           "url": "https://www.oen.org/2026-technology/",
-          "eventUrl": null,
-          "notes": "2026 Pitch Day completed April 7. Investment decision announced August 2026.",
+          "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=515&",
+          "notes": "Cohort 1 Pitch Day completed April 7. Cohort 2 now accepting registrations: September 15 – October 20, 2026. Pitch Day is October 20 (hybrid, in-person preferred). $150 OEN members / $200 non-members. Investment decisions for Cohort 2 announced August 2027.",
           "prizeType": "investment",
-          "accelerator": true
+          "accelerator": true,
+          "internalTags": ["updated"]
         },
         {
           "name": "Angel Oregon CPG",
@@ -209,12 +211,13 @@
         {
           "name": "InventOR Collegiate Challenge",
           "status": "scheduled",
-          "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $25,000 in prizes at the annual June finals.",
+          "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $30,000 in prizes at the annual June finals.",
           "url": "https://www.inventoregon.org/",
           "eventUrl": "https://www.eventbrite.com/e/2026-invent-oregon-finals-tickets-1987564555088",
           "notes": "2026 finals: June 26 at OSU-Cascades, Bend, OR. Bootcamp in May (completed). Apply through your school.",
           "prizeType": "cash",
-          "serves": "Oregon & SW Washington (collegiate)"
+          "serves": "Oregon & SW Washington (collegiate)",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -319,13 +322,14 @@
       ],
       "events": [
         {
-          "name": "Portland Startup Week 2026",
-          "status": "scheduled",
+          "name": "Portland Startup Week",
+          "status": "monitor",
           "description": "Week-long celebration of Portland's startup community including pitch events, workshops, and networking. Includes the annual Demolicious Startup Week edition.",
           "url": "https://www.portlandstartupweek.com/",
           "eventUrl": null,
           "notes": "May 11–16, 2026 event completed (4,000+ attendees). Next: Portland Startup Week 2027, May 10–15, 2027.",
-          "prizeType": "cash"
+          "prizeType": "cash",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -347,12 +351,13 @@
       "events": [
         {
           "name": "Founders Live Portland",
-          "status": "accepting",
+          "status": "monitor",
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by 4 minutes of audience Q&A. Audience votes determine the winner.",
-          "url": "https://www.founderslive.com/events-list/portland-2026-06",
-          "eventUrl": "https://www.founderslive.com/pitch",
+          "url": "https://www.founderslive.com/",
+          "eventUrl": "https://www.founderslive.com/events-list",
           "notes": "Next event June 25, 2026 at White Owl Social Club, 1305 SE 8th Ave, Portland (6–7 PM). Apply to pitch at founderslive.com/pitch.",
-          "prizeType": "in-kind"
+          "prizeType": "in-kind",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -664,17 +669,18 @@
       "events": [
         {
           "name": "Pitch Night: Curry County",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Annual pitch competition hosted by the South Coast Development Council serving entrepreneurs in Coos, Curry, and Douglas Counties. Focuses on priority sectors including outdoor recreation, digital services, advanced manufacturing, value-added agriculture, clean energy, marine/coastal industries, and forestry innovation.",
           "url": "https://scdcinc.org/entrepreneurship/pitch-night/",
           "eventUrl": null,
-          "notes": "Applications closed April 29, 2026. Event date: June 12, 2026, 5–8 PM at Mr. Ed's, Port Orford. Prizes: 1st $6,500 / 2nd $2,000 / 3rd $1,200 / 4th–5th $650 each + audience choice.",
+          "notes": "2026 event completed June 12 at Mr. Ed's, Port Orford. Prizes: 1st $6,500 / 2nd $2,000 / 3rd $1,200 / 4th–5th $650 each + audience choice. Monitor for 2027 cycle.",
           "prizeType": "cash",
           "counties": [
             "Coos County",
             "Curry County",
             "Douglas County"
-          ]
+          ],
+          "internalTags": ["updated"]
         }
       ]
     }
