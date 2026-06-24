@@ -1,4 +1,4 @@
-# PitchMap PNW
+# PitchMap PNW 
 
 **A community-maintained directory of startup pitch competitions across Oregon and Washington.**
 
