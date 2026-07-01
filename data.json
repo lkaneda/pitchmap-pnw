@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-06-24",
+    "lastUpdated": "2026-07-01",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -68,19 +68,21 @@
           "status": "accepting",
           "description": "Monthly mock investor meeting where entrepreneurs present pitches and receive real-time feedback from TiE Oregon angel investors. Includes Q&A sessions with experienced investors, written peer and investor feedback, and a digital copy of your pitch. Focused on skill-building and refining pitches — no competition prize.",
           "url": "https://www.tieoregon.org/pitch-club",
-          "eventUrl": "https://events.tie.org/Oregon/PitchClub_June2026",
+          "eventUrl": "https://events.tie.org/events?brandId=34204000007365481&isEmbed=true",
           "notes": "Ongoing monthly program. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
-          "prizeType": "none"
+          "prizeType": "none",
+          "internalTags": ["updated"]
         },
         {
           "name": "TiE Women Global Pitch Competition",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "Global pitch competition dedicated to empowering women entrepreneurs. The PNW regional winner advances to compete globally for equity-free prize money. Open to female-founded or co-founded businesses (minimum 33% female equity) registered after January 1, 2019 and actively seeking funding.",
           "url": "https://www.tiewomen.org/",
           "eventUrl": "https://tiewomen.pitchday.pro/events-portfolio/1710",
-          "notes": "2026 application deadline: June 25, 2026. Regional Finals June 16–Aug 15; Semi-finals Sept 24–Oct 7; Grand Finale December 2026. Apply through TiEWomen.org.",
+          "notes": "Application deadline was June 30, 2026 (now closed). Regional Finals June 16–Aug 15; Semi-finals Sept 24–Oct 7; Grand Finale December 2026. Over $100,000 in equity-free prizes; top winner receives $50,000.",
           "prizeType": "cash",
-          "serves": "Pacific Northwest (with global competition)"
+          "serves": "Pacific Northwest (with global competition)",
+          "internalTags": ["updated"]
         },
         {
           "name": "TiE U Regional Pitch Competition",
@@ -208,13 +210,14 @@
       "events": [
         {
           "name": "InventOR Collegiate Challenge",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $30,000 in prizes at the annual June finals.",
           "url": "https://www.inventoregon.org/",
-          "eventUrl": "https://www.eventbrite.com/e/2026-invent-oregon-finals-tickets-1987564555088",
-          "notes": "2026 finals: June 26 at OSU-Cascades, Bend, OR. Bootcamp in May (completed). Apply through your school.",
+          "eventUrl": null,
+          "notes": "2026 finals completed June 26 at OSU-Cascades, Bend, OR. Monitor for 2027 cycle.",
           "prizeType": "cash",
-          "serves": "Oregon & SW Washington (collegiate)"
+          "serves": "Oregon & SW Washington (collegiate)",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -236,12 +239,13 @@
       "events": [
         {
           "name": "OBI Pitch Events",
-          "status": "monitor",
+          "status": "scheduled",
           "description": "Oregon's life sciences incubator occasionally hosts pitch and demo events for biotech and health-focused startups. Also a past venue for Founders Live PDX.",
           "url": "https://www.otradi.org",
-          "eventUrl": null,
-          "notes": "",
-          "prizeType": "cash"
+          "eventUrl": "https://www.otradi.org/events/",
+          "notes": "OBI Annual Startup Spotlight Expo: September 17, 2026, 5:00–8:00 PM. Showcases biotech and life sciences startups. $75 admission. Register at otradi.org/events/.",
+          "prizeType": "cash",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -351,8 +355,9 @@
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by 4 minutes of audience Q&A. Audience votes determine the winner.",
           "url": "https://www.founderslive.com/",
           "eventUrl": "https://www.founderslive.com/events-list",
-          "notes": "Next event June 25, 2026 at White Owl Social Club, 1305 SE 8th Ave, Portland (6–7 PM). Apply to pitch at founderslive.com/pitch.",
-          "prizeType": "in-kind"
+          "notes": "Last event June 25, 2026 at White Owl Social Club, Portland. No upcoming Portland events currently listed. Monitor founderslive.com for next Portland date. Apply to pitch at founderslive.com/pitch.",
+          "prizeType": "in-kind",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -434,15 +439,16 @@
       "events": [
         {
           "name": "Beaverton Startup Challenge",
-          "status": "monitor",
+          "status": "accepting",
           "description": "Annual funding competition operated by the Oregon Startup Center in partnership with the City of Beaverton and the Westside Startup Fund. Open to scalable startups across tech, consumer products, manufacturing, bio/life sciences, and cleantech. Winners receive a SAFE note investment (historically ~$20k), 6 months of mentorship, and a Demo Day showcase.",
           "url": "https://www.oregonstartupcenter.org/beaverton-startup-challenge",
-          "eventUrl": null,
-          "notes": "2026 Demo Day completed May 13 at the Patricia Reser Center for the Arts. Monitor for 2027 cycle — applications typically open Q1.",
+          "eventUrl": "https://www.oregonstartupcenter.org/beaverton-startup-challenge",
+          "notes": "Applications now open for the 2026 Beaverton Startup Challenge. 2025 Demo Day completed May 13 at the Patricia Reser Center for the Arts. Applications typically open Q1 annually.",
           "prizeType": "investment",
           "counties": [
             "Washington County"
-          ]
+          ],
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -465,12 +471,13 @@
       "events": [
         {
           "name": "Impact Pitch Competition",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "Annual multi-round pitch competition open to small businesses in Alaska, Idaho, Oregon, and Washington. Focuses on community impact alongside business viability. Three categories: Startup/Idea Stage, Early Stage, and Established. Note: tech companies and apps are not eligible.",
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
           "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/contest/#ipapplication",
-          "notes": "Round 1 closed June 1. Round 2 now open, closes June 30. Round 3 submissions due August 10. Live pitch event October 1, 2026. $46,000 total in prizes.",
-          "prizeType": "cash"
+          "notes": "Round 1 closed June 1. Round 2 closed June 30 (results July 15). Round 3 submissions due August 10; coach meetings July 20–24. Live pitch event October 1, 2026. $46,000 total in prizes.",
+          "prizeType": "cash",
+          "internalTags": ["updated"]
         }
       ]
     },
