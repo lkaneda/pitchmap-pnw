@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-07-08",
+    "lastUpdated": "2026-07-15",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -80,8 +80,7 @@
           "eventUrl": "https://tiewomen.pitchday.pro/events-portfolio/1710",
           "notes": "Application deadline was June 30, 2026 (now closed). Chapter Mentoring & Finals: June 26–Aug 31; Semi-finals NA/Europe: September 17–18 (TiE Los Angeles); Semi-finals Asia: September 24–26 (TiE Hyderabad); Grand Finale: December 14–15, 2026 at TiE Global Summit in Indore, India. Over $100,000 in equity-free prizes; top winner receives $50,000.",
           "prizeType": "cash",
-          "serves": "Pacific Northwest (with global competition)",
-          "internalTags": ["updated"]
+          "serves": "Pacific Northwest (with global competition)"
         },
         {
           "name": "TiE U Regional Pitch Competition",
@@ -299,8 +298,7 @@
           "eventUrl": null,
           "notes": "No active cycle found; website shows 2024 content only. Monitor for future announcements.",
           "prizeType": "both",
-          "accelerator": true,
-          "internalTags": ["updated"]
+          "accelerator": true
         }
       ]
     },
@@ -381,8 +379,7 @@
           "url": "https://www.founderslive.com/events-list/seattle-2026-08",
           "eventUrl": "https://www.founderslive.com/pitch",
           "notes": "Next event August 6, 2026 at Seattle Climate Innovation Hub (6–9 PM). Apply to pitch at founderslive.com/pitch.",
-          "prizeType": "in-kind",
-          "internalTags": ["updated"]
+          "prizeType": "in-kind"
         }
       ]
     },
