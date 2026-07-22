@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-07-15",
+    "lastUpdated": "2026-07-22",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -29,7 +29,8 @@
           "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
-          "notes": "Actively accepting pitch applications for 2026. Next upcoming event: July 16 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
+          "notes": "Actively accepting pitch applications for 2026. Next upcoming event: August 13 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
+          "internalTags": ["updated"],
           "prizeType": "none"
         }
       ]
@@ -264,13 +265,14 @@
       "events": [
         {
           "name": "45Camp Accelerator",
-          "status": "monitor",
+          "status": "inactive",
           "description": "VertueLab's accelerator program supporting early-stage cleantech startups with mentorship, curriculum, connections, and pitch-based funding opportunities.",
-          "url": "https://www.vertuelab.org/45-camp",
+          "url": "https://www.vertuelab.org/",
           "eventUrl": null,
-          "notes": "Applications for the 2026 cohort are now closed. Program runs May–September.",
+          "notes": "Program page (vertuelab.org/45-camp) returns 404 as of July 2026; homepage no longer lists 45Camp. Possible discontinuation. May remove listing if status remains inactive.",
           "prizeType": "investment",
-          "accelerator": true
+          "accelerator": true,
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -378,7 +380,8 @@
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
           "url": "https://www.founderslive.com/events-list/seattle-2026-08",
           "eventUrl": "https://www.founderslive.com/pitch",
-          "notes": "Next event August 6, 2026 at Seattle Climate Innovation Hub (6–9 PM). Apply to pitch at founderslive.com/pitch.",
+          "notes": "Next event August 6, 2026 (venue TBA, 6–9 PM). Apply to pitch at founderslive.com/pitch.",
+          "internalTags": ["updated"],
           "prizeType": "in-kind"
         }
       ]
