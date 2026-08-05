@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-07-29",
+    "lastUpdated": "2026-08-05",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -30,7 +30,6 @@
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
           "notes": "Actively accepting pitch applications for 2026. Upcoming events: August 13 and September 17 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
-          "internalTags": ["updated"],
           "prizeType": "none"
         }
       ]
@@ -141,7 +140,6 @@
           "url": "https://www.oen.org/2026-angel-oregon-consumer-packaged-goods/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=520&",
           "notes": "Cohort 1 Pitch Day completed April 8. Cohort 2 now accepting registrations: September 16 – October 21, 2026. Pitch Day is October 21. $150 OEN members / $200 non-members. Investment eligibility finalized and announced in June 2027.",
-          "internalTags": ["updated"],
           "prizeType": "investment",
           "accelerator": true
         },
@@ -327,7 +325,6 @@
           "url": "https://oregonstartupweek.com/",
           "eventUrl": null,
           "notes": "Rebranded from Portland Startup Week to Oregon Startup Week; portlandstartupweek.com now redirects to oregonstartupweek.com. May 11–16, 2026 event completed (4,000+ attendees). Next: Oregon Startup Week 2027, May 10–15, 2027 at Big Pink, Portland. Submissions for events open the first week of November 2026.",
-          "internalTags": ["updated"],
           "prizeType": "cash"
         }
       ]
@@ -381,7 +378,8 @@
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
           "url": "https://www.founderslive.com/events-list/seattle-2026-08",
           "eventUrl": "https://www.founderslive.com/pitch",
-          "notes": "Next event August 6, 2026 (venue TBA, 6–9 PM). Apply to pitch at founderslive.com/pitch.",
+          "notes": "Next event September 24, 2026 (venue TBA, 6–9 PM). Apply to pitch at founderslive.com/pitch.",
+          "internalTags": ["updated"],
           "prizeType": "in-kind"
         }
       ]
