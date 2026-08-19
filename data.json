@@ -30,10 +30,10 @@
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
           "notes": "Actively accepting pitch applications for 2026. Upcoming events: September 17 and October 15 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater (date TBD). Sign up at their website.",
-          "prizeType": "none"
+          "prizeType": "none",
+          "internalTags": ["updated"]
         }
-      ],
-      "internalTags": ["updated"]
+      ]
     },
     {
       "id": "tie-oregon",
@@ -216,10 +216,10 @@
           "eventUrl": null,
           "notes": "2026 finals completed June 26 at OSU-Cascades, Bend, OR. 2027 event page is live with 'tickets coming soon' — specific date not yet announced. Monitor for details.",
           "prizeType": "cash",
-          "serves": "Oregon & SW Washington (collegiate)"
+          "serves": "Oregon & SW Washington (collegiate)",
+          "internalTags": ["updated"]
         }
-      ],
-      "internalTags": ["updated"]
+      ]
     },
     {
       "id": "obi",
@@ -382,10 +382,10 @@
           "url": "https://www.founderslive.com/events-list/seattle-2026-09",
           "eventUrl": "https://www.founderslive.com/pitch",
           "notes": "Next event September 24, 2026 (venue TBA, 6–9 PM). Apply to pitch at founderslive.com/pitch.",
-          "prizeType": "in-kind"
+          "prizeType": "in-kind",
+          "internalTags": ["updated"]
         }
-      ],
-      "internalTags": ["updated"]
+      ]
     },
     {
       "id": "mcih",
@@ -474,10 +474,10 @@
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
           "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/contest/#ipapplication",
           "notes": "Round 1 closed June 1. Round 2 closed June 30 (results July 15). Round 3 submissions due August 10; coach meetings July 20–24. Introduction video submissions due September 8. Live pitch event October 1, 2026. $46,000 total in prizes (five $1,000 Community Impact Awards, ten $1,000 Finalist Grants, one $1,000 Audience Voting Award, three $10,000 Grand Prizes).",
-          "prizeType": "cash"
+          "prizeType": "cash",
+          "internalTags": ["updated"]
         }
-      ],
-      "internalTags": ["updated"]
+      ]
     },
     {
       "id": "starve-ups",
@@ -554,10 +554,10 @@
           "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
           "eventUrl": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
           "notes": "2026 competition rounds completed through May 21, 2026. 2027 cycle announced: application site opens late February, due April 5 by 11:59pm. Screening Round April 8–13. Investment Round May 6. Sweet Sixteen & Final Round May 27, 2027.",
-          "prizeType": "cash"
+          "prizeType": "cash",
+          "internalTags": ["updated"]
         }
-      ],
-      "internalTags": ["updated"]
+      ]
     },
     {
       "id": "score-washington",
@@ -711,10 +711,10 @@
           "serves": "Central Oregon",
           "counties": [
             "Deschutes County"
-          ]
+          ],
+          "internalTags": ["new"]
         }
-      ],
-      "internalTags": ["new"]
+      ]
     }
   ],
   "aggregators": [

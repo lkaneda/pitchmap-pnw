@@ -30,7 +30,7 @@ Read `data.json` in full before making any changes.
 
 ### Step 1 — Clear all internal tags (always run this first)
 
-In `data.json`, find every competition object that has an `"internalTags"` field. Remove the entire `"internalTags"` field from each competition. This clears the "new" and "updated" badges set during previous weeks.
+In `data.json`, find every **event** object (inside a competition's `events[]` array) that has an `"internalTags"` field. Remove the entire `"internalTags"` field from each event. This clears the "new" and "updated" badges set during previous weeks. (`internalTags` belongs on event objects, not on the competition object — the site's badge/sort logic in `index.html` only reads `event.internalTags`, so a tag placed on the competition object is silently ignored.)
 
 ---
 
@@ -43,7 +43,7 @@ For each competition in `data.json`:
 3. If anything has materially changed (new application window opened, status changed, date announced, new event added, event cancelled, etc.):
    - Update the relevant fields in `data.json`.
    - If an event's `status` is being set to `monitor` or `inactive`, also set that event's `eventUrl` to `null`.
-   - Add `"internalTags": ["updated"]` to that competition object (at the same level as `"tags"`, not inside events).
+   - Add `"internalTags": ["updated"]` to the specific **event** object that changed (at the same level as `"prizeType"`), not to the competition object.
    - Record what changed for the summary.
 4. If nothing material has changed, leave the entry as-is. Do not add internalTags.
 
@@ -81,7 +81,7 @@ Parse the text/JSON directly and construct the entry from it.
 1. New entries must follow the existing schema: `id`, `org`, `url`, `serviceArea`, `location`, `tags`, `events[]`.
 2. Derive `id` from the org name (lowercase, hyphenated, no special characters).
 3. Use WebFetch on the competition URL to fill in description, status, and event details accurately.
-4. Add `"internalTags": ["new"]` to each new competition object (at the same level as `"tags"`).
+4. Add `"internalTags": ["new"]` to each event within the new competition object (at the same level as `"prizeType"`), not to the competition object.
 5. Place new competitions at a sensible position in the array (generally at the end, or grouped with similar orgs).
 6. Record the org name of each addition for the summary.
 
