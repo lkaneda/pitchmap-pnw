@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-08-12",
+    "lastUpdated": "2026-08-19",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -29,10 +29,11 @@
           "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
-          "notes": "Actively accepting pitch applications for 2026. Upcoming events: August 13 and September 17 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater. Sign up at their website.",
+          "notes": "Actively accepting pitch applications for 2026. Upcoming events: September 17 and October 15 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater (date TBD). Sign up at their website.",
           "prizeType": "none"
         }
-      ]
+      ],
+      "internalTags": ["updated"]
     },
     {
       "id": "tie-oregon",
@@ -80,8 +81,7 @@
           "eventUrl": "https://tiewomen.pitchday.pro/events-portfolio/1710",
           "notes": "Application deadline was June 30, 2026 (now closed). TiE Oregon Regional Pitch Competition: August 12, 2026 (preceded by workshops July 22, 29, and August 5). Chapter Mentoring & Finals: June 26–Aug 31; Semi-finals NA/Europe: September 17–18 (TiE Los Angeles); Semi-finals Asia: September 24–26 (TiE Hyderabad); Grand Finale: December 14–15, 2026 at TiE Global Summit in Indore, India. Over $100,000 in equity-free prizes; top winner receives $50,000.",
           "prizeType": "cash",
-          "serves": "Pacific Northwest (with global competition)",
-          "internalTags": ["updated"]
+          "serves": "Pacific Northwest (with global competition)"
         },
         {
           "name": "TiE U Regional Pitch Competition",
@@ -119,9 +119,9 @@
           "name": "Pitch Please",
           "status": "accepting",
           "description": "Monthly pitch event where founders get 5 minutes to pitch virtually or in person. Regional thought leaders ask questions and give feedback.",
-          "url": "https://oen.app.neoncrm.com/nx/portal/event-detail?event=551",
-          "eventUrl": "https://oen.app.neoncrm.com/nx/portal/event-detail?event=551",
-          "notes": "Runs monthly. Next event: August 18, 2026. Check OEN calendar for future dates.",
+          "url": "https://oen.app.neoncrm.com/nx/portal/event-detail?event=556",
+          "eventUrl": "https://oen.app.neoncrm.com/nx/portal/event-detail?event=556",
+          "notes": "Runs monthly. Next event: September 15, 2026, 11am–1pm on Zoom. Check OEN calendar for future dates.",
           "prizeType": "none",
           "internalTags": ["updated"]
         },
@@ -214,11 +214,12 @@
           "description": "Oregon's only statewide collegiate prototyping competition. Student teams receive $2,000 development grants and compete for $30,000 in prizes at the annual June finals.",
           "url": "https://www.inventoregon.org/",
           "eventUrl": null,
-          "notes": "2026 finals completed June 26 at OSU-Cascades, Bend, OR. Monitor for 2027 cycle.",
+          "notes": "2026 finals completed June 26 at OSU-Cascades, Bend, OR. 2027 event page is live with 'tickets coming soon' — specific date not yet announced. Monitor for details.",
           "prizeType": "cash",
           "serves": "Oregon & SW Washington (collegiate)"
         }
-      ]
+      ],
+      "internalTags": ["updated"]
     },
     {
       "id": "obi",
@@ -378,12 +379,13 @@
           "name": "Founders Live Seattle",
           "status": "accepting",
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
-          "url": "https://www.founderslive.com/events-list/seattle-2026-08",
+          "url": "https://www.founderslive.com/events-list/seattle-2026-09",
           "eventUrl": "https://www.founderslive.com/pitch",
           "notes": "Next event September 24, 2026 (venue TBA, 6–9 PM). Apply to pitch at founderslive.com/pitch.",
           "prizeType": "in-kind"
         }
-      ]
+      ],
+      "internalTags": ["updated"]
     },
     {
       "id": "mcih",
@@ -471,10 +473,11 @@
           "description": "Annual multi-round pitch competition open to small businesses in Alaska, Idaho, Oregon, and Washington. Focuses on community impact alongside business viability. Three categories: Startup/Idea Stage, Early Stage, and Established. Note: tech companies and apps are not eligible.",
           "url": "https://businessimpactnw.org/annual-events/impact-pitch/overview/",
           "eventUrl": "https://businessimpactnw.org/annual-events/impact-pitch/contest/#ipapplication",
-          "notes": "Round 1 closed June 1. Round 2 closed June 30 (results July 15). Round 3 submissions due August 10; coach meetings July 20–24. Live pitch event October 1, 2026. $46,000 total in prizes.",
+          "notes": "Round 1 closed June 1. Round 2 closed June 30 (results July 15). Round 3 submissions due August 10; coach meetings July 20–24. Introduction video submissions due September 8. Live pitch event October 1, 2026. $46,000 total in prizes (five $1,000 Community Impact Awards, ten $1,000 Finalist Grants, one $1,000 Audience Voting Award, three $10,000 Grand Prizes).",
           "prizeType": "cash"
         }
-      ]
+      ],
+      "internalTags": ["updated"]
     },
     {
       "id": "starve-ups",
@@ -546,14 +549,15 @@
       "events": [
         {
           "name": "Dempsey Startup Competition",
-          "status": "monitor",
+          "status": "scheduled",
           "description": "One of the Pacific Northwest's premier collegiate startup competitions, open to students at accredited colleges across the Cascadia Corridor (WA, OR, ID, BC, AK). Teams develop business plans and pitch to investors across multiple elimination rounds.",
           "url": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
-          "eventUrl": null,
-          "notes": "2026 competition rounds completed through May 21, 2026. Monitor for 2027 cycle.",
+          "eventUrl": "https://foster.uw.edu/centers/buerk-ctr-entrepreneurship/entrepreneurship-competitions/dempsey-startup-competition/",
+          "notes": "2026 competition rounds completed through May 21, 2026. 2027 cycle announced: application site opens late February, due April 5 by 11:59pm. Screening Round April 8–13. Investment Round May 6. Sweet Sixteen & Final Round May 27, 2027.",
           "prizeType": "cash"
         }
-      ]
+      ],
+      "internalTags": ["updated"]
     },
     {
       "id": "score-washington",
@@ -679,6 +683,38 @@
           ]
         }
       ]
+    },
+    {
+      "id": "bend-venture-conference",
+      "org": "Bend Venture Conference",
+      "url": "https://www.bendvc.com/",
+      "serviceArea": "oregon",
+      "location": {
+        "lat": 44.0582,
+        "lng": -121.3153,
+        "city": "Bend, OR"
+      },
+      "tags": [
+        "general",
+        "investor",
+        "annual"
+      ],
+      "events": [
+        {
+          "name": "BVC Pitch Contest",
+          "status": "scheduled",
+          "description": "Presented by Economic Development for Central Oregon (EDCO), billed as the largest angel conference in the Pacific Northwest. Startups pitch across three tracks — Growth Tech, Growth Industries, and Early Stage — to attendees including angel investors. Investment opportunities are not guaranteed by the contest itself; finalists pitch to attendees who may choose to invest independently.",
+          "url": "https://www.bendvc.com/",
+          "eventUrl": "https://www.bendvc.com/apply",
+          "notes": "2026 applications closed August 13. Due diligence meetings with investors in early September; finalists announced early October. Conference and competition: October 15–16, 2026 at the Tower Theatre, downtown Bend. Applicants must be U.S.-based C-corps with an open funding round Sept–Nov 2026 and commit to in-person participation. 2027 applications typically open early July.",
+          "prizeType": "investment",
+          "serves": "Central Oregon",
+          "counties": [
+            "Deschutes County"
+          ]
+        }
+      ],
+      "internalTags": ["new"]
     }
   ],
   "aggregators": [
