@@ -92,6 +92,19 @@
           "notes": "2025–2026 regional pitch completed April 4, 2026. Global competition December 2026 at TiE Global Summit in Silicon Valley. Monitor for 2026–2027 registration (typically opens November).",
           "prizeType": "cash",
           "accelerator": true
+        },
+        {
+          "name": "Pitch Polish Bootcamp Competition",
+          "status": "scheduled",
+          "description": "Four-day investment-readiness bootcamp hosted by the OSU Advantage Accelerator at Oregon State University in collaboration with TiE Oregon, culminating in a live Final Pitch Day. Top finalists pitch on stage to investors and local executives, competing for an investment check from TiE Oregon Angels plus in-kind service awards.",
+          "url": "https://events.tie.org/Oregon/PitchPolishBootcampCompetition2026",
+          "eventUrl": "https://events.tie.org/Oregon/PitchPolishBootcampCompetition2026#/buyTickets/selectTickets?lang=en",
+          "notes": "Final Pitch Day: November 20, 2026, 10:00 AM at Austin Hall, Oregon State University, Corvallis, OR. Registration open now. Additional bootcamp details to be announced.",
+          "prizeType": "both",
+          "counties": [
+            "Benton County"
+          ],
+          "internalTags": ["new"]
         }
       ]
     },
