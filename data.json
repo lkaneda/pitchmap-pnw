@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-08-27",
+    "lastUpdated": "2026-09-02",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -65,12 +65,13 @@
         },
         {
           "name": "TiE Pitch Club",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "Monthly mock investor meeting where entrepreneurs present pitches and receive real-time feedback from TiE Oregon angel investors. Includes Q&A sessions with experienced investors, written peer and investor feedback, and a digital copy of your pitch. Focused on skill-building and refining pitches — no competition prize.",
           "url": "https://www.tieoregon.org/pitch-club",
-          "eventUrl": "https://events.tie.org/events?brandId=34204000007365481&isEmbed=true",
-          "notes": "Ongoing monthly program. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
-          "prizeType": "none"
+          "eventUrl": "https://events.tie.org/Oregon/PitchClub_September2026",
+          "notes": "Ongoing monthly program. Next event held virtually on September 16, 2026 at 5:30pm. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
+          "prizeType": "none",
+          "internalTags": ["updated"]
         },
         {
           "name": "TiE Women Global Pitch Competition",
@@ -176,34 +177,8 @@
       },
       "tags": [
         "university",
-        "student-friendly"
-      ],
-      "events": [
-        {
-          "name": "PSU Pitch Events",
-          "status": "monitor",
-          "description": "Portland State University's Center for Entrepreneurship is a founding partner of Invent Oregon and hosts its own pitch and entrepreneurial programming throughout the academic year.",
-          "url": "https://www.pdx.edu/entrepreneurship/about-us",
-          "eventUrl": null,
-          "notes": "",
-          "prizeType": "cash"
-        }
-      ]
-    },
-    {
-      "id": "invent-oregon",
-      "org": "Invent Oregon",
-      "url": "https://www.inventoregon.org/",
-      "serviceArea": "oregon-sw-washington",
-      "location": {
-        "lat": 45.5231,
-        "lng": -122.6765,
-        "city": "Oregon (Statewide)"
-      },
-      "tags": [
-        "collegiate",
-        "invention",
-        "student-only"
+        "student-friendly",
+        "cleantech"
       ],
       "events": [
         {
@@ -215,6 +190,16 @@
           "notes": "2026 finals completed June 26 at OSU-Cascades, Bend, OR. 2027 event page is live with 'tickets coming soon' — specific date not yet announced. Monitor for details.",
           "prizeType": "cash",
           "serves": "Oregon & SW Washington (collegiate)"
+        },
+        {
+          "name": "PSU Cleantech Challenge",
+          "status": "monitor",
+          "description": "10-week program for PSU student teams focused on cleantech innovation, pairing mentorship and prototyping funds with design thinking, business modeling, and market research. Culminates in a live pitch competition and prototype exhibition at the Finals before six finalist teams. Top team advances to the statewide InventOR competition.",
+          "url": "https://www.pdx.edu/cleantech-challenge/",
+          "eventUrl": null,
+          "notes": "2026 Finals completed April 1, 2026 ($6,000 total awarded: 1st $1,500, 2nd $1,000, 3rd $500, plus PGE Foundation Impact Award grand prize $2,000). 2026–27 application cycle listed as 'coming soon' on pdx.edu — no dates announced yet. Monitor for details.",
+          "prizeType": "cash",
+          "internalTags": ["new"]
         }
       ]
     },
