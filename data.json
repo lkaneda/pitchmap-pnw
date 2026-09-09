@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-09-02",
+    "lastUpdated": "2026-09-09",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -70,8 +70,7 @@
           "url": "https://www.tieoregon.org/pitch-club",
           "eventUrl": "https://events.tie.org/Oregon/PitchClub_September2026",
           "notes": "Ongoing monthly program. Next event held virtually on September 16, 2026 at 5:30pm. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
-          "prizeType": "none",
-          "internalTags": ["updated"]
+          "prizeType": "none"
         },
         {
           "name": "TiE Women Global Pitch Competition",
@@ -103,8 +102,7 @@
           "prizeType": "investment",
           "counties": [
             "Benton County"
-          ],
-          "internalTags": ["new"]
+          ]
         }
       ]
     },
@@ -211,8 +209,7 @@
           "url": "https://www.pdx.edu/cleantech-challenge/",
           "eventUrl": null,
           "notes": "2026 Finals completed April 1, 2026 ($6,000 total awarded: 1st $1,500, 2nd $1,000, 3rd $500, plus PGE Foundation Impact Award grand prize $2,000). 2026–27 application cycle listed as 'coming soon' on pdx.edu — no dates announced yet. Monitor for details.",
-          "prizeType": "cash",
-          "internalTags": ["new"]
+          "prizeType": "cash"
         }
       ]
     },
