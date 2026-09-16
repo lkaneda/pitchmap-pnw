@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-09-09",
+    "lastUpdated": "2026-09-16",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -29,8 +29,9 @@
           "description": "Portland's monthly pitch event reintroduced in 2024 by UpStart Collective. Founders get 3 minutes to pitch, audience votes for the winner. Monthly champion advances to an annual Championship Showdown.",
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
-          "notes": "Actively accepting pitch applications for 2026. Upcoming events: September 17 and October 15 at UpStart Collective (Big Pink). Champion of Champions planned for December 2026 at Mission Theater (date TBD). Sign up at their website.",
-          "prizeType": "none"
+          "notes": "2026 is the final year of the monthly format. Remaining monthly events: September 17 and October 15 at UpStart Collective (Big Pink), plus a November date, then the 2026 Champion of Champions in December at Mission Theater, Portland (date TBD). Starting January 2027 Demolicious becomes an annual event rather than monthly. October 15 RSVP is open via Luma; sign up to pitch through their website.",
+          "prizeType": "none",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -130,10 +131,11 @@
           "name": "Pitch Please",
           "status": "accepting",
           "description": "Monthly pitch event where founders get 5 minutes to pitch virtually or in person. Regional thought leaders ask questions and give feedback.",
-          "url": "https://oen.app.neoncrm.com/nx/portal/event-detail?event=556",
-          "eventUrl": "https://oen.app.neoncrm.com/nx/portal/event-detail?event=556",
-          "notes": "Runs monthly. Next event: September 15, 2026, 11am–1pm on Zoom. Check OEN calendar for future dates.",
-          "prizeType": "none"
+          "url": "https://oen.app.neoncrm.com/nx/portal/event-detail?event=691",
+          "eventUrl": "https://oen.app.neoncrm.com/forms/pitch-please-septembercopied-registration?event=691",
+          "notes": "Runs monthly. September 15, 2026 session completed and its registration is now closed. Next session October 20th on Zoom — check the OEN events calendar for the confirmed date and registration link.",
+          "prizeType": "none",
+          "internalTags": ["updated"]
         },
         {
           "name": "Angel Oregon Technology",
@@ -373,8 +375,9 @@
           "description": "Monthly happy-hour pitch competition where 5 founders each give a 99-second pitch followed by audience Q&A. Audience votes determine the winner. Seattle is the birthplace of Founders Live.",
           "url": "https://www.founderslive.com/events-list/seattle-2026-09",
           "eventUrl": "https://www.founderslive.com/pitch",
-          "notes": "Next event September 24, 2026 (venue TBA, 6–9 PM). Apply to pitch at founderslive.com/pitch.",
-          "prizeType": "in-kind"
+          "notes": "Next event September 24, 2026, 6–9 PM at thinkspace, 1700 Westlake Avenue North, Seattle. Also scheduled: October 29, 2026, 6–9 PM (venue TBA). Apply to pitch at founderslive.com/pitch.",
+          "prizeType": "in-kind",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -695,12 +698,13 @@
           "description": "Presented by Economic Development for Central Oregon (EDCO), billed as the largest angel conference in the Pacific Northwest. Startups pitch across three tracks — Growth Tech, Growth Industries, and Early Stage — to attendees including angel investors. Investment opportunities are not guaranteed by the contest itself; finalists pitch to attendees who may choose to invest independently.",
           "url": "https://www.bendvc.com/",
           "eventUrl": "https://www.bendvc.com/apply",
-          "notes": "2026 applications closed August 13. Due diligence meetings with investors in early September; finalists announced early October. Conference and competition: October 15–16, 2026 at the Tower Theatre, downtown Bend. Applicants must be U.S.-based C-corps with an open funding round Sept–Nov 2026 and commit to in-person participation. 2027 applications typically open early July.",
+          "notes": "2026 applications closed August 13. Ten Early Stage semifinalists were announced September 15, 2026; they pitch September 24 at Central Oregon PubTalk: Road to BVC at Worthy Brewing's outdoor stage in Bend, where the audience also awards one Early Stage company $5,000 (courtesy of Washington Trust Bank) and votes on who advances. Growth Tech and Growth Industries finalists are announced in early October. Conference and finals: October 15–16, 2026 at the Tower Theatre, downtown Bend. At least $40,000 in cash goes to a Central Oregon–headquartered startup. Applicants must be U.S.-based C-corps with an open funding round Sept–Nov 2026.",
           "prizeType": "investment",
           "serves": "Central Oregon",
           "counties": [
             "Deschutes County"
-          ]
+          ],
+          "internalTags": ["updated"]
         }
       ]
     }
