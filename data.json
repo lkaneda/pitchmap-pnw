@@ -70,7 +70,8 @@
           "url": "https://www.tieoregon.org/pitch-club",
           "eventUrl": "https://events.tie.org/Oregon/PitchClub_November2026",
           "notes": "Ongoing monthly program. Next event held at CENTRL Office Pearl on November 18, 2026 at 5:30pm. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
-          "prizeType": "none"
+          "prizeType": "none",
+          "internalTags": ["updated"]
         },
         {
           "name": "TiE Women Global Pitch Competition",
