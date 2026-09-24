@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "PitchMap PNW",
     "tagline": "The PNW startup pitch competition directory",
-    "lastUpdated": "2026-09-16",
+    "lastUpdated": "2026-09-24",
     "maintainer": "Leila Kaneda",
     "githubHandle": "lkaneda"
   },
@@ -30,8 +30,7 @@
           "url": "https://www.pitchatdemolicious.com",
           "eventUrl": "https://forms.gle/TKvxFS2taT7NtRZb8",
           "notes": "2026 is the final year of the monthly format. Remaining monthly events: September 17 and October 15 at UpStart Collective (Big Pink), plus a November date, then the 2026 Champion of Champions in December at Mission Theater, Portland (date TBD). Starting January 2027 Demolicious becomes an annual event rather than monthly. October 15 RSVP is open via Luma; sign up to pitch through their website.",
-          "prizeType": "none",
-          "internalTags": ["updated"]
+          "prizeType": "none"
         }
       ]
     },
@@ -69,8 +68,8 @@
           "status": "scheduled",
           "description": "Monthly mock investor meeting where entrepreneurs present pitches and receive real-time feedback from TiE Oregon angel investors. Includes Q&A sessions with experienced investors, written peer and investor feedback, and a digital copy of your pitch. Focused on skill-building and refining pitches — no competition prize.",
           "url": "https://www.tieoregon.org/pitch-club",
-          "eventUrl": "https://events.tie.org/Oregon/PitchClub_September2026",
-          "notes": "Ongoing monthly program. Next event held virtually on September 16, 2026 at 5:30pm. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
+          "eventUrl": "https://events.tie.org/Oregon/PitchClub_November2026",
+          "notes": "Ongoing monthly program. Next event held at CENTRL Office Pearl on November 18, 2026 at 5:30pm. Requires TiE Oregon membership. Contact Kari.Naone@oregon.tie.org or register through the TiE Oregon events page.",
           "prizeType": "none"
         },
         {
@@ -134,38 +133,40 @@
           "url": "https://oen.app.neoncrm.com/nx/portal/event-detail?event=691",
           "eventUrl": "https://oen.app.neoncrm.com/forms/pitch-please-septembercopied-registration?event=691",
           "notes": "Runs monthly. September 15, 2026 session completed and its registration is now closed. Next session October 20th on Zoom — check the OEN events calendar for the confirmed date and registration link.",
-          "prizeType": "none",
-          "internalTags": ["updated"]
+          "prizeType": "none"
         },
         {
           "name": "Angel Oregon Technology",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "5-week intensive program for early-stage technology founders culminating in a live Pitch Day in front of active investors.",
           "url": "https://www.oen.org/2026-technology/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=515&",
-          "notes": "Cohort 1 Pitch Day completed April 7. Cohort 2 now accepting registrations: September 15 – October 20, 2026. Pitch Day is October 20 (hybrid, in-person preferred). $150 OEN members / $200 non-members. Investment decisions for Cohort 2 announced August 2027.",
+          "notes": "Cohort 1 Pitch Day completed April 7. Cohort 2 registration has closed ahead of the original October 20 deadline. Pitch Day is October 20, 2026 (hybrid, in-person preferred). Investment decisions for Cohort 2 announced August 2027.",
           "prizeType": "investment",
-          "accelerator": true
+          "accelerator": true,
+          "internalTags": ["updated"]
         },
         {
           "name": "Angel Oregon CPG",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "5-week capital and funding literacy program for early-stage consumer packaged goods founders (food, beverage, personal care, wellness, lifestyle, and pet products) in Oregon and SW Washington. Virtual curriculum covers funding strategies, valuations, cap tables, and due diligence, culminating in a live Pitch Day in front of investors and community partners.",
           "url": "https://www.oen.org/2026-angel-oregon-consumer-packaged-goods/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=520&",
-          "notes": "Cohort 1 Pitch Day completed April 8. Cohort 2 now accepting registrations: September 16 – October 21, 2026. Pitch Day is October 21. $150 OEN members / $200 non-members. Investment eligibility finalized and announced in June 2027.",
+          "notes": "Cohort 1 Pitch Day completed April 8. Cohort 2 registration has closed ahead of the original October 21 deadline. Pitch Day is October 21, 2026. Investment eligibility finalized and announced in June 2027.",
           "prizeType": "investment",
-          "accelerator": true
+          "accelerator": true,
+          "internalTags": ["updated"]
         },
         {
           "name": "Angel Oregon BIO",
-          "status": "accepting",
+          "status": "scheduled",
           "description": "5-week intensive program for early-stage life science and bioscience founders culminating in a live Pitch Day in front of active investors. Investment announced in December 2026.",
           "url": "https://www.oen.org/2026-angel-oregon-life-bioscience/",
           "eventUrl": "https://oen.app.neoncrm.com/np/clients/oen/event.jsp?event=525&",
-          "notes": "Cohort 1 Pitch Day completed April 9. Cohort 2 now accepting registrations: September 17 – October 22, 2026. Pitch Day is October 22. $150 OEN members / $200 non-members. Investment decision announced December 2026.",
+          "notes": "Cohort 1 Pitch Day completed April 9. Cohort 2 registration has closed ahead of the original October 22 deadline. Pitch Day is October 22, 2026. Investment decision announced December 2026.",
           "prizeType": "investment",
-          "accelerator": true
+          "accelerator": true,
+          "internalTags": ["updated"]
         },
         {
           "name": "Pop Up & Pitch",
@@ -233,12 +234,13 @@
       "events": [
         {
           "name": "OBI Pitch Events",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Oregon's life sciences incubator occasionally hosts pitch and demo events for biotech and health-focused startups. Also a past venue for Founders Live PDX.",
           "url": "https://www.otradi.org",
-          "eventUrl": "https://www.otradi.org/otradi-events/",
-          "notes": "OBI Annual Startup Spotlight Expo: September 17, 2026, 5:00–8:00 PM. Showcases biotech and life sciences startups. $75 admission. Register at otradi.org/events/.",
-          "prizeType": "cash"
+          "eventUrl": null,
+          "notes": "OBI Annual Startup Spotlight Expo (September 17, 2026) has concluded and is no longer listed on the homepage. No other pitch/demo event currently announced — upcoming items are non-pitch networking events (Accelerate Biotech Happy Hours Nov 5 & Dec 3). Monitor otradi.org/otradi-events/ for the next pitch or demo event.",
+          "prizeType": "cash",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -268,6 +270,17 @@
           "notes": "Program page (vertuelab.org/45-camp) returns 404 as of July 2026; homepage no longer lists 45Camp. Possible discontinuation. May remove listing if status remains inactive.",
           "prizeType": "investment",
           "accelerator": true
+        },
+        {
+          "name": "Opalene Climate Challenge",
+          "status": "scheduled",
+          "description": "Investment program pooling philanthropic capital (via donor-advised funds and impact-investing partner Realize Impact) to make direct investments in early-stage Washington clean technology companies, with a focus on climate resilience, climate mitigation, and historically underrepresented founders. Finalists present to a Selection Committee.",
+          "url": "https://www.vertuelab.org/opalene-climate-challenge",
+          "eventUrl": "https://www.vertuelab.org/opalene-climate-challenge",
+          "notes": "Applications closed August 24, 2026. Screening/due diligence Aug 4–Sept 2; finalists notified Sept 18. Celebration event with finalist presentations: October 1, 2026. Investment disbursement October 2026. Multiple investments of $100,000 or more (pre-seed to Series A, clean tech sectors: energy, mobility, built environment, agriculture, industrial). Monitor for next cycle after this round concludes.",
+          "prizeType": "investment",
+          "serves": "Washington State",
+          "internalTags": ["new"]
         }
       ]
     },
@@ -376,8 +389,7 @@
           "url": "https://www.founderslive.com/events-list/seattle-2026-09",
           "eventUrl": "https://www.founderslive.com/pitch",
           "notes": "Next event September 24, 2026, 6–9 PM at thinkspace, 1700 Westlake Avenue North, Seattle. Also scheduled: October 29, 2026, 6–9 PM (venue TBA). Apply to pitch at founderslive.com/pitch.",
-          "prizeType": "in-kind",
-          "internalTags": ["updated"]
+          "prizeType": "in-kind"
         }
       ]
     },
@@ -579,13 +591,14 @@
         },
         {
           "name": "SCORE Tech Entrepreneurs Pitch Contest",
-          "status": "scheduled",
+          "status": "monitor",
           "description": "Annual pitch competition for Washington-based tech entrepreneurs at any stage. Participants work with SCORE mentors to develop pitch decks, then compete in front of judges for cash prizes and mentorship.",
           "url": "https://www.score.org/wa/greater-seattle/tech-entrepreneurs-pitch-contest/",
-          "eventUrl": "https://www.score.org/wa/greater-seattle/tech-entrepreneurs-pitch-contest/",
+          "eventUrl": null,
           "notes": "Applications closed May 30, 2026. Contest event: September 16, 2026. Monitor for 2027 cycle.",
           "prizeType": "in-kind",
-          "serves": "Washington (Statewide)"
+          "serves": "Washington (Statewide)",
+          "internalTags": ["updated"]
         }
       ]
     },
@@ -703,8 +716,7 @@
           "serves": "Central Oregon",
           "counties": [
             "Deschutes County"
-          ],
-          "internalTags": ["updated"]
+          ]
         }
       ]
     }
